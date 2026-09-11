@@ -1,36 +1,36 @@
-# Basic PHP MVC Skeleton
+# Esqueleto Básico PHP MVC
 
-A basic, from-scratch MVC (Model-View-Controller) architecture built with plain PHP. This project demonstrates core architectural concepts such as the Front Controller pattern, routing, and PSR-4 autoloading without relying on external frameworks.
+Una arquitectura MVC (Modelo-Vista-Controlador) básica construida desde cero con PHP nativo. Este proyecto demuestra conceptos arquitectónicos básicos como el patrón Front Controller, enrutamiento y carga automática (autoloading) PSR-4 sin depender de frameworks externos.
 
-## Requirements
+## Requisitos
 
 - PHP >= 8.0
 - Composer
 
-## Installation
+## Instalación
 
-1. Navigate to the project root directory.
+1. Navega al directorio raíz del proyecto.
 
-2. Install dependencies and generate the PSR-4 autoloader:
+2. Instala las dependencias y genera el autoloader PSR-4:
    ```bash
    composer install
    composer dump-autoload
    ```
 
-## Starting the Application
+## Iniciar la Aplicación
 
-To start the built-in PHP development server, run the following command from the root of the project:
+Para iniciar el servidor de desarrollo interno de PHP, ejecuta el siguiente comando desde la raíz del proyecto:
 
 ```bash
 php -S localhost:8000 -t public
 ```
 
-The application will be available at `http://localhost:8000`.
+La aplicación estará disponible en `http://localhost:8000`.
 
-## Project Structure
+## Estructura del Proyecto
 
-- `public/`: Contains the entry point (`index.php`) and `.htaccess` for URL routing. This is the only directory exposed to the web server.
-- `src/Core/`: Core application files, including the main Router (`App.php`) and Base Controller.
-- `src/Controllers/`: Application controllers.
-- `src/Models/`: Application models.
-- `src/Views/`: Application views (HTML templates).
+- `public/`: Contiene el punto de entrada (`index.php`) y `.htaccess` para el enrutamiento de URLs. Este es el único directorio expuesto al servidor web.
+- `src/Core/`: Archivos principales de la aplicación, incluyendo el enrutador principal (`App.php`) y el Controlador Base.
+- `src/Controllers/`: Controladores de la aplicación.
+- `src/Models/`: Modelos de la aplicación.
+- `src/Views/`: Vistas de la aplicación (plantillas HTML).
