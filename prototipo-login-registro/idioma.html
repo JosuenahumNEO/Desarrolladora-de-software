@@ -12,34 +12,34 @@
 
 <body>
     <aside class="barra-lateral">
-        <div class="logo">Menú</div>
-<h1>Nooo la politzia</h1>
+        <div class="logo"> </div>
 
         <nav class="navegacion">
-            <a href="#" class="opcion">Menú</a>
-            <a href="#" class="opcion activa">Chat</a>
-            <a href="#" class="opcion">Configuración</a>
+            <a href="#" class="opcion" data-i18n= "menu">Menú</a>
+            <a href="#" class="opcion activa" data-i18n="chat">Chat</a>
+            <a href="#" class="opcion" data-i18n="configuración">Configuración</a>
         </nav>
 
         <div class="controles-laterales">
             <label class="modo-oscuro">
-                <span>modo oscuro</span>
+                <span>Modo oscuro</span>
                 <input type="checkbox" id="interruptor-modo">
                 <span class="interruptor"></span>
             </label>
 
-            <button type="button" class="boton-salir">
-                LOG OUT
+            <button type="button" class="boton-salir" data-i18n="cerrarSesion">
+                CERRAR SESIÓN
             </button>
         </div>
     </aside>
 
     <main class="contenido">
-        <h1>Idioma</h1>
+        <h1 data-i18n="tituloIdioma">Idioma</h1>
 
         <section class="panel-idioma">
             <div class="idioma-actual" id="idioma-actual" aria-live="polite">
-                Idioma actual: Español (México)
+                Idioma actual:
+                <span data-i18n="espanolMexico">Español (México)</span>
             </div>
 
             <div class="selector-contenedor">
@@ -59,31 +59,53 @@
             </div>
         </section>
 
-        <section class="lista-idiomas" aria-label="Idiomas disponibles">
-            <button class="tarjeta-idioma" type="button" data-idioma="zh-CN" aria-label="Chino simplificado">
-                <span class="bandera">🇨🇳</span>
-            </button>
 
-            <button class="tarjeta-idioma" type="button" data-idioma="es-MX" aria-label="Español de México">
-                <span class="bandera">🇲🇽</span>
-            </button>
+<section class="lista-idiomas" aria-label="Idiomas disponibles">
 
-            <button class="tarjeta-idioma" type="button" data-idioma="hi-IN" aria-label="Hindi">
-                <span class="bandera">🇮🇳</span>
-            </button>
+    <button class="tarjeta-idioma"
+            type="button"
+            data-idioma="zh-CN"
+            aria-label="Chino simplificado">
+        <img src="img/china.jpg" alt="Chino simplificado">
+    </button>
 
-            <button class="tarjeta-idioma" type="button" data-idioma="en-GB" aria-label="Inglés británico">
-                <span class="bandera">🇬🇧</span>
-            </button>
+    <button class="tarjeta-idioma"
+            type="button"
+            data-idioma="es-MX"
+            aria-label="Español de México">
+        <img src="img/mexico.jpg" alt="Español de México">
+    </button>
 
-            <button class="tarjeta-idioma" type="button" data-idioma="ru-RU" aria-label="Ruso">
-                <span class="bandera">🇷🇺</span>
-            </button>
+    <button class="tarjeta-idioma"
+            type="button"
+            data-idioma="hi-IN"
+            aria-label="Hindi">
+        <img src="img/india.png" alt="Hindi">
+    </button>
 
-            <button class="tarjeta-idioma" type="button" data-idioma="fr-FR" aria-label="Francés">
-                <span class="bandera">🇫🇷</span>
-            </button>
-        </section>
+    <button class="tarjeta-idioma"
+            type="button"
+            data-idioma="en-GB"
+            aria-label="Inglés británico">
+        <img src="img/reino-unido.png" alt="Inglés británico">
+    </button>
+
+    <button class="tarjeta-idioma"
+            type="button"
+            data-idioma="ru-RU"
+            aria-label="Ruso">
+        <img src="img/rusia.png" alt="Ruso">
+    </button>
+
+    <button class="tarjeta-idioma"
+            type="button"
+            data-idioma="fr-FR"
+            aria-label="Francés">
+        <img src="img/francia.png" alt="Francés">
+    </button>
+
+</section>
+
 
         <div class="ilustracion" aria-hidden="true">
             <span>文</span>
