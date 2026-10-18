@@ -1,0 +1,199 @@
+/* COLORIMETRÍA Y NORMAS BASE */
+:root {
+    /* Modo Claro */
+    --color-bg-body: #979ea8;
+    /* Modo Claro??? Titulos en Blanco para el Modo Claro? REvisar luego//igual creo que en mi caso no afecta*/
+    --color-h1: #ffffff;
+    --color-h2-p: #ffffff;
+    --color-button: #008a0e;
+    --color-interactive: #91a2d9;
+
+    /* Estilos propios del formulario / hay algunos estilos que me parecio mejor agregar manualmente luego los puedo cambiar/ alfinal solo agregue estos 3 */
+    --bg-card: #f3f0f0;
+    --bg-input: #e9ecef;
+    --color-texto-base: #030303;
+}
+
+/* Si activas clase 'modo-oscuro' en el body entonces:*/
+body.modo-oscuro {
+    --color-bg-body: #f8fafc;
+    --color-h1: #0f172a;
+    --color-h2-p: #64748b;
+    --color-button: #10b981;
+    --color-interactive: #2563eb;
+}  
+
+/* Campos del Formulario */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: var(--color-bg-body);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+
+/* No se si quedaria mejor haciendo mas grande este recuadro, quizas agregar el logo de la empresa*/
+.contenedor-formulario {
+    background-color: var(--bg-card);
+    width: 100%;
+    max-width: 650px;
+    padding: 30px 40px;
+    border-radius: 15px;
+    border: 1px solid #c2c2c2;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Ajuste para el centro exacto */
+
+}
+
+.title {
+    align-items: center;
+}
+
+.H1 {
+    
+    /* Bueno resulta que si me afecta lo del color blanco en H1 en el Puto formato de modo claro quien lo diria*/
+    /* actualizacion lo dejare asi por el momento pues la documentacion asi lo dice, luego lo ordeno como deberia de ser*/
+    /* color: var(--color-h1); */
+    /* actualizacion2 se ve feo mejor si lo modifico y paso el error*/
+
+    color: var(--color-texto-base);
+}
+
+.datos {
+    display: flex;
+    /* activa flexbox */
+    justify-content: space-between;
+    /* separa label e input a los extremos */
+    align-items: center;
+    /* los centra verticalmente */
+    gap: 15px;
+    /* espacio entre ellos */
+    padding: 8px;
+}
+
+.input-datos {
+    position: relative;
+    width: 60%;
+    display: flex;
+    align-items: end;
+}
+
+.contenedor-boton {
+    margin-top: 25px;
+}
+
+.btn-enviar {
+    background-color: var(--color-button);
+    color: white;
+    border: none;
+    padding: 10px 35px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Campos de Texto y Textarea */
+.input-datos input[type="text"],
+.input-datos input[type="date"],
+.input-datos textarea {
+    width: 100%;
+    background-color: var(--bg-input);
+    border: none;
+    border-radius: 15px;
+    padding: 10px 30px 10px 15px;
+    font-size: 14px;
+    outline: none;
+    color: #333;
+}
+
+.input-datos textarea {
+    resize: none;
+    border-radius: 12px;
+}
+
+.input-datos.input-fecha input {
+    width: 60%;
+    /* Ajuste mas corto para la fecha como en el mockup */
+}
+
+/* ESTILOS DE LA VENTANA MODAL (VENTANA EMERGENTE)*/
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(60, 64, 72, 0.65);
+    /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+/* Clase que activa la visibilidad con JavaScript checar luego detalles*/
+.modal-overlay.activo {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-tarjeta {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 420px;
+    padding: 30px 25px;
+    border-radius: 12px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.modal-cerrar-x {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+}
+
+.modal-mensaje {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.4;
+    margin: 25px 15px;
+}
+
+.btn-volver {
+    background-color: var(--color-button);
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+}
