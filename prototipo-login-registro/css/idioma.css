@@ -205,51 +205,70 @@ body {
 }
 
 /* Banderas */
+
+/* Banderas */
 .lista-idiomas {
     display: grid;
-    grid-template-columns: repeat(3, minmax(100px, 1fr));
-    gap: 26px 35px;
+    grid-template-columns: repeat(3, minmax(0, 215px));
+    gap: 28px 35px;
     align-items: center;
+    justify-content: center;
     justify-items: center;
-    max-width: 760px;
+    width: 100%;
+    max-width: 850px;
     margin: 60px auto 0;
 }
 
 .tarjeta-idioma {
+    display: block;
     width: 100%;
-    max-width: 215px;
     aspect-ratio: 1.7 / 1;
     padding: 0;
     border: 3px solid transparent;
-    border-radius: 45px;
+    border-radius: 38px;
     background: transparent;
+    overflow: hidden;
     cursor: pointer;
-    transition: transform 0.2s, border-color 0.2s;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
+/* La imagen ocupa el botón completo */
+.tarjeta-idioma img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+/* Efecto al pasar el cursor */
 .tarjeta-idioma:hover {
-    transform: scale(1.04);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.12);
 }
 
+/* Contorno de accesibilidad */
 .tarjeta-idioma:focus-visible {
     outline: 3px solid #2563EB;
     outline-offset: 3px;
 }
 
+/* Idioma seleccionado */
 .tarjeta-idioma.seleccionado {
     border-color: var(--color-turquesa);
+    box-shadow: 0 0 0 3px rgba(0, 191, 165, 0.15);
 }
 
-.bandera {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    font-family: "Apple Color Emoji", "Segoe UI Emoji",
-                 "Noto Color Emoji", sans-serif;
-    font-size: clamp(70px, 9vw, 130px);
-    line-height: 1;
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 760px) {
+    .lista-idiomas {
+        grid-template-columns: repeat(2, minmax(0, 160px));
+        gap: 22px 16px;
+        margin-top: 35px;
+    }
 }
 
 /* Ilustración decorativa */

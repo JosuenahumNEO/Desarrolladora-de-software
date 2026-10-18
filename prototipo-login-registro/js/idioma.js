@@ -70,3 +70,22 @@ interruptorModo.addEventListener("change", function () {
 
 // Establece el idioma inicial
 cambiarIdioma(idiomaSeleccionado);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Conectar con el Google Translate //
+
