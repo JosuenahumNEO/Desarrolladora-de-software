@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/solicitud.css">
+    <Script src="js/solicitud.js" defer></Script>
+    <title>Document</title>
+</head>
+<body>
+    <main class="principal">
+        <H1>SOLICITUD DE INTERÉS DEL SISTEMA : (NOMBRE DEL SISTEMA)</H1>
+
+        <form class="formulario" onsubmit="event.preventDefault();">
+            <div class="fila">
+                <label for="nombre">Nombre:</label>
+                <input id="nombre" name="nombre" type="text"> 
+            </div>
+            
+            <div class="fila">
+                <label for="descripcion">Descripción:</label>
+                <textarea name="descripcion" id="descripcion" rows="5"></textarea>
+            </div>
+
+            <button type="submit" id="enviar">Enviar</button>
+        </form>
+    </main>
+
+    <div id="ventana" class="ventana">
+        <div class="contenido">
+            <p>
+                Gracias por su interés, un miembro de soporte se pondrá en contacto con usted en menos de 24 horas
+            </p>
+
+            <button type="button" id="volver">Volver</button>
+        </div>
+    </div>
+</body>
+</html>
