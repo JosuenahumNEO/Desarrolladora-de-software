@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuracion</title>
+    <link rel="stylesheet" href="../css/configuracion.css">
+</head>
+
+<body>
+
+    <!--header-->
+    <header>
+        <div class="left">
+            <div class="menu-container">
+                <div class="menu" id="menu">
+                    <img src="../ico/keyframes.svg" alt="" id="keyframes2">
+                </div>
+            </div>
+            <div class="brand">
+                <img src="../ico/cube-hole.svg" alt="" class="logo">
+                <span class="name"> PortDevs Solutions</span>
+            </div>
+        </div>
+
+        <div class="right">
+            <!--AQUI IRA FOTO DEL USUARIO NO ICO, luego cambiar-->
+            <img src="../img/usuario.jpeg" alt="" class="user">
+        </div>
+
+    </header>
+
+    <!--Sidebar-->
+    <div class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="../ico/border-all-solid-full.svg" alt="">
+                        <span>Menu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../ico/comment-dots-regular-full.svg" alt="">
+                        <span>Chat</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="selected">
+                        <img src="../ico/gear-solid-full.svg" alt="">
+                        <span>Configuracion</span>
+                    </a>
+                </li>
+                <li>
+                    <div class="modo-item" id="item-modo">
+                        <img id="icono-modo" src="../ico/moon-sat.svg" alt="">
+                        <span class="texto">Modo oscuro</span>
+                        <label class="switch">
+                            <input type="checkbox" id="switch-modo">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </li>
+
+                <!--Logout-->
+                <li class="down">
+                    <a href="#" class="red-jhon">
+                        <img src="../ico/right-from-bracket-solid-full.svg" alt="">
+                        <span>LogOut</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+
+    <main id="main">
+        <p class="titulo">Configuración</p>
+
+        <div class="cuadricula-flex">
+
+            <!-- Columna izquierda -->
+            <div class="columna">
+                <div class="card2 cuenta">
+                    <h3>Cuenta</h3>
+                    <img class="icono" src="../ico/user-solid-full.svg" alt="">
+                </div>
+
+                <div class="card1 apariencia">
+                    <h3>Apariencia</h3>
+                    <img class="icono icono-grande" src="../ico/palette-solid-full.svg" alt="">
+                </div>
+
+                <div class="card2 privacidad">
+                    <h3>Privacidad</h3>
+                    <img class="icono" src="../ico/eye-slash-solid-full.svg" alt="">
+                </div>
+
+                <div class="card2 soporte">
+                    <h3>Soporte</h3>
+                    <img class="icono" src="../ico/headset-help.svg" alt="">
+                </div>
+            </div>
+
+            <!-- Columna derecha -->
+            <div class="columna">
+                <div class="card1 idioma">
+                    <h3>Idioma</h3>
+                    <img class="icono icono-grande" src="../ico/language-solid-full.svg" alt="">
+                </div>
+
+                <div class="card2 accesibilidad">
+                    <h3>Accesibilidad</h3>
+                    <img class="icono" src="../ico/accessibility.svg" alt="">
+                </div>
+
+                <div class="card2 notificaciones">
+                    <h3>Notificaciones</h3>
+                    <img class="icono" src="../ico/bell-solid-full.svg" alt="">
+                </div>
+
+                <div class="card1 seguridad">
+                    <h3>Seguridad</h3>
+                    <img class="icono icono-grande" src="../ico/user-shield-solid-full.svg" alt="">
+                </div>
+            </div>
+
+            <!-- Barra completa de abajo -->
+            <div class="card3 datos">
+                <h3>Datos</h3>
+                <img class="icono" src="../ico/database-solid-full.svg" alt="">
+            </div>
+
+
+        </div>
+        <a href="">
+            <p class="logout">CERRAR SESION</p>
+        </a>
+
+    </main>
+
+    <script src="/js/configuracion.js"></script>
+</body>
+
+</html>
