@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración de apariencia</title>
+
+    <link rel="stylesheet" href="../../public/css/apariencia.css">
+    <script src="../../public/js/apariencia.js" defer></script>
+</head>
+
+<body>
+    <!-- BARRA LATERAL -->
+    <aside class="barra-lateral">
+        <div class="logo"> </div>
+
+        <nav class="navegacion">
+            <a href="#" class="opcion" data-i18n="menu">Menú</a>
+            <a href="#" class="opcion activa" data-i18n="chat">Chat</a>
+            <a href="#" class="opcion" data-i18n="configuración">Configuración</a>
+        </nav>
+
+        <div class="controles-laterales">
+            <label class="modo-oscuro">
+                <span>Modo oscuro</span>
+                <input type="checkbox" id="interruptor-modo">
+                <span class="interruptor"></span>
+            </label>
+
+            <button type="button" class="boton-salir" data-i18n="cerrarSesion">
+                CERRAR SESIÓN
+            </button>
+        </div>
+    </aside>
+
+    <main class="contenido">
+
+        <header class="encabezado">
+            <h1>Apariencia</h1>
+            <p>Elige el estilo visual de tu sistema.</p>
+        </header>
+
+        <!-- MODOS DISPONIBLES -->
+        <section class="opciones">
+
+            <!-- MODO CLARO -->
+            <article class="tarjeta seleccionada" data-modo="claro">
+
+                <h2>Modo claro</h2>
+
+                <button type="button" class="boton-modo" aria-pressed="true">
+
+                    <span class="vista-previa tema-claro">
+
+                        <span class="barra-superior">
+                            <span class="circulo"></span>
+                            <span class="linea logo-linea"></span>
+                        </span>
+
+                        <span class="panel-previo">
+
+                            <span class="menu-previo">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+
+                            <span class="contenido-previo">
+                                <span class="linea larga"></span>
+                                <span class="linea larga"></span>
+
+                                <span class="fila">
+                                    <span class="bloque"></span>
+                                    <span class="bloque amarillo"></span>
+                                </span>
+                            </span>
+
+                        </span>
+
+                    </span>
+
+                    <span class="texto-seleccion">
+                        ✓ Modo claro seleccionado
+                    </span>
+
+                </button>
+
+            </article>
+
+            <!-- MODO OSCURO -->
+            <article class="tarjeta" data-modo="oscuro">
+
+                <h2>Modo oscuro</h2>
+
+                <button type="button" class="boton-modo" aria-pressed="false">
+
+                    <span class="vista-previa tema-oscuro">
+
+                        <span class="barra-superior">
+                            <span class="circulo"></span>
+                            <span class="linea logo-linea"></span>
+                        </span>
+
+                        <span class="panel-previo">
+
+                            <span class="menu-previo">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+
+                            <span class="contenido-previo">
+                                <span class="linea larga"></span>
+                                <span class="linea larga"></span>
+
+                                <span class="fila">
+                                    <span class="bloque"></span>
+                                    <span class="bloque amarillo"></span>
+                                </span>
+                            </span>
+
+                        </span>
+
+                    </span>
+
+                    <span class="texto-seleccion">
+                        Seleccionar modo oscuro
+                    </span>
+
+                </button>
+
+            </article>
+
+        </section>
+
+        <!-- OTROS TEMAS -->
+        <section class="seccion-otros">
+
+            <h2>Otros temas</h2>
+
+            <div class="muestra-temas">
+
+                <div class="colores">
+                    <span class="color rosa"></span>
+                    <span class="color rojo"></span>
+                    <span class="color amarillo"></span>
+                </div>
+
+                <div class="colores-secundarios">
+                    <span class="color azul"></span>
+                    <span class="color azul"></span>
+                </div>
+
+                <span class="color verde"></span>
+
+            </div>
+
+            <p>Más opciones visuales próximamente.</p>
+
+        </section>
+
+    </main>
+
+
+</body>
+
+</html>
