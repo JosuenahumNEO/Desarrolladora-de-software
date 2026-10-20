@@ -1,4 +1,3 @@
-
 :root {
     --fondo: #FFFFFF;
     --texto-principal: #0F172A;
@@ -76,6 +75,7 @@ body {
     background: var(--color-turquesa);
 }
 
+/* INTERRUPTOR DE MODO OSCURO */
 .controles-laterales {
     margin-top: auto;
 }
@@ -120,11 +120,11 @@ body {
     transition: transform 0.2s;
 }
 
-.modo-oscuro input:checked + .interruptor::after {
+.modo-oscuro input:checked+.interruptor::after {
     transform: translateX(15px);
 }
 
-.modo-oscuro input:focus-visible + .interruptor {
+.modo-oscuro input:focus-visible+.interruptor {
     outline: 2px solid #2563EB;
 }
 
@@ -203,8 +203,6 @@ body {
     overflow: hidden;
     clip-path: inset(50%);
 }
-
-/* Banderas */
 
 /* Banderas */
 .lista-idiomas {
@@ -296,7 +294,7 @@ body {
     font-weight: bold;
 }
 
-.ilustracion span + span {
+.ilustracion span+span {
     margin-top: 75px;
     margin-left: -35px;
 }
