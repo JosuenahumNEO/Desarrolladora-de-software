@@ -130,10 +130,11 @@ header{
 
 /*seccion del side bar*/
 
+/*side bar*/
 .sidebar{
     margin-top: 4rem;
     width: 4rem;
-    height: calc(100vh - 4rem);   /* alto de la pantalla menos el header */
+    height: calc(100vh - 4rem);
     position: fixed;
     top: 0;
     left: 0;
@@ -144,7 +145,7 @@ header{
     background-color: var(--color-bg-body);
     transition: width 0.5s ease;
 
-    display: flex;               /* el contenido se acomoda en columna */
+    display: flex;
     flex-direction: column;
 }
 
@@ -162,49 +163,92 @@ header{
 }
 
 .sidebar.menu-toggle{
-    width: 15.4rem;
+    width: 15rem;
 }
 
 .sidebar img{
     width: 1.6rem;
+    flex-shrink: 0;
 }
 
-.sidebar a{
-    display: flex;
-    align-items: center;
-    gap: 1.6rem;
-    padding: 0.9rem 0.7rem;
-    text-decoration: none;
-    margin: 0 0.5rem;
-    border-radius: 0.5rem;
-    white-space: nowrap;
-    overflow: hidden;
-    color: var(--color-h1);
-}
-
-.sidebar a:hover{
-    background-color: var(--color-interactive);
-}
-
-.sidebar a.selected{
-    color: var(--color-h2-p);
-    background-color: var(--color-interactive);
-}
-
-
-.sidebar a.red-jhon{
-    color: var(--color-h2-p);
-    background-color: var(--Advertencia-color2);
-    
-}
-
-.sidebar a.red-jhon:hover{
-    background-color: var(--Advertencia-color1);
-}
-    
 /* Logout: se empuja al fondo del sidebar */
 .sidebar li.down{
     margin-top: auto;
+}
+
+/* Botones del sidebar (antes eran <a>) */
+.btn-sidebar{
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    width: calc(100% - 1rem);
+    margin: 0 0.5rem;
+    padding: 0.9rem 0.7rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: none;
+    font: inherit;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    color: var(--color-h1);
+}
+
+.btn-sidebar .texto{
+    flex: 1;
+}
+
+.btn-sidebar:hover{
+    background-color: var(--color-interactive);
+}
+
+.btn-sidebar.selected{
+    color: var(--color-h2-p);
+    background-color: var(--color-interactive);
+}
+
+.btn-sidebar.red-jhon{
+    color: var(--color-h2-p);
+    background-color: var(--Advertencia-color2);
+}
+
+.btn-sidebar.red-jhon:hover{
+    background-color: var(--Advertencia-color1);
+}
+
+/* Con el sidebar colapsado solo se ven los iconos */
+.sidebar:not(.menu-toggle) .switch{
+    display: none;
+}
+
+
+.slider{
+    position: absolute;
+    inset: 0;
+    background-color: #cbd5e1;
+    border-radius: 999px;
+    transition: background-color 0.3s;
+}
+
+.slider::before{
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    left: 0.15rem;
+    top: 0.15rem;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.btn-sidebar[aria-checked="true"] .slider{
+    background-color: var(--color-button);
+}
+
+.btn-sidebar[aria-checked="true"] .slider::before{
+    transform: translateX(1.1rem);
 }
 
 /*Main*/
@@ -218,14 +262,7 @@ main{
 }
 
 main.menu-toggle{
-    margin-left: 15.4rem;
-}
-
-.titulo{
-    text-align: center;
-    padding-bottom: 3rem;
-    font-size: 2rem;
-    color: var(--color-h1) ;
+    margin-left: 14.4rem;
 }
 
 /*Contenido en main (CUADRICULAS DE TARJETAS)*/
@@ -240,7 +277,7 @@ main.menu-toggle{
 
 /* Cada columna es un flex vertical */
 .columna{
-    flex: 1 1 320px;          
+    flex: 1 1 0;          
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -259,11 +296,6 @@ main.menu-toggle{
     color: var(--color-h1);
 }
 
-.card1 h3, .card2 h3, .card3 h3{
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--color-h1);
-}
 
 /* Tarjeta alta (Apariencia, Idioma, Seguridad): título arriba, icono abajo a la derecha */
 .card1{
@@ -318,7 +350,6 @@ main.menu-toggle{
     background-color: #5b5fe0;
     color: #ffffff;
 }
-.cuenta h3{ color: #ffffff; }
 
 .idioma{
     background-color: #ffd93b;
@@ -332,13 +363,12 @@ main.menu-toggle{
     background-color: #f0524f;
     color: #ffffff;
 }
-.accesibilidad h3{ color: #ffffff; }
+
 
 .notificaciones{
     background-color: #1fc4a0;
     color: #ffffff;
 }
-.notificaciones h3{ color: #ffffff; }
 
 .privacidad{
     background-color: #fff6a8;
@@ -357,29 +387,9 @@ main.menu-toggle{
 }
 
 /*SWITCH QUE CAMBIA EL MODO OSCURO*/
-/* Fila "Modo oscuro" con switch */
-.modo-item{
-    display: flex;
-    align-items: center;
-    gap: 1.6rem;
-    padding: 0.9rem 0.7rem;
-    margin: 0 0.5rem;
-    border-radius: 0.5rem;
-    white-space: nowrap;
-    overflow: hidden;
-    cursor: pointer;
-    color: var(--color-h1);
-}
 
-.modo-item:hover{
-    background-color: var(--color-interactive);
-}
 
-.modo-item .texto{
-    flex: 1;
-}
-
-/* Switch: el input se oculta y el clic lo maneja la fila completa */
+/* Switch para que el input se oculte y el clic lo maneja la fila completa */
 .switch{
     position: relative;
     display: inline-block;
@@ -388,61 +398,117 @@ main.menu-toggle{
     flex-shrink: 0;
 }
 
-.switch input{
-    opacity: 0;
-    width: 0;
-    height: 0;
-    pointer-events: none;
-}
-
-.slider{
-    position: absolute;
-    inset: 0;
-    background-color: #cbd5e1;
-    border-radius: 999px;
-    transition: background-color 0.3s;
-}
-
-.slider::before{
-    content: "";
-    position: absolute;
-    width: 1rem;
-    height: 1rem;
-    left: 0.15rem;
-    top: 0.15rem;
-    background-color: #ffffff;
-    border-radius: 50%;
-    transition: transform 0.3s;
-}
-
-.switch input:checked + .slider{
-    background-color: var(--color-button);
-}
-
 .switch input:checked + .slider::before{
     transform: translateX(1.1rem);
 }
 
-/* Con el sidebar colapsado solo se ve el icono */
+/* con el sidebar colapsado solo se ve el icono */
 .sidebar:not(.menu-toggle) .switch{
     display: none;
 }
 
-/* Cambia el texto legible sobre las tarjetas pastel en modo oscuro */
+/* cambia el texto legible sobre las tarjetas pastel en modo oscuro */
 .idioma, .apariencia, .privacidad, .soporte, .seguridad, .datos,
 .idioma h3, .apariencia h3, .privacidad h3, .soporte h3, .seguridad h3, .datos h3{
     color: #0f172a;
 }
 
-/*Cerrar sesion link*/
 
-.logout{
-    padding-top: 4rem;
-    text-align: center;
-    align-items: center;
-    
-    color: var(--Advertencia-color1) ;
+/* tarjetas y enlaces como botones */
+button.card1, button.card2, button.card3{
+    width: 100%;
+    border: none;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: filter 0.2s;
 }
+
+button.card1:hover, button.card2:hover, button.card3:hover{
+    filter: brightness(0.95);
+}
+
+/* texto de cada tarjeta (reemplaza a los h3) */
+.titulo{
+    font-size: 1rem;
+    font-weight: 700;
+    color: inherit;
+}
+
+/* cerrar sesión debajo de las tarjetas */
+.cerrar-sesion{
+    display: block;
+    margin: 2.5rem auto 0;
+    background: none;
+    border: none;
+    font: inherit;
+    color: var(--Advertencia-color1);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* ===== CORRECCIÓN DE TARJETAS E ICONOS ===== */
+
+/* Título de la página (el "Configuración" de arriba) */
+.titulo-pagina{
+    text-align: center;
+    padding-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--color-h1);
+}
+
+/* El alto de cada tarjeta sale de su contenido, con min-height como mínimo.
+   Las proporciones se mantienen con flex-grow. */
+.card1{
+    flex: 2 1 auto;
+    min-height: 10rem;
+}
+
+.card2{
+    flex: 1 1 auto;
+    min-height: 3.5rem;
+}
+
+.card3{
+    flex: 0 0 100%;
+    min-height: 5rem;
+}
+
+/* Texto de cada tarjeta: alineado a la izquierda y sin espacio extra */
+.card1 .titulo,
+.card2 .titulo,
+.card3 .titulo{
+    text-align: left;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* Iconos: tamaño fijo, sin deformarse ni salirse de la tarjeta */
+.icono{
+    width: 2rem;
+    height: 2rem;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.icono-grande{
+    width: 6rem;
+    height: 6rem;
+}
+
+.card3 .icono{
+    width: 2.2rem;
+    height: 2.2rem;
+}
+
+/* Tarjetas altas: icono abajo a la derecha */
+.card1 .icono{
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+
 
 /*Responsive*/
 
@@ -459,5 +525,37 @@ main.menu-toggle{
     }
     main.menu-toggle{
        margin-left: 0; 
+    }
+}
+
+/* Versión para pantallas chicas */
+@media (max-width: 700px){
+    .card1{
+        min-height: 7rem;
+    }
+
+    .card2{
+        min-height: 3rem;
+    }
+
+    .card1 .titulo,
+    .card2 .titulo,
+    .card3 .titulo{
+        font-size: 0.85rem;
+    }
+
+    .icono{
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+
+    .icono-grande{
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .card3 .icono{
+        width: 1.6rem;
+        height: 1.6rem;
     }
 }
