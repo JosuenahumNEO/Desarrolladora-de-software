@@ -7,8 +7,8 @@ const itemModo = document.getElementById('item-modo');
 const switchModo = document.getElementById('switch-modo');
 const iconoModo = document.getElementById('icono-modo');
 
-const ICONO_LUNA = '../ico/moon-sat.svg';
-const ICONO_SOL = '../ico/sun-light.svg';
+const ICONO_LUNA = '/public/svg/moon-sat.svg';
+const ICONO_SOL = '/public/svg/sun-light.svg';
 
 /* menu hamburguesa */
 menu.addEventListener('click', () => {
@@ -16,10 +16,10 @@ menu.addEventListener('click', () => {
     main.classList.toggle('menu-toggle');
 
     /* cambio de imagen para el menu */
-    if (imagen.src.includes('/ico/keyframes.svg')) {
-        imagen.src = '../ico/keyframes-solid.svg';
+    if (imagen.src.includes('/public/svg/keyframes.svg')) {
+        imagen.src = '/public/svg/keyframes-solid.svg';
     } else {
-        imagen.src = '../ico/keyframes.svg';
+        imagen.src = '/public/svg/keyframes.svg';
     }
 });
 
