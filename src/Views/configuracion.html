@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configuracion</title>
-    <link rel="stylesheet" href="/public/css/configuracion.css">
+    <link rel="stylesheet" href="../../public/css/configuracion.css">
 </head>
 
 <body>
@@ -15,18 +15,18 @@
         <div class="left">
             <div class="menu-container">
                 <div class="menu" id="menu">
-                    <img src="/public/svg/keyframes.svg" alt="" id="keyframes2">
+                    <img src="../../public/svg/keyframes.svg" alt="" id="keyframes2">
                 </div>
             </div>
             <div class="brand">
-                <img src="/public/svg/cube-hole.svg" alt="" class="logo">
+                <img src="../../public/svg/cube-hole.svg" alt="" class="logo">
                 <span class="name"> PortDevs Solutions</span>
             </div>
         </div>
 
         <div class="right">
             <!--AQUI IRA FOTO DEL USUARIO NO ICO, luego cambiar-->
-            <img src="/public/img/usuario.jpeg" alt="" class="user">
+            <img src="../../public/img/usuario.jpeg" alt="" class="user">
         </div>
 
     </header>
@@ -36,112 +36,109 @@
         <nav>
             <ul>
                 <li>
-                    <a href="#">
-                        <img src="/public/svg/border-all-solid-full.svg" alt="">
-                        <span>Menu</span>
-                    </a>
+                    <button class="btn-sidebar" data-accion="menu">
+                        <img src="../../public/svg/border-all-solid-full.svg" alt="">
+                        <span class="texto">Menu</span>
+                    </button>
                 </li>
                 <li>
-                    <a href="#">
-                        <img src="/public/svg/comment-dots-regular-full.svg" alt="">
-                        <span>Chat</span>
-                    </a>
+                    <button class="btn-sidebar" data-accion="chat">
+                        <img src="../../public/svg/comment-dots-regular-full.svg" alt="">
+                        <span class="texto">Chat</span>
+                    </button>
                 </li>
                 <li>
-                    <a href="#" class="selected">
-                        <img src="/public/svg/gear-solid-full.svg" alt="">
-                        <span>Configuracion</span>
-                    </a>
+                    <button class="btn-sidebar selected" data-accion="configuracion" aria-current="page">
+                        <img src="../../public/svg/gear-solid-full.svg" alt="">
+                        <span class="texto">Configuracion</span>
+                    </button>
                 </li>
                 <li>
-                    <div class="modo-item" id="item-modo">
-                        <img id="icono-modo" src="/public/svg/moon-sat.svg" alt="">
+                    <!-- No lleva algun data-accion porque el JS la maneja aparte (para el modo oscuro) -->
+                    <button class="btn-sidebar" id="item-modo" role="switch" aria-checked="false">
+                        <img id="icono-modo" src="../../public/svg/moon-sat.svg" alt="">
                         <span class="texto">Modo oscuro</span>
-                        <label class="switch">
-                            <input type="checkbox" id="switch-modo">
+                        <span class="switch">
                             <span class="slider"></span>
-                        </label>
-                    </div>
+                        </span>
+                    </button>
                 </li>
 
                 <!--Logout-->
                 <li class="down">
-                    <a href="#" class="red-jhon">
-                        <img src="/public/svg/right-from-bracket-solid-full.svg" alt="">
-                        <span>LogOut</span>
-                    </a>
+                    <button class="btn-sidebar red-jhon" data-accion="logout">
+                        <img src="../../public/svg/right-from-bracket-solid-full.svg" alt="">
+                        <span class="texto">LogOut</span>
+                    </button>
                 </li>
-
             </ul>
         </nav>
     </div>
 
     <main id="main">
-        <p class="titulo">Configuración</p>
+        <p class="titulo-pagina">Configuración</p>
 
         <div class="cuadricula-flex">
 
             <!-- Columna izquierda -->
             <div class="columna">
-                <div class="card2 cuenta">
-                    <h3>Cuenta</h3>
-                    <img class="icono" src="/public/svg/user-solid-full.svg" alt="">
-                </div>
+                <button class="card2 cuenta" data-accion="cuenta">
+                    <span class="titulo">Cuenta</span>
+                    <img class="icono" src="../../public/svg/user-solid-full.svg" alt="">
+                </button>
 
-                <div class="card1 apariencia">
-                    <h3>Apariencia</h3>
-                    <img class="icono icono-grande" src="/public/svg/palette-solid-full.svg" alt="">
-                </div>
+                <button class="card1 apariencia" data-accion="apariencia">
+                    <span class="titulo">Apariencia</span>
+                    <img class="icono icono-grande" src="../../public/svg/palette-solid-full.svg" alt="">
+                </button>
 
-                <div class="card2 privacidad">
-                    <h3>Privacidad</h3>
-                    <img class="icono" src="/public/svg/eye-slash-solid-full.svg" alt="">
-                </div>
+                <button class="card2 privacidad" data-accion="privacidad">
+                    <span class="titulo">Privacidad</span>
+                    <img class="icono" src="../../public/svg/eye-slash-solid-full.svg" alt="">
+                </button>
 
-                <div class="card2 soporte">
-                    <h3>Soporte</h3>
-                    <img class="icono" src="/public/svg/headset-help.svg" alt="">
-                </div>
+                <button class="card2 soporte" data-accion="soporte">
+                    <span class="titulo">Soporte</span>
+                    <img class="icono" src="../../public/svg/headset-help.svg" alt="">
+                </button>
             </div>
 
             <!-- Columna derecha -->
             <div class="columna">
-                <div class="card1 idioma">
-                    <h3>Idioma</h3>
-                    <img class="icono icono-grande" src="/public/svg/language-solid-full.svg" alt="">
-                </div>
+                <button class="card1 idioma" data-accion="idioma">
+                    <span class="titulo">Idioma</span>
+                    <img class="icono icono-grande" src="../../public/svg/language-solid-full.svg" alt="">
+                </button>
 
-                <div class="card2 accesibilidad">
-                    <h3>Accesibilidad</h3>
-                    <img class="icono" src="/public/svg/accessibility.svg" alt="">
-                </div>
+                <button class="card2 accesibilidad" data-accion="accesibilidad">
+                    <span class="titulo">Accesibilidad</span>
+                    <img class="icono" src="../../public/svg/accessibility.svg" alt="">
+                </button>
 
-                <div class="card2 notificaciones">
-                    <h3>Notificaciones</h3>
-                    <img class="icono" src="/public/svg/bell-solid-full.svg" alt="">
-                </div>
+                <button class="card2 notificaciones" data-accion="notificaciones">
+                    <span class="titulo">Notificaciones</span>
+                    <img class="icono" src="../../public/svg/bell-solid-full.svg" alt="">
+                </button>
 
-                <div class="card1 seguridad">
-                    <h3>Seguridad</h3>
-                    <img class="icono icono-grande" src="/public/svg/user-shield-solid-full.svg" alt="">
-                </div>
+                <button class="card1 seguridad" data-accion="seguridad">
+                    <span class="titulo">Seguridad</span>
+                    <img class="icono icono-grande" src="../../public/svg/user-shield-solid-full.svg" alt="">
+                </button>
             </div>
 
             <!-- Barra completa de abajo -->
-            <div class="card3 datos">
-                <h3>Datos</h3>
-                <img class="icono" src="/public/svg/database-solid-full.svg" alt="">
-            </div>
-
+            <button class="card3 datos" data-accion="datos">
+                <span class="titulo">Datos</span>
+                <img class="icono" src="../../public/svg/database-solid-full.svg" alt="">
+            </button>
 
         </div>
-        <a href="">
-            <p class="logout">CERRAR SESION</p>
-        </a>
 
+        <!-- Reemplaza el enlace antiguo de "Cerrar sesión" si lo tienes -->
+        <button class="cerrar-sesion" data-accion="cerrar-sesion">CERRAR SESION</button>
     </main>
 
-    <script src="/public/js/configuracion.js"></script>
+    <script src="../../public/js/configuracion.js"></script>
 </body>
 
 </html>

@@ -1,28 +1,72 @@
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Obtener los elementos de la vista
-    const interruptor = document.getElementById(
+    // ========================================
+    // INTERRUPTOR DE NOTIFICACIONES
+    // ========================================
+
+    const interruptorNotificaciones = document.getElementById(
         "interruptor-notificaciones"
     );
 
-    const estado = document.getElementById(
+    const estadoNotificaciones = document.getElementById(
         "estado-notificaciones"
     );
 
-    // Actualizar el mensaje según el estado del interruptor
-    function actualizarEstado() {
+    // Actualizar el mensaje según el estado
+    function actualizarEstadoNotificaciones() {
 
-        if (interruptor.checked) {
-            estado.textContent = "Notificaciones activadas";
+        if (!interruptorNotificaciones || !estadoNotificaciones) {
+            return;
+        }
+
+        if (interruptorNotificaciones.checked) {
+            estadoNotificaciones.textContent =
+                "Notificaciones activadas";
         } else {
-            estado.textContent = "Notificaciones desactivadas";
+            estadoNotificaciones.textContent =
+                "Notificaciones desactivadas";
         }
     }
 
-    // Detectar cuando el usuario cambia el interruptor
-    interruptor.addEventListener("change", actualizarEstado);
+    // Escuchar los cambios del interruptor
+    if (interruptorNotificaciones) {
 
-    // Mostrar el estado inicial al abrir la página
-    actualizarEstado();
+        interruptorNotificaciones.addEventListener(
+            "change",
+            actualizarEstadoNotificaciones
+        );
+
+        // Mostrar el estado inicial
+        actualizarEstadoNotificaciones();
+    }
+
+
+    // ========================================
+    // INTERRUPTOR DEL MODO OSCURO
+    // ========================================
+
+    const interruptorModo = document.getElementById(
+        "interruptor-modo"
+    );
+
+    if (interruptorModo) {
+
+        // Aplicar el estado inicial del modo oscuro
+        document.body.classList.toggle(
+            "oscuro",
+            interruptorModo.checked
+        );
+
+        // Cambiar de modo cuando se utilice el switch
+        interruptorModo.addEventListener("change", function () {
+
+            document.body.classList.toggle(
+                "oscuro",
+                interruptorModo.checked
+            );
+
+        });
+    }
 
 });

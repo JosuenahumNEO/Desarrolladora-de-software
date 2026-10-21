@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es-MX">
 
@@ -8,90 +7,101 @@
 
     <title>Notificaciones</title>
 
-    <!-- Hoja de estilos -->
-    <link rel="stylesheet" href="../../public/css/notificaciones.css">
-
-    <!-- Archivo JavaScript -->
-    <script src="../../public/js/notificaciones.js" defer></script>
+    <link rel="stylesheet" href="/public/css/notificaciones.css">
+    <script src="/public/js/notificaciones.js" defer></script>
 </head>
 
 <body>
 
-    <main class="pagina-notificaciones">
+    <aside class="barra-lateral">
+        <div class="logo"> </div>
 
-        <section class="contenido-notificaciones"
-            aria-labelledby="titulo-notificaciones">
+        <nav class="navegacion">
+            <a href="#" class="opcion" data-i18n="menu">Menú</a>
+            <a href="#" class="opcion activa" data-i18n="chat">Chat</a>
+            <a href="#" class="opcion" data-i18n="configuración">Configuración</a>
+        </nav>
 
-            <h1 id="titulo-notificaciones">Notificaciones</h1>
+        <div class="controles-laterales">
+            <label class="modo-oscuro">
+                <span>Modo oscuro</span>
+                <input type="checkbox" id="interruptor-modo">
+                <span class="interruptor"></span>
+            </label>
+
+            <button type="button" class="boton-salir" data-i18n="cerrarSesion">
+                CERRAR SESIÓN
+            </button>
+        </div>
+    </aside>
+
+    <main class="contenido">
+        <h1 data-i18n="tituloIdioma">Notificaciones</h1>
 
             <p class="descripcion">
                 Activa o desactiva las notificaciones según tus preferencias.
                 Pasa el cursor sobre la opción para mostrar el interruptor.
             </p>
 
-            <div class="lista-notificaciones">
+            
+<div class="lista-notificaciones">
 
-                <div class="opcion-notificacion">
+    <div class="opcion-notificacion">
 
-                    <span class="texto-notificacion">
-                        Notificaciones
-                    </span>
+        <label class="control-notificaciones"
+            for="interruptor-notificaciones">
 
-                    <label class="control-notificaciones">
+            <svg class="icono-campana"
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true">
 
-                        <!-- Icono visible inicialmente -->
-                        <svg class="icono-campana"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="28"
-                            height="28"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.8"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            aria-hidden="true">
+                <path d="M18 8a6 6 0 0 0-12 0
+                    c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
 
-                            <path d="M18 8a6 6 0 0 0-12 0
-                                c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+                <path d="M10 21h4"/>
+                <path d="M10 3a2 2 0 0 1 4 0"/>
 
-                            <path d="M10 21h4"/>
+            </svg>
 
-                            <path d="M10 3a2 2 0 0 1 4 0"/>
+            <input
+                type="checkbox"
+                id="interruptor-notificaciones"
+                class="entrada-interruptor"
+                aria-label="Activar o desactivar notificaciones"
+                checked
+            >
 
-                        </svg>
+            <span class="interruptor-visual" aria-hidden="true">
+                <span class="circulo-interruptor"></span>
+            </span>
 
-                        <!-- Interruptor funcional -->
-                        <input
-                            type="checkbox"
-                            id="interruptor-notificaciones"
-                            class="entrada-interruptor"
-                            aria-label="Activar o desactivar notificaciones"
-                            checked
-                        >
+        </label>
 
-                        <span class="interruptor-visual"
-                            aria-hidden="true">
+        <span class="texto-notificacion">
+            Notificaciones
+        </span>
 
-                            <span class="circulo-interruptor"></span>
+    </div>
 
-                        </span>
+    <p class="estado-notificaciones"
+        id="estado-notificaciones"
+        aria-live="polite">
+        Notificaciones activadas
+    </p>
 
-                    </label>
+</div>
 
-                </div>
-
-                <p class="estado-notificaciones"
-                    id="estado-notificaciones"
-                    aria-live="polite">
-                    Notificaciones activadas
-                </p>
-
-            </div>
-
-        </section>
 
     </main>
 
 </body>
+
 </html>
