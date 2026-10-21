@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notificaciones</title>
+
+    <link rel="stylesheet" href="/public/css/notificaciones.css">
+    <script src="/public/js/notificaciones.js" defer></script>
+</head>
+
+<body>
+
+    <aside class="barra-lateral">
+        <div class="logo"> </div>
+
+        <nav class="navegacion">
+            <a href="#" class="opcion" data-i18n="menu">Menú</a>
+            <a href="#" class="opcion activa" data-i18n="chat">Chat</a>
+            <a href="#" class="opcion" data-i18n="configuración">Configuración</a>
+        </nav>
+
+        <div class="controles-laterales">
+            <label class="modo-oscuro">
+                <span>Modo oscuro</span>
+                <input type="checkbox" id="interruptor-modo">
+                <span class="interruptor"></span>
+            </label>
+
+            <button type="button" class="boton-salir" data-i18n="cerrarSesion">
+                CERRAR SESIÓN
+            </button>
+        </div>
+    </aside>
+
+    <main class="contenido">
+        <h1 data-i18n="tituloIdioma">Notificaciones</h1>
+
+            <p class="descripcion">
+                Activa o desactiva las notificaciones según tus preferencias.
+                Pasa el cursor sobre la opción para mostrar el interruptor.
+            </p>
+
+            
+<div class="lista-notificaciones">
+
+    <div class="opcion-notificacion">
+
+        <label class="control-notificaciones"
+            for="interruptor-notificaciones">
+
+            <svg class="icono-campana"
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true">
+
+                <path d="M18 8a6 6 0 0 0-12 0
+                    c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+
+                <path d="M10 21h4"/>
+                <path d="M10 3a2 2 0 0 1 4 0"/>
+
+            </svg>
+
+            <input
+                type="checkbox"
+                id="interruptor-notificaciones"
+                class="entrada-interruptor"
+                aria-label="Activar o desactivar notificaciones"
+                checked
+            >
+
+            <span class="interruptor-visual" aria-hidden="true">
+                <span class="circulo-interruptor"></span>
+            </span>
+
+        </label>
+
+        <span class="texto-notificacion">
+            Notificaciones
+        </span>
+
+    </div>
+
+    <p class="estado-notificaciones"
+        id="estado-notificaciones"
+        aria-live="polite">
+        Notificaciones activadas
+    </p>
+
+</div>
+
+
+    </main>
+
+</body>
+
+</html>
