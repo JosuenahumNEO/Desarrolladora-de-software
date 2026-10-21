@@ -6,8 +6,8 @@ const main = document.getElementById('main');
 const itemModo = document.getElementById('item-modo');
 const iconoModo = document.getElementById('icono-modo');
 
-const ICONO_LUNA = '../../public/svg/moon-sat.svg';
-const ICONO_SOL = '../../public/svg/sun-light.svg';
+const ICONO_LUNA = '/public/svg/moon-sat.svg';
+const ICONO_SOL = '/public/svg/sun-light.svg';
 
 /* menú hamburguesa del header */
 menu.addEventListener('click', () => {
@@ -15,9 +15,9 @@ menu.addEventListener('click', () => {
     main.classList.toggle('menu-toggle');
 
     if (imagen.src.includes('/public/svg/keyframes.svg')) {
-        imagen.src = '../../public/svg/keyframes-solid.svg';
+        imagen.src = '/public/svg/keyframes-solid.svg';
     } else {
-        imagen.src = '../../public/svg/keyframes.svg';
+        imagen.src = '/public/svg/keyframes.svg';
     }
 });
 
