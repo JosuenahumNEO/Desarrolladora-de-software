@@ -42,6 +42,10 @@ document.querySelectorAll('[data-accion]').forEach(boton => {
         const accion = boton.dataset.accion;
         console.log('Clic en:', accion);
 
+        if (accion === 'seguridad') {
+            window.location.href = '/src/Views/seguridad.html';
+        }
+
         // Segun vi el ejemplo de cómo conectarlo después:
         // if (accion === 'cuenta') abrirPanelCuenta();
         // if (accion === 'cerrar-sesion') cerrarSesion();
