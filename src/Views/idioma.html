@@ -1,40 +1,83 @@
 <!DOCTYPE html>
-<html lang="es-MX">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configuración de idioma</title>
-
+    <title>Idioma</title>
     <link rel="stylesheet" href="../../public/css/idioma.css">
-    <script src="../../public/js/idioma.js" defer></script>
+    <script src="../../public/js/idioma.js"></script>
 </head>
 
 <body>
-    <aside class="barra-lateral">
-        <div class="logo"> </div>
 
-        <nav class="navegacion">
-            <a href="#" class="opcion" data-i18n="menu">Menú</a>
-            <a href="#" class="opcion activa" data-i18n="chat">Chat</a>
-            <a href="#" class="opcion" data-i18n="configuración">Configuración</a>
-        </nav>
-
-        <div class="controles-laterales">
-            <label class="modo-oscuro">
-                <span>Modo oscuro</span>
-                <input type="checkbox" id="interruptor-modo">
-                <span class="interruptor"></span>
-            </label>
-
-            <button type="button" class="boton-salir" data-i18n="cerrarSesion">
-                CERRAR SESIÓN
-            </button>
+    <!--header-->
+    <header>
+        <div class="left">
+            <div class="menu-container">
+                <div class="menu" id="menu">
+                    <img src="../../public/svg/keyframes.svg" alt="" id="keyframes2">
+                </div>
+            </div>
+            <div class="brand">
+                <img src="../../public/svg/cube-hole.svg" alt="" class="logo">
+                <span class="name"> PortDevs Solutions</span>
+            </div>
         </div>
-    </aside>
 
-    <main class="contenido">
-        <h1 data-i18n="tituloIdioma">Idioma</h1>
+        <div class="right">
+            <!--AQUI IRA FOTO DEL USUARIO NO ICO, luego cambiar-->
+            <img src="../../public/img/usuario.jpeg" alt="" class="user">
+        </div>
+
+    </header>
+
+    <!--Sidebar-->
+    <div class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li>
+                    <button class="btn-sidebar" data-accion="menu">
+                        <img src="../../public/svg/border-all-solid-full.svg" alt="">
+                        <span class="texto">Menú</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-sidebar" data-accion="chat">
+                        <img src="../../public/svg/comment-dots-regular-full.svg" alt="">
+                        <span class="texto">Chat</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-sidebar" data-accion="configuracion" aria-current="page">
+                        <img src="../../public/svg/gear-solid-full.svg" alt="">
+                        <span class="texto">Configuración</span>
+                    </button>
+                </li>
+                <li>
+                    <!-- No lleva algun data-accion porque el JS la maneja aparte (para el modo oscuro) -->
+                    <button class="btn-sidebar" id="item-modo" role="switch" aria-checked="false">
+                        <img id="icono-modo" src="../../public/svg/moon-sat.svg" alt="">
+                        <span class="texto">Modo oscuro</span>
+                        <span class="switch">
+                            <span class="slider"></span>
+                        </span>
+                    </button>
+                </li>
+
+                <!--Logout-->
+                <li class="down">
+                    <button class="btn-sidebar red-jhon" data-accion="logout">
+                        <img src="../../public/svg/right-from-bracket-solid-full.svg" alt="">
+                        <span class="texto">Cerrar Sesión</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main id="main">
+        <p class="titulo-pagina">Idioma</p>
 
         <section class="panel-idioma">
             <div class="idioma-actual" id="idioma-actual" aria-live="polite">
@@ -93,8 +136,10 @@
             <span>文</span>
             <span>A</span>
         </div>
+
     </main>
 
+    
 </body>
 
 </html>

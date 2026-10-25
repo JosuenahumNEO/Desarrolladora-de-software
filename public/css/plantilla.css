@@ -27,7 +27,6 @@ body.modo-oscuro {
     --bg-card: #2a2c36;
     --bg-input: #353846;
     --menu-color: #f1f5f9;
-
 }
 
 /* Campos del Formulario */
@@ -266,6 +265,127 @@ main.menu-toggle{
     margin-left: 14.4rem;
 }
 
+/*Contenido en main (CUADRICULAS DE TARJETAS)*/
+
+/* Contenedor principal de la cuadrícula */
+.cuadricula-flex{
+    display: flex;
+    flex-wrap: wrap;         
+    gap: 1rem;
+    align-items: stretch;
+}
+
+/* Cada columna es un flex vertical */
+.columna{
+    flex: 1 1 0;          
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 0;
+}
+
+/* Estilos comunes de las tarjetas */
+.card1, .card2, .card3{
+    background-color: var(--bg-card);
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    color: var(--color-h1);
+}
+
+
+/* Tarjeta alta (Apariencia, Idioma, Seguridad): título arriba, icono abajo a la derecha */
+.card1{
+    flex: 2 1 0;   
+    /* Esta ocupa el doble de espacio vertical */           
+    min-height: 10rem;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.card1 .icono{
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+/* Tarjeta Lowkey->baja (Cuenta, Privacidad, Soporte, etc.): título a la izquierda, icono a la derecha */
+.card2{
+    flex: 1 1 0;
+    min-height: 3.5rem;
+    flex-direction: row;
+}
+
+/* Barra completa (Datos) */
+.card3{
+    flex: 0 0 100%;           
+    height: 5rem;
+    flex-direction: row;
+}
+
+/* Iconos*/
+.icono{
+    width: 2rem;
+    height: 2rem;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.icono-grande{
+    width: 6rem;
+    height: 6rem;
+}
+
+/* Ico de tarjeta3*/
+.card3 .icono{
+    width: 2.2rem;
+    height: 2.2rem;
+}
+
+/* COLORES DE CADA TARJETA (según el sketch aprox) */
+
+.cuenta{
+    background-color: #5b5fe0;
+    color: #ffffff;
+}
+
+.idioma{
+    background-color: #ffd93b;
+}
+
+.apariencia{
+    background-color: #ffd6f2;
+}
+
+.accesibilidad{
+    background-color: #f0524f;
+    color: #ffffff;
+}
+
+
+.notificaciones{
+    background-color: #1fc4a0;
+    color: #ffffff;
+}
+
+.privacidad{
+    background-color: #fff6a8;
+}
+
+.soporte{
+    background-color: #ffd6d6;
+}
+
+.seguridad{
+    background-color: #cfe3f7;
+}
+
+.datos{
+    background-color: #e4e4e4;
+}
+
 /*SWITCH QUE CAMBIA EL MODO OSCURO*/
 
 
@@ -287,16 +407,107 @@ main.menu-toggle{
     display: none;
 }
 
+/* cambia el texto legible sobre las tarjetas pastel en modo oscuro */
+.idioma, .apariencia, .privacidad, .soporte, .seguridad, .datos,
+.idioma h3, .apariencia h3, .privacidad h3, .soporte h3, .seguridad h3, .datos h3{
+    color: #0f172a;
+}
+
+
+/* tarjetas y enlaces como botones */
+button.card1, button.card2, button.card3{
+    width: 100%;
+    border: none;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+button.card1:hover, button.card2:hover, button.card3:hover{
+    filter: brightness(0.95);
+}
+
+/* texto de cada tarjeta (reemplaza a los h3) */
+.titulo{
+    font-size: 1rem;
+    font-weight: 700;
+    color: inherit;
+}
+
+/* cerrar sesión debajo de las tarjetas */
+.cerrar-sesion{
+    display: block;
+    margin: 2.5rem auto 0;
+    background: none;
+    border: none;
+    font: inherit;
+    color: var(--Advertencia-color1);
+    text-decoration: underline;
+    cursor: pointer;
+}
 
 /* ===== CORRECCIÓN DE TARJETAS E ICONOS ===== */
 
-/* Título de la página (el "Idioma" de arriba) */
+/* Título de la página (el "Configuración" de arriba) */
 .titulo-pagina{
     text-align: center;
     padding-bottom: 2rem;
     font-size: 2rem;
     color: var(--color-h1);
 }
+
+/* El alto de cada tarjeta sale de su contenido, con min-height como mínimo.
+   Las proporciones se mantienen con flex-grow. */
+.card1{
+    flex: 2 1 auto;
+    min-height: 10rem;
+}
+
+.card2{
+    flex: 1 1 auto;
+    min-height: 3.5rem;
+}
+
+.card3{
+    flex: 0 0 100%;
+    min-height: 5rem;
+}
+
+/* Texto de cada tarjeta: alineado a la izquierda y sin espacio extra */
+.card1 .titulo,
+.card2 .titulo,
+.card3 .titulo{
+    text-align: left;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* Iconos: tamaño fijo, sin deformarse ni salirse de la tarjeta */
+.icono{
+    width: 2rem;
+    height: 2rem;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.icono-grande{
+    width: 6rem;
+    height: 6rem;
+}
+
+.card3 .icono{
+    width: 2.2rem;
+    height: 2.2rem;
+}
+
+/* Tarjetas altas: icono abajo a la derecha */
+.card1 .icono{
+    align-self: flex-end;
+    margin-top: auto;
+}
+
 
 
 /*Responsive*/
@@ -355,153 +566,4 @@ main.menu-toggle{
 
 
 
-
-
-/* Contenido principal */
-.contenido {
-    min-height: 100vh;
-    margin-left: 198px;
-    margin-right: 8px;
-    padding: 28px 30px;
-    border: 2px solid var(--borde);
-    border-radius: 9px;
-    position: relative;
-    overflow: hidden;
-}
-
-.contenido h1 {
-    margin: 8px 0 30px;
-    text-align: center;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 27px;
-    font-weight: normal;
-}
-
-.panel-idioma {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-    position: relative;
-    z-index: 1;
-}
-
-.idioma-actual {
-    padding: 15px 20px;
-    border-radius: 8px;
-    background: var(--color-panel);
-    color: #111111;
-    font-weight: bold;
-}
-
-.selector-contenedor {
-    width: min(100%, 253px);
-}
-
-#selector-idioma {
-    width: 100%;
-    min-height: 50px;
-    padding: 8px;
-    border: 2px solid #111111;
-    border-radius: 9px;
-    background: var(--fondo);
-    color: var(--texto-principal);
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.texto-oculto {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-}
-
-/* Banderas */
-.lista-idiomas {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 215px));
-    gap: 28px 35px;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-    width: 100%;
-    max-width: 850px;
-    margin: 60px auto 0;
-}
-
-.tarjeta-idioma {
-    display: block;
-    width: 100%;
-    aspect-ratio: 1.7 / 1;
-    padding: 0;
-    border: 3px solid transparent;
-    border-radius: 38px;
-    background: transparent;
-    overflow: hidden;
-    cursor: pointer;
-    transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-/* La imagen ocupa el botón completo */
-.tarjeta-idioma img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: inherit;
-}
-
-/* Efecto al pasar el cursor */
-.tarjeta-idioma:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.12);
-}
-
-/* Contorno de accesibilidad */
-.tarjeta-idioma:focus-visible {
-    outline: 3px solid #2563EB;
-    outline-offset: 3px;
-}
-
-/* Idioma seleccionado */
-.tarjeta-idioma.seleccionado {
-    border-color: var(--color-turquesa);
-    box-shadow: 0 0 0 4px rgba(0, 191, 165, 0.15);
-}
-
-/* Ilustración decorativa */
-.ilustracion {
-    position: absolute;
-    right: 0;
-    bottom: 15%;
-    display: flex;
-    align-items: center;
-    gap: 0;
-    color: #000000;
-    pointer-events: none;
-}
-
-.ilustracion span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 153px;
-    height: 146px;
-    border: 8px solid currentColor;
-    border-radius: 28px;
-    background: var(--fondo);
-    font-size: 55px;
-    font-weight: bold;
-}
-
-.ilustracion span+span {
-    margin-top: 75px;
-    margin-left: -35px;
-}
+/*Codigo de Oyoque Para la vista de apariencia*/
