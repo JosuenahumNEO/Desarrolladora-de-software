@@ -1,0 +1,305 @@
+/* CONVERSACION (usa base.css + tarjetas.css) */
+
+:root{
+    --burbuja-mia: #1010c8;
+    --burbuja-mia-2: #3b3bf0;
+    --chat-fondo: #f4f6fb;
+}
+
+body.modo-oscuro{
+    --burbuja-mia: #3f46e0;
+    --burbuja-mia-2: #5b63ff;
+    --chat-fondo: #1e1f26;
+}
+
+/* El chat ocupa todo el alto disponible */
+main.main-conversacion{
+    padding: 1.25rem 1.5rem;
+    height: calc(100vh - 4rem);
+    height: calc(100dvh - 4rem);
+}
+
+.layout-chat{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 17rem;
+    gap: 1.5rem;
+    align-items: start;
+    height: 100%;
+    max-width: 66rem;
+    margin: 0 auto;
+}
+
+/* Tarjeta del chat: cabecera + mensajes + caja de texto */
+.conversacion{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* ===== Cabecera ===== */
+
+.conv-cabecera{
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--borde-tarjeta);
+    background-color: var(--bg-panel);
+}
+
+.btn-volver{
+    display: inline-flex;
+    padding: 0.35rem;
+    border: none;
+    border-radius: 0.6rem;
+    background: none;
+    color: var(--color-h1);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-volver:hover{
+    background-color: var(--bg-gris);
+}
+
+.conv-avatar{
+    width: 2.8rem;
+    height: 2.8rem;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: var(--icono-fondo);
+}
+
+.conv-datos{
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.conv-nombre{
+    font-weight: 800;
+    color: var(--color-h1);
+}
+
+.conv-estado{
+    font-size: 0.78rem;
+    color: var(--texto-suave);
+}
+
+/* ===== Mensajes ===== */
+
+.mensajes{
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.1rem;
+    list-style: none;
+    background-color: var(--chat-fondo);
+}
+
+.aviso-chat,
+.vacio{
+    align-self: center;
+    max-width: 90%;
+    color: var(--texto-suave);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.aviso-chat{
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    background-color: var(--icono-fondo);
+    color: var(--icono-color);
+    font-weight: 700;
+}
+
+.vacio{
+    margin-top: 1.5rem;
+}
+
+.mensaje{
+    max-width: 75%;
+    padding: 0.6rem 0.9rem;
+    border-radius: 1.1rem;
+    overflow-wrap: anywhere;
+}
+
+/* Del desarrollador: tarjeta blanca */
+.mensaje.ajeno{
+    align-self: flex-start;
+    border: 1px solid var(--borde-tarjeta);
+    border-bottom-left-radius: 0.25rem;
+    background-color: var(--bg-panel);
+    color: var(--color-h1);
+    box-shadow: 0 2px 6px rgba(20, 20, 60, 0.06);
+}
+
+/* Mío: azul con degradado */
+.mensaje.mio{
+    align-self: flex-end;
+    border-bottom-right-radius: 0.25rem;
+    background: linear-gradient(135deg, var(--burbuja-mia), var(--burbuja-mia-2));
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(17, 0, 204, 0.25);
+}
+
+.mensaje-texto{
+    font-size: 0.92rem;
+    line-height: 1.4;
+}
+
+.mensaje-hora{
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.7rem;
+    text-align: right;
+    opacity: 0.75;
+}
+
+/* ===== Caja para escribir ===== */
+
+.redactar{
+    display: flex;
+    gap: 0.6rem;
+    padding: 0.8rem 1rem;
+    border-top: 1px solid var(--borde-tarjeta);
+    background-color: var(--bg-panel);
+}
+
+.input-mensaje{
+    flex: 1;
+    min-width: 0;
+    padding: 0.65rem 1.1rem;
+    border: 2px solid var(--borde-tarjeta);
+    border-radius: 999px;
+    background-color: var(--chat-fondo);
+    color: var(--color-h1);
+    font: inherit;
+    font-size: 0.92rem;
+    transition: border-color 0.2s;
+}
+
+.input-mensaje:focus{
+    border-color: var(--color-interactive);
+    outline: none;
+}
+
+.input-mensaje::placeholder{
+    color: var(--texto-suave);
+}
+
+.btn-enviar{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.3rem;
+    border: none;
+    border-radius: 999px;
+    background-color: var(--burbuja-mia);
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+.btn-enviar:hover{
+    filter: brightness(1.15);
+}
+
+/* ===== Panel lateral del desarrollador ===== */
+
+.panel-info{
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.8rem 1.4rem;
+    text-align: center;
+}
+
+.info-avatar{
+    width: 5.5rem;
+    height: 5.5rem;
+    margin-bottom: 0.9rem;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: var(--icono-fondo);
+    box-shadow: 0 0 0 4px var(--panel-seg);
+}
+
+.info-nombre{
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--color-h1);
+}
+
+.info-rol{
+    margin-bottom: 1.4rem;
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+}
+
+.info-lista{
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    width: 100%;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--borde-tarjeta);
+    list-style: none;
+    text-align: left;
+}
+
+.info-lista li{
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--color-h1);
+}
+
+.info-lista .dato-icono{
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 0.7rem;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 900px){
+    .layout-chat{
+        grid-template-columns: 1fr;
+    }
+
+    .panel-info{
+        display: none;
+    }
+}
+
+@media (max-width: 700px){
+    main.main-conversacion{
+        padding: 0.5rem;
+    }
+
+    .mensaje{
+        max-width: 88%;
+    }
+
+    .btn-enviar span{
+        display: none;      /* en celular solo la flecha */
+    }
+
+    .btn-enviar{
+        padding: 0.65rem 0.9rem;
+    }
+}
