@@ -42,8 +42,40 @@ document.querySelectorAll('[data-accion]').forEach(boton => {
         const accion = boton.dataset.accion;
         console.log('Clic en:', accion);
 
+        if (accion === 'cuenta') {
+            window.location.href = '/src/Views/cuenta.html';
+        }
+
+        if (accion === 'idioma') {
+            window.location.href = '/src/Views/idioma.html';
+        }
+
+        if (accion === 'apariencia') {
+            window.location.href = '/src/Views/apariencia.html';
+        }
+
+        if (accion === 'accesibilidad') {
+            window.location.href = '/src/Views/accesibilidad.html';
+        }
+
+        if (accion === 'notificaciones') {
+            window.location.href = '/src/Views/notificaciones.html';
+        }
+
         if (accion === 'seguridad') {
             window.location.href = '/src/Views/seguridad.html';
+        }
+
+        if (accion === 'privacidad') {
+            window.location.href = '/src/Views/privacidad.html';
+        }
+
+        if (accion === 'soporte') {
+            window.location.href = '/src/Views/conversacion.html';
+        }
+
+        if (accion === 'datos') {
+            window.location.href = '/src/Views/datos.html';
         }
 
         // Segun vi el ejemplo de cómo conectarlo después:
