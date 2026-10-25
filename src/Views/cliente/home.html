@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubrí todos los sistemas disponibles para tu empresa.">
+    <title>Inicio — Software Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/cliente/home.css">
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar">
+        <div class="navbar__logo" aria-hidden="true">
+            <i class="fa-solid fa-cube"></i>
+        </div>
+        <h1 class="navbar__title">Software Solutions</h1>
+        <button class="navbar__avatar" id="btn-perfil" aria-label="Perfil de usuario">
+            <i class="fa-solid fa-circle-user" aria-hidden="true"></i>
+        </button>
+    </header>
+
+    <!-- ===== LAYOUT ===== -->
+    <div class="layout">
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar">
+            <nav class="sidebar__nav" aria-label="Navegación principal">
+                <a href="#" class="sidebar__link activa" id="nav-menu">
+                    <i class="fa-solid fa-house" aria-hidden="true"></i>
+                    <span>Menú</span>
+                </a>
+                <a href="#" class="sidebar__link" id="nav-chat" data-accion="chat">
+                    <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
+                    <span>Chat</span>
+                </a>
+                <a href="#" class="sidebar__link" id="nav-config" data-accion="configuracion">
+                    <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                    <span>Config.</span>
+                </a>
+            </nav>
+
+            <div class="sidebar__dark-toggle" id="toggle-dark">
+                <span class="sidebar__toggle-label">Modo oscuro</span>
+                <label class="sidebar__switch" for="interruptor-modo" aria-label="Activar modo oscuro">
+                    <input type="checkbox" id="interruptor-modo">
+                    <span class="toggle-track"></span>
+                </label>
+            </div>
+
+            <button class="sidebar__logout" id="btn-logout" type="button" data-accion="logout">
+                <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                <span>Log out</span>
+            </button>
+        </aside>
+
+        <!-- ===== CONTENIDO ===== -->
+        <main class="main-content" id="main">
+
+            <h2 class="main-content__heading">Descubre nuestros sistemas</h2>
+
+            <!-- Barra de búsqueda -->
+            <div class="search-wrap">
+                <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+                <input id="search-input" type="search" class="search-input" placeholder="Buscar sistema…"
+                    aria-label="Buscar sistema">
+            </div>
+
+            <!-- Grid de tarjetas -->
+            <div class="products-grid" role="list">
+
+                <!-- Tarjeta 1 -->
+                <article class="product-card" id="card-1" role="listitem">
+                    <div class="product-card__media product-card__media--teal">
+                        <i class="fa-solid fa-users-gear product-card__icon" aria-hidden="true"></i>
+                    </div>
+                    <div class="product-card__info">
+                        <p class="product-card__name">Sistema de Gestión</p>
+                        <p class="product-card__desc">Administra recursos y usuarios de forma centralizada con reportes en tiempo real.</p>
+                        <button class="product-card__btn" type="button" id="btn-ver-1">VER +</button>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 2 -->
+                <article class="product-card" id="card-2" role="listitem">
+                    <div class="product-card__media product-card__media--purple">
+                        <i class="fa-solid fa-globe product-card__icon" aria-hidden="true"></i>
+                    </div>
+                    <div class="product-card__info">
+                        <p class="product-card__name">Portal de Clientes</p>
+                        <p class="product-card__desc">Acceso seguro para clientes con seguimiento de solicitudes y comunicación directa.</p>
+                        <button class="product-card__btn" type="button" id="btn-ver-2">VER +</button>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 3 -->
+                <article class="product-card" id="card-3" role="listitem">
+                    <div class="product-card__media product-card__media--blue">
+                        <i class="fa-solid fa-chart-line product-card__icon" aria-hidden="true"></i>
+                    </div>
+                    <div class="product-card__info">
+                        <p class="product-card__name">Analítica Avanzada</p>
+                        <p class="product-card__desc">Dashboards interactivos con métricas clave para tomar decisiones basadas en datos.</p>
+                        <button class="product-card__btn" type="button" id="btn-ver-3">VER +</button>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 4 -->
+                <article class="product-card" id="card-4" role="listitem">
+                    <div class="product-card__media product-card__media--orange">
+                        <i class="fa-solid fa-robot product-card__icon" aria-hidden="true"></i>
+                    </div>
+                    <div class="product-card__info">
+                        <p class="product-card__name">Automatización</p>
+                        <p class="product-card__desc">Flujos de trabajo automatizados que reducen tiempos y eliminan tareas repetitivas.</p>
+                        <button class="product-card__btn" type="button" id="btn-ver-4">VER +</button>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+
+    </div><!-- /layout -->
+
+    <script src="/js/cliente/home.js"></script>
+
+</body>
+
+</html>

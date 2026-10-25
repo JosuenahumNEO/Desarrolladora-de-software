@@ -14,6 +14,11 @@ class HomeController extends Controller
         $this->view('home', ['name' => $user->name]);
     }
 
+    public function login()
+    {
+        $this->view('login');
+    }
+
     public function sistema()
     {
         $this->view('sistema', [
@@ -32,3 +37,4 @@ class HomeController extends Controller
         ]);
     }
 }
+
