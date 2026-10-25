@@ -1,0 +1,507 @@
+/* COLORIMETRÍA Y NORMAS BASE */
+:root {
+    /* Modo Claro */
+    --color-bg-body: #ffffff;
+    /* ahorita lo cambio al actualizado*/
+    /* LOS DE FRONT NO LO HAN actualizado >:( */
+    --color-h1: #000000;
+    --color-h2-p: #ffffff;
+    --color-button: #008a0e;
+    --color-interactive: #91a2d9;
+
+    /*Estilos propios del html (los de frontend no le saben)*/
+    --bg-card: #34e6aa;
+    --bg-input: #e9ecef;
+    --menu-color: #000000 ;
+    --Advertencia-color1: #db0606 ;
+    --Advertencia-color2: #ca0404 ;
+}
+
+/* Si activas clase 'modo-oscuro' en el body entonces: (ACTUALIZE ESTO A COMO CREI QUE SE VE BIEN PORQUE ESTA RARO EN LUCID)*/
+body.modo-oscuro {
+    --color-bg-body: #1e1f26;
+    --color-h1: #f1f5f9;
+    --color-h2-p: #ffffff;
+    --color-button: #10b981;
+    --color-interactive: #6d8fe8;
+    --bg-card: #2a2c36;
+    --bg-input: #353846;
+    --menu-color: #f1f5f9;
+
+}
+
+/* Campos del Formulario */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*body*/
+
+body {
+    background-color: var(--color-bg-body);
+    width: 100%;
+    height: 100%;
+    
+}
+
+/*header*/
+
+header{
+    z-index: 200;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.45rem 2rem 0.45rem 1.27rem;
+    border-bottom: 1px solid var(--color-interactive);
+    position: fixed;
+    background-color: var(--bg-card);
+    top: 0;
+    left: 0;
+}
+
+/*Port devs y ico del sidebar a la izq*/
+.left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.4rem;
+}
+
+/*Menu*/
+.menu-container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu{
+    width: 1.5rem;
+    height: 37%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu div{
+    width: 100%;
+    height: 0.18rem;
+    background-color: var(--menu-color);
+}
+
+
+/*PortDevs y su ico*/
+.brand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.brand .logo{
+    width: 1.7rem;
+}
+
+.brand .name{
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-h1);
+}
+
+/*seccion derecha/ Aqui nomas esta la imagen de momento*/
+.right{
+    display: flex;
+    justify-content: center;
+}
+
+.right img{
+    width: 1.5rem;
+    margin: 0.5rem;
+}
+
+.right .user{
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 60%;
+}
+
+/*seccion del side bar*/
+
+/*side bar*/
+.sidebar{
+    margin-top: 4rem;
+    width: 4rem;
+    height: calc(100vh - 4rem);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: 1.1rem 0;
+    border-right: 1px solid var(--color-interactive);
+    overflow: auto;
+    background-color: var(--color-bg-body);
+    transition: width 0.5s ease;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar nav{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar ul{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.sidebar.menu-toggle{
+    width: 15rem;
+}
+
+.sidebar img{
+    width: 1.6rem;
+    flex-shrink: 0;
+}
+
+/* Logout: se empuja al fondo del sidebar */
+.sidebar li.down{
+    margin-top: auto;
+}
+
+/* Botones del sidebar (antes eran <a>) */
+.btn-sidebar{
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    width: calc(100% - 1rem);
+    margin: 0 0.5rem;
+    padding: 0.9rem 0.7rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: none;
+    font: inherit;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    color: var(--color-h1);
+}
+
+.btn-sidebar .texto{
+    flex: 1;
+}
+
+.btn-sidebar:hover{
+    background-color: var(--color-interactive);
+}
+
+.btn-sidebar.selected{
+    color: var(--color-h2-p);
+    background-color: var(--color-interactive);
+}
+
+.btn-sidebar.red-jhon{
+    color: var(--color-h2-p);
+    background-color: var(--Advertencia-color2);
+}
+
+.btn-sidebar.red-jhon:hover{
+    background-color: var(--Advertencia-color1);
+}
+
+/* Con el sidebar colapsado solo se ven los iconos */
+.sidebar:not(.menu-toggle) .switch{
+    display: none;
+}
+
+
+.slider{
+    position: absolute;
+    inset: 0;
+    background-color: #cbd5e1;
+    border-radius: 999px;
+    transition: background-color 0.3s;
+}
+
+.slider::before{
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    left: 0.15rem;
+    top: 0.15rem;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.btn-sidebar[aria-checked="true"] .slider{
+    background-color: var(--color-button);
+}
+
+.btn-sidebar[aria-checked="true"] .slider::before{
+    transform: translateX(1.1rem);
+}
+
+/*Main*/
+
+main{
+    margin-top: 4rem;
+    margin-left: 4rem;
+    padding: 2rem;
+    transition: padding-left 0.8s ease;
+
+}
+
+main.menu-toggle{
+    margin-left: 14.4rem;
+}
+
+/*SWITCH QUE CAMBIA EL MODO OSCURO*/
+
+
+/* Switch para que el input se oculte y el clic lo maneja la fila completa */
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 2.4rem;
+    height: 1.3rem;
+    flex-shrink: 0;
+}
+
+.switch input:checked + .slider::before{
+    transform: translateX(1.1rem);
+}
+
+/* con el sidebar colapsado solo se ve el icono */
+.sidebar:not(.menu-toggle) .switch{
+    display: none;
+}
+
+
+/* ===== CORRECCIÓN DE TARJETAS E ICONOS ===== */
+
+/* Título de la página (el "Idioma" de arriba) */
+.titulo-pagina{
+    text-align: center;
+    padding-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--color-h1);
+}
+
+
+/*Responsive*/
+
+/*quise dejarlo en max-width 400px pero se veia mal por ahi de 480px esta bien pero por si acaso esta en 500px*/
+@media (max-width:500px){
+    .right .icons-header{
+        display: none;
+    }
+    .sidebar{
+        width: 0;
+    }
+    main{
+        margin-left: 0;
+    }
+    main.menu-toggle{
+       margin-left: 0; 
+    }
+}
+
+/* Versión para pantallas chicas */
+@media (max-width: 700px){
+    .card1{
+        min-height: 7rem;
+    }
+
+    .card2{
+        min-height: 3rem;
+    }
+
+    .card1 .titulo,
+    .card2 .titulo,
+    .card3 .titulo{
+        font-size: 0.85rem;
+    }
+
+    .icono{
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+
+    .icono-grande{
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .card3 .icono{
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Contenido principal */
+.contenido {
+    min-height: 100vh;
+    margin-left: 198px;
+    margin-right: 8px;
+    padding: 28px 30px;
+    border: 2px solid var(--borde);
+    border-radius: 9px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contenido h1 {
+    margin: 8px 0 30px;
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    font-weight: normal;
+}
+
+.panel-idioma {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.idioma-actual {
+    padding: 15px 20px;
+    border-radius: 8px;
+    background: var(--color-panel);
+    color: #111111;
+    font-weight: bold;
+}
+
+.selector-contenedor {
+    width: min(100%, 253px);
+}
+
+#selector-idioma {
+    width: 100%;
+    min-height: 50px;
+    padding: 8px;
+    border: 2px solid #111111;
+    border-radius: 9px;
+    background: var(--fondo);
+    color: var(--texto-principal);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.texto-oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+}
+
+/* Banderas */
+.lista-idiomas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 215px));
+    gap: 28px 35px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+    max-width: 850px;
+    margin: 60px auto 0;
+}
+
+.tarjeta-idioma {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.7 / 1;
+    padding: 0;
+    border: 3px solid transparent;
+    border-radius: 38px;
+    background: transparent;
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* La imagen ocupa el botón completo */
+.tarjeta-idioma img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+/* Efecto al pasar el cursor */
+.tarjeta-idioma:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.12);
+}
+
+/* Contorno de accesibilidad */
+.tarjeta-idioma:focus-visible {
+    outline: 3px solid #2563EB;
+    outline-offset: 3px;
+}
+
+/* Idioma seleccionado */
+.tarjeta-idioma.seleccionado {
+    border-color: var(--color-turquesa);
+    box-shadow: 0 0 0 4px rgba(0, 191, 165, 0.15);
+}
+
+/* Ilustración decorativa */
+.ilustracion {
+    position: absolute;
+    right: 0;
+    bottom: 15%;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    color: #000000;
+    pointer-events: none;
+}
+
+.ilustracion span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 153px;
+    height: 146px;
+    border: 8px solid currentColor;
+    border-radius: 28px;
+    background: var(--fondo);
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.ilustracion span+span {
+    margin-top: 75px;
+    margin-left: -35px;
+}
