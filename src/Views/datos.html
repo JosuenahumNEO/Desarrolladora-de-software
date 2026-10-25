@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuración - Datos</title>
+  <link rel="icon" href="/public/img/ojo.png" type="image/png">
+  <link rel="stylesheet" href="/public/css/datos.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="nav-links">
+        <button class="nav-btn">menu</button>
+        <button class="nav-btn">chat</button>
+        <button class="nav-btn">configuracion</button>
+        
+        <div class="dark-mode-toggle">
+          <span>modo oscuro</span>
+          <label class="switch">
+            <input type="checkbox" id="toggleDarkMode">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <button class="logout-btn">FINALIZAR SESIÓN</button>
+    </aside>
+
+    <main class="main-content">
+      <h2 class="section-title">Datos</h2>
+
+      <div class="datos-container">
+        
+        <div class="datos-section">
+          <div class="row-download">
+            <span class="label-title">Datos personales</span>
+            <button type="button" class="btn-gray-action" id="btnSolicitarDescarga">Solicitar descarga de datos personales</button>
+          </div>
+          
+          <p class="status-msg text-red hidden" id="msgPreparando">Estamos preparando los datos, un momento (Este proceso tarda de 3 a 10 min.)</p>
+          <p class="status-msg text-green hidden" id="msgListo">¡Listo! Te hemos enviado un correo</p>
+        </div>
+
+        <hr class="divider">
+
+        <div class="datos-section">
+          <div class="row-delete-trigger">
+            <button type="button" class="btn-red-action" id="btnAbrirEliminacion">Solicitar eliminacion de la cuenta</button>
+            <img src="/public/img/advertencia.png" alt="Advertencia" class="warning-ico" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+            <span class="warning-emoji" style="display:none;">⚠️</span>
+          </div>
+
+          <div class="delete-card hidden" id="cardEliminacion">
+            <div class="form-row">
+              <label>Escribir contraseña</label>
+              <div class="input-with-icon">
+                <input type="password" id="inputPasswordEliminar" placeholder="Escribir contraseña actual">
+                <button type="button" class="icon-btn" id="togglePassEliminar">
+                  <img src="/public/img/ojo_abierto.png" alt="Mostrar" class="ico-sm" id="imgOjoEliminar">
+                </button>
+              </div>
+            </div>
+
+            <p class="delete-warning-text">
+              Tu cuenta se eliminará en 15 días, anterior a esto podrás cancelar la solicitud de eliminación de cuenta y conservar tus datos.
+            </p>
+
+            <button type="button" class="btn-red-solid" id="btnSolicitudDefinitiva">Solicitar eliminacion definitiva de la cuenta</button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <div class="modal-overlay hidden" id="modalConfirmacionFinal">
+      <div class="modal-box">
+        <p class="modal-text">Esta accion es irreversible, se perderán tus datos y no se podrán recuperar ¿Estás seguro?</p>
+        <button type="button" class="btn-red-solid" id="btnAccionFinalEliminar">Eliminar cuenta</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/public/js/datos.js"></script>
+</body>
+</html>
