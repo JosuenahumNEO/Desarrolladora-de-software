@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversación</title>
+    <link rel="stylesheet" href="/public/css/base.css">
+    <link rel="stylesheet" href="/public/css/tarjetas.css">
+    <link rel="stylesheet" href="/public/css/conversacion.css">
+</head>
+
+<body>
+
+    <!--header-->
+    <header>
+        <div class="left">
+            <div class="menu-container">
+                <div class="menu" id="menu">
+                    <img src="/public/svg/keyframes.svg" alt="" id="keyframes2">
+                </div>
+            </div>
+            <div class="brand">
+                <img src="/public/svg/cube-hole.svg" alt="" class="logo">
+                <span class="name"> PortDevs Solutions</span>
+            </div>
+        </div>
+
+        <div class="right">
+            <img src="/public/img/usuario.jpeg" alt="" class="user">
+        </div>
+    </header>
+
+    <!--Sidebar-->
+    <div class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li>
+                    <button class="btn-sidebar" data-accion="menu">
+                        <img src="/public/svg/border-all-solid-full.svg" alt="">
+                        <span class="texto">Menu</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-sidebar selected" data-accion="chat" aria-current="page">
+                        <img src="/public/svg/comment-dots-regular-full.svg" alt="">
+                        <span class="texto">Chat</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-sidebar" data-accion="configuracion">
+                        <img src="/public/svg/gear-solid-full.svg" alt="">
+                        <span class="texto">Configuracion</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-sidebar" id="item-modo" role="switch" aria-checked="false">
+                        <img id="icono-modo" src="/public/svg/moon-sat.svg" alt="">
+                        <span class="texto">Modo oscuro</span>
+                        <span class="switch">
+                            <span class="slider"></span>
+                        </span>
+                    </button>
+                </li>
+                <li class="down">
+                    <button class="btn-sidebar red-jhon" data-accion="logout">
+                        <img src="/public/svg/right-from-bracket-solid-full.svg" alt="">
+                        <span class="texto">LogOut</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Se abre desde "Contactar desarrolladores"-->
+    <main id="main" class="main-conversacion">
+        <div class="layout-chat">
+
+            <section class="conversacion tarjeta" aria-label="Conversación con un desarrollador">
+
+                <div class="conv-cabecera">
+                    <button type="button" class="btn-volver" data-accion="volver-chat" aria-label="Volver a Chat">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M15 5l-7 7 7 7" />
+                        </svg>
+                    </button>
+                    <img class="conv-avatar" id="conv-avatar" src="/public/svg/cube-hole.svg" alt="">
+                    <div class="conv-datos">
+                        <span class="conv-nombre" id="conv-nombre">Desarrollador</span>
+                        <span class="conv-estado">Responde en máximo 24 h</span>
+                    </div>
+                </div>
+
+                <ol class="mensajes" id="mensajes" aria-live="polite">
+                    <li class="aviso-chat">Este chat se guarda en tu apartado de Chat y no desaparecerá.</li>
+                    <li class="vacio" id="vacio">Escribe tu primer mensaje para empezar la conversación.</li>
+                </ol>
+
+                <form class="redactar" id="form-mensaje" autocomplete="off">
+                    <label class="sr-only" for="input-mensaje">Mensaje</label>
+                    <input type="text" id="input-mensaje" class="input-mensaje" placeholder="Escribe un mensaje" maxlength="1000">
+                    <button type="submit" class="btn-enviar">
+                        <span>Enviar</span>
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+                        </svg>
+                    </button>
+                </form>
+            </section>
+
+            <!-- Panel lateral con datos del desarrollador -->
+            <aside class="panel-info tarjeta" aria-label="Información del desarrollador">
+                <img class="info-avatar" id="aside-avatar" src="/public/svg/cube-hole.svg" alt="">
+                <p class="info-nombre" id="aside-nombre">Desarrollador</p>
+                <p class="info-rol">PortDevs Solutions</p>
+
+                <ul class="info-lista">
+                    <li>
+                        <span class="dato-icono" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                        </span>
+                        <span>Respuesta en menos de 24 horas</span>
+                    </li>
+                    <li>
+                        <span class="dato-icono icono-verde" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4Z"/></svg>
+                        </span>
+                        <span>Conversación guardada en tu historial</span>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+    </main>
+
+    <script src="/public/js/base.js"></script>
+    <script src="/public/js/conversacion.js"></script>
+</body>
+
+</html>

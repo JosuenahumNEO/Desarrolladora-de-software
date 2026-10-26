@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuración - Accesibilidad</title>
+  <link rel="icon" href="/public/img/icono_accesibilidad.png" type="image/png">
+  <link rel="stylesheet" href="/public/css/accesibilidad.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="nav-links">
+        <button class="nav-btn">menu</button>
+        <button class="nav-btn">chat</button>
+        <button class="nav-btn">configuracion</button>
+        
+        <div class="dark-mode-toggle">
+          <span>modo oscuro</span>
+          <label class="switch">
+            <input type="checkbox" id="toggleDarkMode">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <button class="logout-btn">FINALIZAR SESIÓN</button>
+    </aside>
+
+    <main class="main-content">
+      <h2 class="section-title">Accesibilidad</h2>
+
+      <div class="accesibilidad-grid">
+        
+        <div class="control-card">
+          <span class="card-label">Tamaño de texto</span>
+          <div class="slider-row">
+            <input type="range" id="rangeTamano" min="75" max="150" value="100">
+            <span class="size-indicator">A</span>
+          </div>
+        </div>
+
+        <div class="control-card">
+          <span class="card-label">Contraste</span>
+          <div class="slider-row">
+            <input type="range" id="rangeContraste" min="1" max="2" step="0.1" value="1">
+            <span class="size-indicator bold-a">A</span>
+          </div>
+        </div>
+
+        <div class="control-card font-preview-card">
+          <div class="font-select-bar">
+            <label for="selectFuente" class="font-select-label">Fuente actual:</label>
+            <select id="selectFuente" class="font-dropdown">
+              <option value="system-ui, sans-serif">Dustismo (Predeterminada)</option>
+              <option value="Arial, sans-serif">Arial</option>
+              <option value="'Courier New', monospace">Courier New</option>
+              <option value="Georgia, serif">Georgia</option>
+              <option value="'Times New Roman', serif">Times New Roman</option>
+              <option value="'Verdana', sans-serif">Verdana</option>
+              <option value="'Tahoma', sans-serif">Tahoma</option>
+              <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+              <option value="'Lucida Console', monospace">Lucida Console</option>
+              <option value="'Comic Sans MS', cursive, sans-serif">Comic Sans MS</option>
+              <option value="'Impact', sans-serif">Impact</option>
+              <option value="'Palatino Linotype', serif">Palatino Linotype</option>
+              <option value="'Garamond', serif">Garamond</option>
+              <option value="'Century Gothic', sans-serif">Century Gothic</option>
+              <option value="'Franklin Gothic Medium', sans-serif">Franklin Gothic</option>
+              <option value="'Brush Script MT', cursive">Brush Script</option>
+            </select>
+          </div>
+          <div class="preview-box">
+            <span class="preview-text-sample" id="textoMuestra">Ejemplo de Texto</span>
+          </div>
+        </div>
+
+        <div class="control-card color-picker-card">
+          <span class="card-label-center">color</span>
+          <div class="palette-content">
+            <div class="preview-large-a" id="previewLetraAa">Aa</div>
+            <div class="color-dots-grid">
+              <span class="dot" data-color="#8b5cf6" style="background:#8b5cf6;"></span>
+              <span class="dot" data-color="#3b82f6" style="background:#3b82f6;"></span>
+              <span class="dot" data-color="#ec4899" style="background:#ec4899;"></span>
+              <span class="dot" data-color="#ef4444" style="background:#ef4444;"></span>
+              <span class="dot" data-color="#f59e0b" style="background:#f59e0b;"></span>
+              <span class="dot" data-color="#f97316" style="background:#f97316;"></span>
+              <span class="dot" data-color="#0284c7" style="background:#0284c7;"></span>
+              <span class="dot" data-color="#06b6d4" style="background:#06b6d4;"></span>
+              <span class="dot" data-color="#8b5cf6" style="background:#8b5cf6;"></span>
+              <span class="dot" data-color="#10b981" style="background:#10b981;"></span>
+              <span class="dot selected-dot" data-color="#1e293b" style="background:#000000;"></span>
+              <span class="dot" data-color="#f97316" style="background:#f97316;"></span>
+              <span class="dot" data-color="#475569" style="background:#475569;"></span>
+              <span class="dot" data-color="#78350f" style="background:#78350f;"></span>
+              <span class="dot" data-color="#0d9488" style="background:#0d9488;"></span>
+              <span class="dot" data-color="#eab308" style="background:#eab308;"></span>
+              <span class="dot" data-color="#9d174d" style="background:#9d174d;"></span>
+              <span class="dot" data-color="#0891b2" style="background:#0891b2;"></span>
+              <span class="dot" data-color="#6b21a8" style="background:#6b21a8;"></span>
+              <span class="dot" data-color="#15803d" style="background:#15803d;"></span>
+              <span class="dot" data-color="#65a30d" style="background:#65a30d;"></span>
+            </div>
+          </div>
+          <div class="bottom-palette-dots">
+            <span class="dot-lg black-dot" data-color="#1e293b"></span>
+            <span class="dot-lg white-dot" data-color="#ffffff"></span>
+          </div>
+        </div>
+
+      </div>
+
+      <img src="/public/img/icono_accesibilidad.png" alt="Accesibilidad" class="floating-accessibility-icon">
+    </main>
+  </div>
+
+  <script src="/public/js/accesibilidad.js"></script>
+</body>
+</html>
