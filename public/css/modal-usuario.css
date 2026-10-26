@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.contenido{
+    position: relative;
+    background-color: #f8fafc;
+    border-radius: 5px;
+    padding: 30px 25px 25px 25px;
+    gap: 10px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.volver{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background-color: none;
+    border: none;
+    font-size: 15;
+    font-weight: bold;
+    cursor: pointer;
+    color: #555;
+}
+
+.imagen{
+    margin-bottom: 5px;
+}
+
+.imagen-usuario{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.datos{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.etiqueta{
+    font-weight: bold;
+    color: #444;
+    text-transform: lowercase;
+    width: 70px;
+    text-align: left;
+}
+
+.info{
+    padding: 10px 15px;
+    color: #444;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 14px;
+}
+
+.seccion{
+    display: flex;
+    margin-top: 10px;
+    gap: 15px;
+    width: 100%;
+}
+
+.log-out, .perfil{
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    color: #f8fafc;
+    text-align: center;
+}
+
+.log-out{
+    background-color: #dc2626;
+}
+
+.log-out:hover{
+    background-color: #b91c1c;
+}
+
+.perfil{
+    background-color: #2563eb;
+}
+
+.perfil:hover{
+    background-color: #1e40af;
+}
