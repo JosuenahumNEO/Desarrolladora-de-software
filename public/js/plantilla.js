@@ -75,3 +75,4 @@ document.addEventListener("DOMContentLoaded", function () {
             // Aquí se conectarán las acciones de cada botón.
         });
     });
+});
