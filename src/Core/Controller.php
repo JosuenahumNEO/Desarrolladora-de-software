@@ -12,9 +12,14 @@ abstract class Controller
 
     public function view($view, $data = [])
     {
-        if (file_exists('../src/Views/' . $view . '.php')) {
+        $phpPath  = '../src/Views/' . $view . '.php';
+        $htmlPath = '../src/Views/' . $view . '.html';
+
+        if (file_exists($phpPath)) {
             extract($data);
-            require_once '../src/Views/' . $view . '.php';
+            require_once $phpPath;
+        } elseif (file_exists($htmlPath)) {
+            require_once $htmlPath;
         } else {
             die("La vista no existe.");
         }

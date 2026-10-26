@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel de administrador — gestión y catálogo de sistemas de software.">
+    <title>Admin — Software Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/admin/home.css">
+</head>
+
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header>
+        <div class="left">
+            <div class="menu-container">
+                <div class="menu" id="menu">
+                    <i class="fa-solid fa-bars" id="keyframes2" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="brand">
+                <i class="fa-solid fa-cube logo-icon" aria-hidden="true"></i>
+                <span class="name">Software Solutions</span>
+            </div>
+        </div>
+
+        <div class="right">
+            <i class="fa-solid fa-circle-user user" aria-label="Usuario administrador"></i>
+        </div>
+    </header>
+
+    <!-- ============ SIDEBAR ============ -->
+    <div class="sidebar" id="sidebar">
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li>
+                    <button class="btn-sidebar selected" data-accion="menu" aria-current="page">
+                        <i class="fa-solid fa-house" aria-hidden="true"></i>
+                        <span class="texto">Inicio</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-sidebar" data-accion="chat">
+                        <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
+                        <span class="texto">Chat</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-sidebar" data-accion="configuracion">
+                        <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                        <span class="texto">Configuración</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-sidebar" data-accion="panel">
+                        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                        <span class="texto">Panel de administrador</span>
+                    </button>
+                </li>
+
+                <!-- Modo oscuro -->
+                <li>
+                    <button class="btn-sidebar" id="item-modo" role="switch" aria-checked="false">
+                        <i class="fa-solid fa-moon" id="icono-modo" aria-hidden="true"></i>
+                        <span class="texto">Modo oscuro</span>
+                        <span class="switch">
+                            <span class="slider"></span>
+                        </span>
+                    </button>
+                </li>
+
+                <!-- Logout empujado al fondo -->
+                <li class="down">
+                    <button class="btn-sidebar red-jhon" data-accion="logout">
+                        <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                        <span class="texto">Log out</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- ============ MAIN ============ -->
+    <main id="main">
+
+        <h1 class="titulo-pagina">Descubre nuestros sistemas</h1>
+
+        <!-- Barra de búsqueda -->
+        <div class="toolbar">
+            <div class="search-wrap">
+                <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+                <input id="search-input" type="search" class="search-input" placeholder="Buscar sistema…"
+                    aria-label="Buscar sistema">
+            </div>
+        </div>
+
+        <!-- Grid de tarjetas -->
+        <section class="sw-grid" aria-label="Catálogo de sistemas">
+
+            <!-- Tarjeta 1 -->
+            <article class="sw-card" id="card-1">
+                <div class="sw-card__media">
+                    <i class="fa-solid fa-users-gear sw-card__icon" aria-hidden="true"></i>
+                </div>
+                <div class="sw-card__body">
+                    <h2 class="sw-card__name">Sistema de Gestión</h2>
+                    <p class="sw-card__desc">Administra recursos y usuarios de forma centralizada con reportes en tiempo real.</p>
+                    <a href="#" class="sw-card__btn" aria-label="Ver más sobre Sistema de Gestión">VER +</a>
+                </div>
+            </article>
+
+            <!-- Tarjeta 2 -->
+            <article class="sw-card" id="card-2">
+                <div class="sw-card__media">
+                    <i class="fa-solid fa-globe sw-card__icon" aria-hidden="true"></i>
+                </div>
+                <div class="sw-card__body">
+                    <h2 class="sw-card__name">Portal de Clientes</h2>
+                    <p class="sw-card__desc">Acceso seguro para clientes con seguimiento de solicitudes y comunicación directa.</p>
+                    <a href="#" class="sw-card__btn" aria-label="Ver más sobre Portal de Clientes">VER +</a>
+                </div>
+            </article>
+
+            <!-- Tarjeta 3 -->
+            <article class="sw-card" id="card-3">
+                <div class="sw-card__media">
+                    <i class="fa-solid fa-chart-line sw-card__icon" aria-hidden="true"></i>
+                </div>
+                <div class="sw-card__body">
+                    <h2 class="sw-card__name">Analítica Avanzada</h2>
+                    <p class="sw-card__desc">Dashboards interactivos con métricas clave para tomar decisiones basadas en datos.</p>
+                    <a href="#" class="sw-card__btn" aria-label="Ver más sobre Analítica Avanzada">VER +</a>
+                </div>
+            </article>
+
+            <!-- Tarjeta 4 -->
+            <article class="sw-card" id="card-4">
+                <div class="sw-card__media">
+                    <i class="fa-solid fa-robot sw-card__icon" aria-hidden="true"></i>
+                </div>
+                <div class="sw-card__body">
+                    <h2 class="sw-card__name">Automatización</h2>
+                    <p class="sw-card__desc">Flujos de trabajo automatizados que reducen tiempos y eliminan tareas repetitivas.</p>
+                    <a href="#" class="sw-card__btn" aria-label="Ver más sobre Automatización">VER +</a>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- ============ FAB: Agregar sistema ============ -->
+    <button class="fab" id="fab-add" aria-label="Agregar nuevo sistema">
+        <i class="fa-solid fa-plus" aria-hidden="true"></i>
+    </button>
+
+    <script src="/js/admin/home.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+/* =====================================================
+   LOGIN ANIMATIONS — clases para errores con diseño
+   Agregar al final de login-registro.css
+   ===================================================== */
+
+/* Campo con error */
+input.input-error {
+    border: 2px solid #e53e3e !important;
+    background-color: #fff5f5 !important;
+    animation: shake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake {
+    10%, 90%  { transform: translateX(-2px); }
+    20%, 80%  { transform: translateX(4px);  }
+    30%, 50%, 70% { transform: translateX(-6px); }
+    40%, 60%  { transform: translateX(6px);  }
+}
+
+/* Toast de error */
+.toast-error {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background: #1e1f26;
+    color: #ffffff;
+    padding: 0.75rem 1.4rem 0.75rem 1rem;
+    border-radius: 0.65rem;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    border-left: 4px solid #e53e3e;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    max-width: 90vw;
+    white-space: nowrap;
+}
+
+.toast-error.toast-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.toast-error__icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    animation: pulse-icon 0.6s ease;
+}
+
+@keyframes pulse-icon {
+    0%   { transform: scale(0.6); opacity: 0; }
+    60%  { transform: scale(1.2); }
+    100% { transform: scale(1);   opacity: 1; }
+}
+
+.toast-error__close {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0 0 0 0.5rem;
+    line-height: 1;
+    transition: color 0.15s;
+}
+
+.toast-error__close:hover {
+    color: #ffffff;
+}
+
+/* Etiqueta de error debajo del campo */
+.field-error-msg {
+    font-size: 0.75rem;
+    color: #e53e3e;
+    margin-top: -14px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    animation: fadeInDown 0.25s ease;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Ocultar el mensaje de error PHP (lo reemplazamos con el toast) */
+.mensaje-error {
+    display: none;
+}

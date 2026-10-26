@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/css/modal-usuario.css">
+    <title>Modal de usuario</title>
+</head>
+<body>
+    <header>
+        <button type="button" id="enviar">Modal</button>
+    </header>
+
+    <div class="modal" id="modal">
+        <div class="contenido">
+            <button class="volver" id="volver">X</button>
+
+            <div class="imagen">
+                <img src="../../public/img/usuario.jpeg" alt="Imagen de usuario" class="imagen-usuario">
+            </div>
+
+            <div class="datos">
+                <label class="etiqueta">Nombre:</label>
+                <span class="info">josue nahum</span>
+            </div>
+ 
+            <div class="datos">
+                <label class="etiqueta">Correo:</label>
+                <span class="info">correo@gmail.com</span>
+            </div>
+
+            <div class="seccion">
+                <button class="log-out" id="log-out">Cerrar sesión</button>
+                 <button class="perfil" id="perfil">Editar perfil</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../public/js/modal-usuario.js" defer></script>
+</body>
+</html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configuracion</title>
-    <link rel="stylesheet" href="../../public/css/configuracion.css">
+    <link rel="stylesheet" href="/public/css/configuracion.css">
 </head>
 
 <body>
@@ -15,18 +15,18 @@
         <div class="left">
             <div class="menu-container">
                 <div class="menu" id="menu">
-                    <img src="../../public/svg/keyframes.svg" alt="" id="keyframes2">
+                    <img src="/public/svg/keyframes.svg" alt="" id="keyframes2">
                 </div>
             </div>
             <div class="brand">
-                <img src="../../public/svg/cube-hole.svg" alt="" class="logo">
+                <img src="/public/svg/cube-hole.svg" alt="" class="logo">
                 <span class="name"> PortDevs Solutions</span>
             </div>
         </div>
 
         <div class="right">
             <!--AQUI IRA FOTO DEL USUARIO NO ICO, luego cambiar-->
-            <img src="../../public/img/usuario.jpeg" alt="" class="user">
+            <img src="/public/img/usuario.jpeg" alt="" class="user">
         </div>
 
     </header>
@@ -37,26 +37,26 @@
             <ul>
                 <li>
                     <button class="btn-sidebar" data-accion="menu">
-                        <img src="../../public/svg/border-all-solid-full.svg" alt="">
+                        <img src="/public/svg/border-all-solid-full.svg" alt="">
                         <span class="texto">Menu</span>
                     </button>
                 </li>
                 <li>
                     <button class="btn-sidebar" data-accion="chat">
-                        <img src="../../public/svg/comment-dots-regular-full.svg" alt="">
+                        <img src="/public/svg/comment-dots-regular-full.svg" alt="">
                         <span class="texto">Chat</span>
                     </button>
                 </li>
                 <li>
                     <button class="btn-sidebar selected" data-accion="configuracion" aria-current="page">
-                        <img src="../../public/svg/gear-solid-full.svg" alt="">
+                        <img src="/public/svg/gear-solid-full.svg" alt="">
                         <span class="texto">Configuracion</span>
                     </button>
                 </li>
                 <li>
                     <!-- No lleva algun data-accion porque el JS la maneja aparte (para el modo oscuro) -->
                     <button class="btn-sidebar" id="item-modo" role="switch" aria-checked="false">
-                        <img id="icono-modo" src="../../public/svg/moon-sat.svg" alt="">
+                        <img id="icono-modo" src="/public/svg/moon-sat.svg" alt="">
                         <span class="texto">Modo oscuro</span>
                         <span class="switch">
                             <span class="slider"></span>
@@ -67,7 +67,7 @@
                 <!--Logout-->
                 <li class="down">
                     <button class="btn-sidebar red-jhon" data-accion="logout">
-                        <img src="../../public/svg/right-from-bracket-solid-full.svg" alt="">
+                        <img src="/public/svg/right-from-bracket-solid-full.svg" alt="">
                         <span class="texto">LogOut</span>
                     </button>
                 </li>
@@ -84,22 +84,22 @@
             <div class="columna">
                 <button class="card2 cuenta" data-accion="cuenta">
                     <span class="titulo">Cuenta</span>
-                    <img class="icono" src="../../public/svg/user-solid-full.svg" alt="">
+                    <img class="icono" src="/public/svg/user-solid-full.svg" alt="">
                 </button>
 
                 <button class="card1 apariencia" data-accion="apariencia">
                     <span class="titulo">Apariencia</span>
-                    <img class="icono icono-grande" src="../../public/svg/palette-solid-full.svg" alt="">
+                    <img class="icono icono-grande" src="/public/svg/palette-solid-full.svg" alt="">
                 </button>
 
                 <button class="card2 privacidad" data-accion="privacidad">
                     <span class="titulo">Privacidad</span>
-                    <img class="icono" src="../../public/svg/eye-slash-solid-full.svg" alt="">
+                    <img class="icono" src="/public/svg/eye-slash-solid-full.svg" alt="">
                 </button>
 
                 <button class="card2 soporte" data-accion="soporte">
                     <span class="titulo">Soporte</span>
-                    <img class="icono" src="../../public/svg/headset-help.svg" alt="">
+                    <img class="icono" src="/public/svg/headset-help.svg" alt="">
                 </button>
             </div>
 
@@ -107,38 +107,35 @@
             <div class="columna">
                 <button class="card1 idioma" data-accion="idioma">
                     <span class="titulo">Idioma</span>
-                    <img class="icono icono-grande" src="../../public/svg/language-solid-full.svg" alt="">
+                    <img class="icono icono-grande" src="/public/svg/language-solid-full.svg" alt="">
                 </button>
 
                 <button class="card2 accesibilidad" data-accion="accesibilidad">
                     <span class="titulo">Accesibilidad</span>
-                    <img class="icono" src="../../public/svg/accessibility.svg" alt="">
+                    <img class="icono" src="/public/svg/accessibility.svg" alt="">
                 </button>
 
                 <button class="card2 notificaciones" data-accion="notificaciones">
                     <span class="titulo">Notificaciones</span>
-                    <img class="icono" src="../../public/svg/bell-solid-full.svg" alt="">
+                    <img class="icono" src="/public/svg/bell-solid-full.svg" alt="">
                 </button>
 
                 <button class="card1 seguridad" data-accion="seguridad">
                     <span class="titulo">Seguridad</span>
-                    <img class="icono icono-grande" src="../../public/svg/user-shield-solid-full.svg" alt="">
+                    <img class="icono icono-grande" src="/public/svg/user-shield-solid-full.svg" alt="">
                 </button>
             </div>
 
             <!-- Barra completa de abajo -->
             <button class="card3 datos" data-accion="datos">
                 <span class="titulo">Datos</span>
-                <img class="icono" src="../../public/svg/database-solid-full.svg" alt="">
+                <img class="icono" src="/public/svg/database-solid-full.svg" alt="">
             </button>
 
         </div>
-
-        <!-- Reemplaza el enlace antiguo de "Cerrar sesión" si lo tienes -->
-        <button class="cerrar-sesion" data-accion="cerrar-sesion">CERRAR SESION</button>
     </main>
 
-    <script src="../../public/js/configuracion.js"></script>
+    <script src="/public/js/configuracion.js"></script>
 </body>
 
 </html>

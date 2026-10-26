@@ -4,8 +4,8 @@ namespace App\Core;
 
 class App
 {
-    protected $controller = 'HomeController';
-    protected $method = 'index';
+    protected $controller = 'AuthController';
+    protected $method = 'login';
     protected $params = [];
 
     public function __construct()
