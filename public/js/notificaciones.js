@@ -88,6 +88,17 @@ document.addEventListener("DOMContentLoaded", function () {
         "estado-notificaciones"
     );
 
+// Recuperar la preferencia guardada al abrir la página
+const notificacionesGuardadas = localStorage.getItem(
+    "notificacionesActivas"
+);
+
+if (notificacionesGuardadas !== null) {
+    interruptorNotificaciones.checked =
+        notificacionesGuardadas === "1";
+}
+
+
     function actualizarEstadoNotificaciones() {
         if (!interruptorNotificaciones || !estadoNotificaciones) {
             return;
@@ -107,6 +118,14 @@ document.addEventListener("DOMContentLoaded", function () {
             "change",
             actualizarEstadoNotificaciones
         );
+
+// Guardar la preferencia cuando cambie el interruptor
+interruptorNotificaciones.addEventListener("change", function () {
+    localStorage.setItem(
+        "notificacionesActivas",
+        interruptorNotificaciones.checked ? "1" : "0"
+    );
+});
 
         actualizarEstadoNotificaciones();
     }
