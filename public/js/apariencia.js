@@ -189,4 +189,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+    // ==========================================
+    // 9. NAVEGACIÓN ENTRE LAS VISTAS
+    // ==========================================
+
+    const rutasVistas = {
+        menu: "menu.html",
+        chat: "chat.html",
+        configuracion: "configuracion.html"
+    };
+
+    document.querySelectorAll(".btn-sidebar[data-accion]").forEach((boton) => {
+
+        boton.addEventListener("click", () => {
+
+            const accion = boton.dataset.accion;
+            const ruta = rutasVistas[accion];
+
+            if (ruta) {
+                window.location.href = ruta;
+            }
+
+        });
+
+    });
+
 });

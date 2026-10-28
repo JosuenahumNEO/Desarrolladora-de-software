@@ -170,7 +170,22 @@ document.addEventListener("DOMContentLoaded", function () {
     // 8. ESTADO INICIAL DE LA VISTA
     // ==========================================
 
-    cambiarIdioma("es-MX");
+   // Recuperar el idioma guardado //
+let idiomaGuardado = "es-MX";
+try {
+    const idiomaGuardadoLocal = localStorage.getItem("idiomaSeleccionado");
+
+    if (idiomaGuardadoLocal && nombresIdiomas[idiomaGuardadoLocal]) {
+        idiomaGuardado = idiomaGuardadoLocal;
+    }
+
+} catch (error) {
+    console.warn("No se pudo recuperar el idioma seleccionado.");
+}
+
+// Aplicar el idioma guardado al cargar la página
+cambiarIdioma(idiomaGuardado);
+
 
 });
 
@@ -181,3 +196,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Conectar con el Google Translate //
 
+
+
+
+
+
+
+
+
+
+    // ==========================================
+    // 9. NAVEGACIÓN ENTRE LAS VISTAS
+    // ==========================================
+
+    const rutasVistas = {
+        menu: "menu.html",
+        chat: "chat.html",
+        configuracion: "configuracion.html"
+    };
+
+    document.querySelectorAll(".btn-sidebar[data-accion]").forEach((boton) => {
+
+        boton.addEventListener("click", () => {
+
+            const accion = boton.dataset.accion;
+            const ruta = rutasVistas[accion];
+
+            if (ruta) {
+                window.location.href = ruta;
+            }
+
+        });
+
+    });
