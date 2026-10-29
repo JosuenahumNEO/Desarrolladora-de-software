@@ -88,6 +88,17 @@ document.addEventListener("DOMContentLoaded", function () {
         "estado-notificaciones"
     );
 
+// Recuperar la preferencia guardada al abrir la página
+const notificacionesGuardadas = localStorage.getItem(
+    "notificacionesActivas"
+);
+
+if (notificacionesGuardadas !== null) {
+    interruptorNotificaciones.checked =
+        notificacionesGuardadas === "1";
+}
+
+
     function actualizarEstadoNotificaciones() {
         if (!interruptorNotificaciones || !estadoNotificaciones) {
             return;
@@ -108,7 +119,38 @@ document.addEventListener("DOMContentLoaded", function () {
             actualizarEstadoNotificaciones
         );
 
+// Guardar la preferencia cuando cambie el interruptor
+interruptorNotificaciones.addEventListener("change", function () {
+    localStorage.setItem(
+        "notificacionesActivas",
+        interruptorNotificaciones.checked ? "1" : "0"
+    );
+});
+
         actualizarEstadoNotificaciones();
     }
 
+
+        // NAVEGACIÓN ENTRE LAS VISTAS //
+
+    const rutasVistas = {
+        menu: "menu.html",
+        chat: "chat.html",
+        configuracion: "configuracion.html"
+    };
+
+    document.querySelectorAll(".btn-sidebar[data-accion]").forEach((boton) => {
+
+        boton.addEventListener("click", () => {
+
+            const accion = boton.dataset.accion;
+            const ruta = rutasVistas[accion];
+
+            if (ruta) {
+                window.location.href = ruta;
+            }
+
+        });
+
+    });
 });
