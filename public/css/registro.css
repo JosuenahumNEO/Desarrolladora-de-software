@@ -1,0 +1,580 @@
+/* =====================================================
+   REGISTRO — Software Solutions
+   Diseño unificado basado en los Home de Cliente, Admin y Super Admin
+   Paleta: #34e6aa (Teal), #91a2d9 (Interactive Blue), #1e1f26 (Dark)
+   ===================================================== */
+
+/* =====================================================
+   TOKENS & VARIABLES (Consistente con base.css y cliente/home.css)
+   ===================================================== */
+:root {
+    /* Paleta de Marca */
+    --brand-teal: #34e6aa;
+    --brand-teal-dark: #1fc4a0;
+    --brand-interactive: #91a2d9;
+    --brand-interactive-hover: #7b8ec4;
+    --brand-purple: #5b5fe0;
+    --brand-gradient: linear-gradient(135deg, #34e6aa 0%, #91a2d9 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #1fc4a0 0%, #7b8ec4 100%);
+
+    /* Modo Claro */
+    --bg-page: #f4f6fa;
+    --bg-card: #ffffff;
+    --bg-input: #f8fafc;
+    --border-color: rgba(145, 162, 217, 0.35);
+    --border-focus: #91a2d9;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+    --shadow-card: 0 16px 40px -8px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(145, 162, 217, 0.2);
+    --shadow-input-focus: 0 0 0 4px rgba(145, 162, 217, 0.22);
+    --card-glow-1: rgba(52, 230, 170, 0.12);
+    --card-glow-2: rgba(145, 162, 217, 0.15);
+
+    /* Estados de validación */
+    --color-error: #ef4444;
+    --bg-error: #fef2f2;
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+}
+
+/* Modo Oscuro (se activa con la clase .modo-oscuro en el body) */
+body.modo-oscuro {
+    --bg-page: #13141a;
+    --bg-card: #1e1f26;
+    --bg-input: #2a2c36;
+    --border-color: rgba(145, 162, 217, 0.22);
+    --border-focus: #6d8fe8;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --shadow-card: 0 20px 48px -10px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(145, 162, 217, 0.15);
+    --shadow-input-focus: 0 0 0 4px rgba(109, 143, 232, 0.28);
+    --card-glow-1: rgba(52, 230, 170, 0.07);
+    --card-glow-2: rgba(109, 143, 232, 0.12);
+
+    --color-error: #f87171;
+    --bg-error: rgba(239, 68, 68, 0.12);
+}
+
+/* =====================================================
+   RESET & BASE
+   ===================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    position: relative;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Fondo con degradado ambiental y sutil textura */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+body::before {
+    width: 480px;
+    height: 480px;
+    top: -120px;
+    left: -100px;
+    background: var(--card-glow-1);
+}
+
+body::after {
+    width: 440px;
+    height: 440px;
+    bottom: -100px;
+    right: -100px;
+    background: var(--card-glow-2);
+}
+
+/* =====================================================
+   TARJETA CONTENEDORA
+   ===================================================== */
+.contenedor {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2.25rem 2.5rem;
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(16px);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* =====================================================
+   BARRA SUPERIOR (Logo + Switch de modo)
+   ===================================================== */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.75rem;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.brand__logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 12px;
+    background: var(--brand-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(52, 230, 170, 0.3);
+    color: #ffffff;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.brand:hover .brand__logo {
+    transform: rotate(6deg) scale(1.05);
+}
+
+.brand__name {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+/* Botón de alternancia de modo oscuro/claro */
+.boton-modo {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-input);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.05rem;
+    transition: all 0.2s ease;
+}
+
+.boton-modo:hover {
+    color: var(--text-primary);
+    border-color: var(--border-focus);
+    transform: translateY(-1px);
+}
+
+/* =====================================================
+   ENCABEZADO DEL FORMULARIO
+   ===================================================== */
+.header-registro {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.header-registro .badge-rol {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    background-color: rgba(145, 162, 217, 0.16);
+    color: var(--brand-interactive);
+    margin-bottom: 0.6rem;
+}
+
+.header-registro h1 {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+    margin-bottom: 0.4rem;
+}
+
+.header-registro p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* =====================================================
+   CAMPOS DEL FORMULARIO
+   ===================================================== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    position: relative;
+}
+
+.form-group label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.01em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Input Wrapper con Icono */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    pointer-events: none;
+    transition: color 0.2s ease;
+    z-index: 2;
+}
+
+.input-wrapper input {
+    width: 100%;
+    height: 2.85rem;
+    padding: 0.6rem 2.75rem 0.6rem 2.75rem;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-wrapper input::placeholder {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.input-wrapper input:focus {
+    border-color: var(--border-focus);
+    background-color: var(--bg-card);
+    box-shadow: var(--shadow-input-focus);
+}
+
+.input-wrapper input:focus + .input-icon,
+.input-wrapper:focus-within .input-icon {
+    color: var(--brand-interactive);
+}
+
+/* Botón alternar visibilidad de contraseña */
+.btn-toggle-pass {
+    position: absolute;
+    right: 0.85rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.95rem;
+    padding: 0.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    z-index: 2;
+}
+
+.btn-toggle-pass:hover {
+    color: var(--text-primary);
+    background-color: rgba(145, 162, 217, 0.12);
+}
+
+/* Indicador de fortaleza de contraseña */
+.password-meter {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.2rem;
+}
+
+.meter-track {
+    flex: 1;
+    height: 4px;
+    background-color: var(--border-color);
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.meter-bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 9999px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.meter-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    min-width: 65px;
+    text-align: right;
+}
+
+/* Mensajes de error y ayuda inline */
+.field-error-msg {
+    font-size: 0.75rem;
+    color: var(--color-error);
+    margin-top: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    animation: fadeInDown 0.25s ease;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-3px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Input en estado inválido */
+input.input-error {
+    border-color: var(--color-error) !important;
+    background-color: var(--bg-error) !important;
+    animation: shake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake {
+    10%, 90% { transform: translateX(-2px); }
+    20%, 80% { transform: translateX(3px); }
+    30%, 50%, 70% { transform: translateX(-4px); }
+    40%, 60% { transform: translateX(4px); }
+}
+
+/* =====================================================
+   TÉRMINOS Y CONDICIONES (Checkbox)
+   ===================================================== */
+.terms-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    margin-top: 0.25rem;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.terms-group input[type="checkbox"] {
+    width: 1.15rem;
+    height: 1.15rem;
+    margin-top: 0.12rem;
+    accent-color: var(--brand-interactive);
+    cursor: pointer;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.terms-group a {
+    color: var(--brand-interactive);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.terms-group a:hover {
+    color: var(--brand-interactive-hover);
+    text-decoration: underline;
+}
+
+/* =====================================================
+   BOTÓN PRINCIPAL REGISTRARSE
+   ===================================================== */
+.boton-principal {
+    width: 100%;
+    height: 3rem;
+    margin-top: 0.5rem;
+    background: var(--brand-gradient);
+    border: none;
+    border-radius: 9999px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(52, 230, 170, 0.35);
+    transition: all 0.25s ease;
+}
+
+.boton-principal:hover {
+    background: var(--brand-gradient-hover);
+    box-shadow: 0 6px 20px rgba(52, 230, 170, 0.45);
+    transform: translateY(-2px);
+}
+
+.boton-principal:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(52, 230, 170, 0.3);
+}
+
+.boton-principal i {
+    font-size: 0.95rem;
+    transition: transform 0.2s ease;
+}
+
+.boton-principal:hover i {
+    transform: translateX(3px);
+}
+
+/* =====================================================
+   PIE CON ENLACE A LOGIN
+   ===================================================== */
+.enlace {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.enlace a {
+    color: var(--brand-interactive);
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 0.25rem;
+    transition: color 0.2s ease;
+}
+
+.enlace a:hover {
+    color: var(--brand-interactive-hover);
+    text-decoration: underline;
+}
+
+/* =====================================================
+   TOAST DE NOTIFICACIÓN FLOTANTE
+   ===================================================== */
+.toast-notif {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #1e1f26;
+    color: #ffffff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+    border-left: 4px solid var(--brand-teal);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    max-width: 90vw;
+}
+
+.toast-notif.toast-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.toast-notif.toast-error {
+    border-left-color: var(--color-error);
+}
+
+.toast-notif__icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.toast-notif__close {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0 0.25rem;
+    line-height: 1;
+    transition: color 0.15s ease;
+}
+
+.toast-notif__close:hover {
+    color: #ffffff;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
+@media (max-width: 540px) {
+    body {
+        padding: 1rem 0.75rem;
+        align-items: flex-start;
+    }
+
+    .contenedor {
+        padding: 1.75rem 1.25rem;
+        border-radius: 16px;
+    }
+
+    .header-registro h1 {
+        font-size: 1.4rem;
+    }
+
+    .input-wrapper input {
+        height: 2.7rem;
+        font-size: 0.88rem;
+    }
+
+    .boton-principal {
+        height: 2.85rem;
+        font-size: 0.88rem;
+    }
+}
+

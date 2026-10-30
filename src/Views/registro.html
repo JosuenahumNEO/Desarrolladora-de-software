@@ -4,65 +4,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crea tu cuenta en Software Solutions — Plataforma integral de gestión y soluciones de software.">
+    <title>Registro — Software Solutions</title>
 
-    <title>Registro de cuenta</title>
+    <!-- Tipografía Inter & Iconos Font Awesome (mismo stack que los paneles Home) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <link rel="stylesheet" href="../../public/css/login-registro.css">
-    <script src="/public/js/login-registro.js"></script>
+    <!-- Hoja de estilos del registro -->
+    <link rel="stylesheet" href="../../public/css/registro.css">
 </head>
 
 <body>
 
     <main class="contenedor">
 
-        <!-- Control para cambiar entre modos visuales -->
-        <div class="control-modo">
-            <button type="button" onclick="cambiarModo()" id="boton-modo">
-                👁
+        <!-- Barra superior: Marca y selector de tema -->
+        <div class="top-bar">
+            <a href="cliente/home.html" class="brand" title="Software Solutions">
+                <div class="brand__logo" aria-hidden="true">
+                    <i class="fa-solid fa-cube"></i>
+                </div>
+                <span class="brand__name">Software Solutions</span>
+            </a>
+
+            <button type="button" class="boton-modo" id="boton-modo" aria-label="Cambiar entre modo claro y oscuro" title="Cambiar modo de visualización">
+                <i class="fa-solid fa-moon" id="icono-modo" aria-hidden="true"></i>
             </button>
         </div>
 
-        <h1>REGISTRO DE CUENTA</h1>
+        <!-- Encabezado del Registro -->
+        <header class="header-registro">
+            <span class="badge-rol">
+                <i class="fa-solid fa-user-plus" aria-hidden="true"></i> Nueva Cuenta
+            </span>
+            <h1>Crea tu cuenta</h1>
+            <p>Ingresa tus datos para comenzar a explorar y gestionar nuestros sistemas.</p>
+        </header>
 
-        <form>
+        <!-- Formulario de Registro -->
+        <form id="form-registro" novalidate>
 
-            <label for="nombre">
-                Nombre (empresa / persona)
+            <!-- Campo: Nombre o Razón Social -->
+            <div class="form-group">
+                <label for="nombre">Nombre (persona o empresa)</label>
+                <div class="input-wrapper">
+                    <i class="fa-regular fa-user input-icon" aria-hidden="true"></i>
+                    <input 
+                        type="text" 
+                        id="nombre" 
+                        name="nombre" 
+                        placeholder="Ej. Innova Tech / María Gómez" 
+                        required 
+                        autocomplete="name"
+                    >
+                </div>
+            </div>
+
+            <!-- Campo: Correo Electrónico -->
+            <div class="form-group">
+                <label for="correo">Correo electrónico</label>
+                <div class="input-wrapper">
+                    <i class="fa-regular fa-envelope input-icon" aria-hidden="true"></i>
+                    <input 
+                        type="email" 
+                        id="correo" 
+                        name="correo" 
+                        placeholder="ejemplo@empresa.com" 
+                        required 
+                        autocomplete="email"
+                    >
+                </div>
+            </div>
+
+            <!-- Campo: Contraseña -->
+            <div class="form-group">
+                <label for="contrasena">Contraseña</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock input-icon" aria-hidden="true"></i>
+                    <input 
+                        type="password" 
+                        id="contrasena" 
+                        name="contrasena" 
+                        placeholder="Mínimo 8 caracteres" 
+                        required 
+                        autocomplete="new-password"
+                    >
+                    <button 
+                        type="button" 
+                        class="btn-toggle-pass" 
+                        data-target="contrasena" 
+                        aria-label="Mostrar u ocultar contraseña"
+                    >
+                        <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <!-- Barra de seguridad de contraseña -->
+                <div class="password-meter" aria-live="polite">
+                    <div class="meter-track">
+                        <div class="meter-bar" id="meter-bar"></div>
+                    </div>
+                    <span class="meter-label" id="meter-label">Seguridad</span>
+                </div>
+            </div>
+
+            <!-- Campo: Confirmar Contraseña -->
+            <div class="form-group">
+                <label for="confirmar">Repetir contraseña</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-shield-halved input-icon" aria-hidden="true"></i>
+                    <input 
+                        type="password" 
+                        id="confirmar" 
+                        name="confirmar" 
+                        placeholder="Repite tu contraseña" 
+                        required 
+                        autocomplete="new-password"
+                    >
+                    <button 
+                        type="button" 
+                        class="btn-toggle-pass" 
+                        data-target="confirmar" 
+                        aria-label="Mostrar u ocultar confirmación de contraseña"
+                    >
+                        <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Checkbox de Términos y Condiciones -->
+            <label class="terms-group" for="terminos">
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <span>Acepto los <a href="terminos_condiciones.html" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a> y la <a href="politica_privacidad.html" target="_blank" rel="noopener noreferrer">Política de Privacidad</a></span>
             </label>
 
-            <input type="text" id="nombre" name="nombre" required>
+            <!-- Botón de Envío -->
+            <button type="submit" class="boton-principal" id="btn-registrarse">
+                <span>Registrarse</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </button>
 
-            <label for="correo">
-                Correo electrónico
-            </label>
-
-            <input type="email" id="correo" name="correo" required>
-
-            <label for="contrasena">
-                Contraseña
-            </label>
-
-            <input type="password" id="contrasena" name="contrasena" required>
-
-            <label for="confirmar">
-                Repetir contraseña
-            </label>
-
-            <input type="password" id="confirmar" name="confirmar" required>
-
+            <!-- Redirección a Inicio de Sesión -->
             <p class="enlace">
                 ¿Ya tienes una cuenta?
                 <a href="login.html">Inicia sesión</a>
             </p>
 
-            <button type="submit" class="boton-principal">
-                REGISTRARSE
-            </button>
-
         </form>
 
     </main>
 
+    <!-- Lógica de interfaz (Modo oscuro compatible con Homes, visibilidad de contraseña y validaciones) -->
+    <script>
+        /* =====================================================
+           MODO OSCURO (Sincronizado con localStorage de los Homes)
+           ===================================================== */
+        const btnModo = document.getElementById('boton-modo');
+        const iconoModo = document.getElementById('icono-modo');
+
+        function aplicarModoOscuro(activo) {
+            document.body.classList.toggle('modo-oscuro', activo);
+            if (iconoModo) {
+                iconoModo.className = activo ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+            }
+            localStorage.setItem('modoOscuro', activo ? '1' : '0');
+        }
+
+        btnModo.addEventListener('click', () => {
+            const activo = !document.body.classList.contains('modo-oscuro');
+            aplicarModoOscuro(activo);
+        });
+
+        // Inicializar según preferencia guardada en los paneles
+        aplicarModoOscuro(localStorage.getItem('modoOscuro') === '1');
+
+        /* =====================================================
+           TOGGLE VISIBILIDAD DE CONTRASEÑA
+           ===================================================== */
+        document.querySelectorAll('.btn-toggle-pass').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.dataset.target;
+                const input = document.getElementById(targetId);
+                const icon = btn.querySelector('i');
+                if (!input) return;
+
+                const isPassword = input.type === 'password';
+                input.type = isPassword ? 'text' : 'password';
+                icon.className = isPassword ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye';
+            });
+        });
+
+        /* =====================================================
+           MEDIDOR DE FORTALEZA DE CONTRASEÑA
+           ===================================================== */
+        const passInput = document.getElementById('contrasena');
+        const meterBar = document.getElementById('meter-bar');
+        const meterLabel = document.getElementById('meter-label');
+
+        passInput.addEventListener('input', () => {
+            const val = passInput.value;
+            let score = 0;
+
+            if (val.length >= 8) score++;
+            if (/[A-Z]/.test(val)) score++;
+            if (/[0-9]/.test(val)) score++;
+            if (/[^A-Za-z0-9]/.test(val)) score++;
+
+            let pct = '0%';
+            let color = 'transparent';
+            let label = 'Seguridad';
+
+            if (val.length === 0) {
+                pct = '0%';
+                label = 'Seguridad';
+            } else if (score <= 1) {
+                pct = '25%';
+                color = '#ef4444';
+                label = 'Débil';
+            } else if (score === 2) {
+                pct = '50%';
+                color = '#f59e0b';
+                label = 'Media';
+            } else if (score === 3) {
+                pct = '75%';
+                color = '#91a2d9';
+                label = 'Buena';
+            } else {
+                pct = '100%';
+                color = '#10b981';
+                label = 'Excelente';
+            }
+
+            meterBar.style.width = pct;
+            meterBar.style.backgroundColor = color;
+            meterLabel.textContent = label;
+            meterLabel.style.color = color || 'inherit';
+        });
+
+        /* =====================================================
+           FEEDBACK TOAST & VALIDACIÓN
+           ===================================================== */
+        let toastEl = null;
+        let toastTimer = null;
+
+        function mostrarToast(mensaje, esError = true) {
+            if (!toastEl) {
+                toastEl = document.createElement('div');
+                toastEl.className = 'toast-notif';
+                toastEl.setAttribute('role', 'alert');
+                toastEl.innerHTML = `
+                    <span class="toast-notif__icon"></span>
+                    <span class="toast-notif__text"></span>
+                    <button type="button" class="toast-notif__close" aria-label="Cerrar">✕</button>
+                `;
+                toastEl.querySelector('.toast-notif__close').addEventListener('click', () => {
+                    toastEl.classList.remove('toast-visible');
+                });
+                document.body.appendChild(toastEl);
+            }
+
+            toastEl.classList.toggle('toast-error', esError);
+            toastEl.querySelector('.toast-notif__icon').textContent = esError ? '⚠️' : '✅';
+            toastEl.querySelector('.toast-notif__text').textContent = mensaje;
+            toastEl.classList.add('toast-visible');
+
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toastEl.classList.remove('toast-visible');
+            }, 4500);
+        }
+
+        function marcarError(campo, mensaje) {
+            campo.classList.add('input-error');
+            campo.setAttribute('aria-invalid', 'true');
+
+            const prevMsg = campo.closest('.form-group').querySelector('.field-error-msg');
+            if (prevMsg) prevMsg.remove();
+
+            const msg = document.createElement('p');
+            msg.className = 'field-error-msg';
+            msg.innerHTML = `<i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> ${mensaje}`;
+            campo.closest('.input-wrapper').insertAdjacentElement('afterend', msg);
+
+            campo.addEventListener('input', function limpiar() {
+                campo.classList.remove('input-error');
+                campo.removeAttribute('aria-invalid');
+                msg.remove();
+                campo.removeEventListener('input', limpiar);
+            });
+        }
+
+        const form = document.getElementById('form-registro');
+        form.addEventListener('submit', (e) => {
+            const nombre = document.getElementById('nombre');
+            const correo = document.getElementById('correo');
+            const pass = document.getElementById('contrasena');
+            const conf = document.getElementById('confirmar');
+            const terminos = document.getElementById('terminos');
+
+            let tieneError = false;
+
+            if (!nombre.value.trim()) {
+                e.preventDefault();
+                marcarError(nombre, 'Ingresa tu nombre o razón social.');
+                tieneError = true;
+            }
+
+            if (!correo.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value)) {
+                e.preventDefault();
+                marcarError(correo, 'Ingresa un correo electrónico válido.');
+                tieneError = true;
+            }
+
+            if (pass.value.length < 8) {
+                e.preventDefault();
+                marcarError(pass, 'La contraseña debe tener al menos 8 caracteres.');
+                tieneError = true;
+            }
+
+            if (pass.value !== conf.value) {
+                e.preventDefault();
+                marcarError(conf, 'Las contraseñas no coinciden.');
+                tieneError = true;
+            }
+
+            if (!terminos.checked) {
+                e.preventDefault();
+                mostrarToast('Debes aceptar los términos y condiciones para continuar.', true);
+                tieneError = true;
+            }
+
+            if (tieneError) {
+                mostrarToast('Por favor revisa los campos señalados.', true);
+            }
+        });
+    </script>
 
 </body>
 
