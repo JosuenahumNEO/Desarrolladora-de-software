@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Términos y condiciones | Foro de PortDevs</title>
-    <link rel="stylesheet" href="../../public/css/terminos_condiciones.css">
+    <link rel="stylesheet" href="/css/terminos_condiciones.css">
 </head>
 <body>
     <main class="documento">
@@ -54,3 +54,4 @@
     </main>
 </body>
 </html>
+

@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Configuración - Datos</title>
-  <link rel="icon" href="/public/img/ojo.png" type="image/png">
-  <link rel="stylesheet" href="../../public/css/datos.css">
+  <link rel="icon" href="/img/ojo.png" type="image/png">
+  <link rel="stylesheet" href="/css/datos.css">
 </head>
 <body>
 
@@ -48,7 +48,7 @@
         <div class="datos-section">
           <div class="row-delete-trigger">
             <button type="button" class="btn-red-action" id="btnAbrirEliminacion">Solicitar eliminacion de la cuenta</button>
-            <img src="/public/img/advertencia.png" alt="Advertencia" class="warning-ico" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+            <img src="/img/advertencia.png" alt="Advertencia" class="warning-ico" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
             <span class="warning-emoji" style="display:none;">⚠️</span>
           </div>
 
@@ -58,7 +58,7 @@
               <div class="input-with-icon">
                 <input type="password" id="inputPasswordEliminar" placeholder="Escribir contraseña actual">
                 <button type="button" class="icon-btn" id="togglePassEliminar">
-                  <img src="/public/img/ojo_abierto.png" alt="Mostrar" class="ico-sm" id="imgOjoEliminar">
+                  <img src="/img/ojo_abierto.png" alt="Mostrar" class="ico-sm" id="imgOjoEliminar">
                 </button>
               </div>
             </div>
@@ -82,6 +82,6 @@
     </div>
   </div>
 
-  <script src="/public/js/datos.js"></script>
+  <script src="/js/datos.js"></script>
 </body>
 </html>

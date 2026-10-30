@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Hoja de estilos del registro -->
-    <link rel="stylesheet" href="../../public/css/registro.css">
+    <link rel="stylesheet" href="/css/registro.css">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 
         <!-- Barra superior: Marca y selector de tema -->
         <div class="top-bar">
-            <a href="cliente/home.html" class="brand" title="Software Solutions">
+            <a href="/?url=home" class="brand" title="Software Solutions">
                 <div class="brand__logo" aria-hidden="true">
                     <i class="fa-solid fa-cube"></i>
                 </div>
@@ -149,7 +149,7 @@
             <!-- Redirección a Inicio de Sesión -->
             <p class="enlace">
                 ¿Ya tienes una cuenta?
-                <a href="login.html">Inicia sesión</a>
+                <a href="/?url=auth/login">Inicia sesión</a>
             </p>
 
         </form>
@@ -345,3 +345,4 @@
 </body>
 
 </html>
+

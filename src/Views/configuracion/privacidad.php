@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacidad</title>
-    <link rel="stylesheet" href="../../public/css/base.css">
-    <link rel="stylesheet" href="../../public/css/tarjetas.css">
-    <link rel="stylesheet" href="../../public/css/privacidad.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/tarjetas.css">
+    <link rel="stylesheet" href="/css/privacidad.css">
 </head>
 
 <body>
@@ -17,17 +17,17 @@
         <div class="left">
             <div class="menu-container">
                 <div class="menu" id="menu">
-                    <img src="/public/svg/keyframes.svg" alt="" id="keyframes2">
+                    <img src="/svg/keyframes.svg" alt="" id="keyframes2">
                 </div>
             </div>
             <div class="brand">
-                <img src="/public/svg/cube-hole.svg" alt="" class="logo">
+                <img src="/svg/cube-hole.svg" alt="" class="logo">
                 <span class="name"> PortDevs Solutions</span>
             </div>
         </div>
 
         <div class="right">
-            <img src="/public/img/usuario.jpeg" alt="" class="user">
+            <img src="/img/usuario.jpeg" alt="" class="user">
         </div>
     </header>
 
@@ -37,25 +37,25 @@
             <ul>
                 <li>
                     <button class="btn-sidebar" data-accion="menu">
-                        <img src="/public/svg/border-all-solid-full.svg" alt="">
+                        <img src="/svg/border-all-solid-full.svg" alt="">
                         <span class="texto">Menu</span>
                     </button>
                 </li>
                 <li>
                     <button class="btn-sidebar" data-accion="chat">
-                        <img src="/public/svg/comment-dots-regular-full.svg" alt="">
+                        <img src="/svg/comment-dots-regular-full.svg" alt="">
                         <span class="texto">Chat</span>
                     </button>
                 </li>
                 <li>
                     <button class="btn-sidebar selected" data-accion="configuracion" aria-current="page">
-                        <img src="/public/svg/gear-solid-full.svg" alt="">
+                        <img src="/svg/gear-solid-full.svg" alt="">
                         <span class="texto">Configuracion</span>
                     </button>
                 </li>
                 <li>
                     <button class="btn-sidebar" id="item-modo" role="switch" aria-checked="false">
-                        <img id="icono-modo" src="/public/svg/moon-sat.svg" alt="">
+                        <img id="icono-modo" src="/svg/moon-sat.svg" alt="">
                         <span class="texto">Modo oscuro</span>
                         <span class="switch">
                             <span class="slider"></span>
@@ -64,7 +64,7 @@
                 </li>
                 <li class="down">
                     <button class="btn-sidebar red-jhon" data-accion="logout">
-                        <img src="/public/svg/right-from-bracket-solid-full.svg" alt="">
+                        <img src="/svg/right-from-bracket-solid-full.svg" alt="">
                         <span class="texto">LogOut</span>
                     </button>
                 </li>
@@ -91,7 +91,7 @@
 
                     <div class="dato">
                         <span class="dato-icono" aria-hidden="true">
-                            <img src="/public/svg/camera-solid-full.svg" alt="">
+                            <img src="/svg/camera-solid-full.svg" alt="">
                         </span>
                         <div class="dato-texto">
                             <span class="valor">Cámara</span>
@@ -105,7 +105,7 @@
 
                     <div class="dato">
                         <span class="dato-icono" aria-hidden="true">
-                            <img src="/public/svg/microphone-solid-full.svg" alt="">
+                            <img src="/svg/microphone-solid-full.svg" alt="">
                         </span>
                         <div class="dato-texto">
                             <span class="valor">Audio</span>
@@ -119,7 +119,7 @@
 
                     <div class="dato">
                         <span class="dato-icono" aria-hidden="true">
-                            <img src="/public/svg/bell-solid-full.svg" alt="">
+                            <img src="/svg/bell-solid-full.svg" alt="">
                         </span>
                         <div class="dato-texto">
                             <span class="valor">Notificaciones</span>
@@ -133,7 +133,7 @@
 
                     <div class="dato">
                         <span class="dato-icono" aria-hidden="true">
-                            <img src="/public/svg/phone-volume-solid-full.svg" alt="">
+                            <img src="/svg/phone-volume-solid-full.svg" alt="">
                         </span>
                         <div class="dato-texto">
                             <span class="valor">Teléfono</span>
@@ -147,7 +147,7 @@
 
                     <div class="dato">
                         <span class="dato-icono" aria-hidden="true">
-                            <img src="/public/svg/message-solid-full.svg" alt="">
+                            <img src="/svg/message-solid-full.svg" alt="">
                         </span>
                         <div class="dato-texto">
                             <span class="valor">Mensajes (SMS)</span>
@@ -167,15 +167,15 @@
                     <nav class="enlaces" aria-label="Información legal">
                         <button type="button" class="enlace-fila" data-accion="quienes-somos">
                             <span>¿Quiénes somos?</span>
-                            <img src="/public/svg/angle-right-solid-full.svg" alt="" aria-hidden="true">
+                            <img src="/svg/angle-right-solid-full.svg" alt="" aria-hidden="true">
                         </button>
                         <button type="button" class="enlace-fila" data-accion="politica-privacidad">
                             <span>Política de privacidad</span>
-                           <img src="/public/svg/angle-right-solid-full.svg" alt="" aria-hidden="true">
+                           <img src="/svg/angle-right-solid-full.svg" alt="" aria-hidden="true">
                         </button>
                         <button type="button" class="enlace-fila" data-accion="terminos">
                             <span>Términos y Condiciones</span>
-                            <img src="/public/svg/angle-right-solid-full.svg" alt="" aria-hidden="true">
+                            <img src="/svg/angle-right-solid-full.svg" alt="" aria-hidden="true">
                         </button>
                     </nav>
                 </section>
@@ -183,14 +183,14 @@
 
             <!-- Panel decorativo (ojo tachado del diseño) -->
             <aside class="panel-decorativo panel-amarillo" aria-hidden="true">
-                <img src="/public/svg/eye-slash-solid-full.svg" alt="">
+                <img src="/svg/eye-slash-solid-full.svg" alt="">
                 <p>Tú decides qué compartir</p>
             </aside>
         </div>
     </main>
 
-    <script src="/public/js/base.js"></script>
-    <script src="/public/js/privacidad.js"></script>
+    <script src="/js/base.js"></script>
+    <script src="/js/privacidad.js"></script>
 </body>
 
 </html>

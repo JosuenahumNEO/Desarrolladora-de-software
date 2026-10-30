@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Configuración de Cuenta</title>
-  <link rel="icon" href="/public/img/usuario.jpeg" type="image/png">
-  <link rel="stylesheet" href="../../public/css/cuenta.css">
+  <link rel="icon" href="/img/usuario.jpeg" type="image/png">
+  <link rel="stylesheet" href="/css/cuenta.css">
 </head>
 <body>
 
@@ -48,7 +48,7 @@
             <div class="password-display">
               <input type="password" id="mainPasswordInput" value="contraseña123" readonly>
               <button type="button" class="icon-btn" id="toggleMainPass" title="Mostrar/Ocultar">
-                <img src="/public/img/ojo.png" alt="Mostrar contraseña" class="ico-sm" id="imgOjoMain">
+                <img src="/img/ojo.png" alt="Mostrar contraseña" class="ico-sm" id="imgOjoMain">
               </button>
               <button type="button" class="btn-secondary" id="btnAbrirModalPass">cambiar contraseña</button>
             </div>
@@ -60,7 +60,7 @@
               <div class="input-with-icon">
                 <input type="password" id="inputPassActual" value="contraseña123">
                 <button type="button" class="icon-btn" id="toggleModalPass">
-                  <img src="/public/img/ojo.png" alt="Mostrar contraseña" class="ico-sm" id="imgOjoModal">
+                  <img src="/img/ojo.png" alt="Mostrar contraseña" class="ico-sm" id="imgOjoModal">
                 </button>
               </div>
             </div>
@@ -85,16 +85,16 @@
 
         <div class="profile-section">
           <div class="avatar-wrapper">
-            <img src="/public/img/usuario.png" alt="Foto de perfil" id="imgPerfilActual">
+            <img src="/img/usuario.png" alt="Foto de perfil" id="imgPerfilActual">
             
             <button type="button" class="edit-avatar-btn" id="btnElegirImagen" title="Elegir imagen">
-              <img src="/public/img/lapiz.png" alt="Editar" class="ico-sm">
+              <img src="/img/lapiz.png" alt="Editar" class="ico-sm">
             </button>
             
             <input type="file" id="fileInput" accept="image/*" hidden>
           </div>
 
-          <img src="/public/img/usuario.png" alt="Silueta de usuario" class="bg-user-silhouette">
+          <img src="/img/usuario.png" alt="Silueta de usuario" class="bg-user-silhouette">
         </div>
       </div>
 
@@ -123,6 +123,6 @@
     </section>
   </div>
 
-  <script src="/public/js/cuenta.js"></script>
+  <script src="/js/cuenta.js"></script>
 </body>
 </html>

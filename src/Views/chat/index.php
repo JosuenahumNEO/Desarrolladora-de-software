@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
-    <link rel="stylesheet" href="../../public/css/chat.css">
+    <link rel="stylesheet" href="/css/chat.css">
 </head>
 
 <body>
@@ -15,18 +15,18 @@
         <div class="left">
             <div class="menu-container">
                 <div class="menu" id="menu">
-                    <img src="/public/svg/keyframes.svg" alt="" id="keyframes2">
+                    <img src="/svg/keyframes.svg" alt="" id="keyframes2">
                 </div>
             </div>
             <div class="brand">
-                <img src="/public/svg/cube-hole.svg" alt="" class="logo">
+                <img src="/svg/cube-hole.svg" alt="" class="logo">
                 <span class="name"> PortDevs Solutions</span>
             </div>
         </div>
 
         <div class="right">
             <!--AQUI IRA FOTO DEL USUARIO NO ICO, luego cambiar-->
-            <img src="/public/img/usuario.jpeg" alt="" class="user">
+            <img src="/img/usuario.jpeg" alt="" class="user">
         </div>
 
     </header>
@@ -37,26 +37,26 @@
             <ul>
                 <li>
                     <button class="btn-sidebar" data-accion="menu">
-                        <img src="/public/svg/border-all-solid-full.svg" alt="">
+                        <img src="/svg/border-all-solid-full.svg" alt="">
                         <span class="texto">Menu</span>
                     </button>
                 </li>
                 <li>
                     <button class="btn-sidebar selected" data-accion="chat" aria-current="page">
-                        <img src="/public/svg/comment-dots-regular-full.svg" alt="">
+                        <img src="/svg/comment-dots-regular-full.svg" alt="">
                         <span class="texto">Chat</span>
                     </button>
                 </li>
                 <li>
                     <button class="btn-sidebar" data-accion="configuracion">
-                        <img src="/public/svg/gear-solid-full.svg" alt="">
+                        <img src="/svg/gear-solid-full.svg" alt="">
                         <span class="texto">Configuracion</span>
                     </button>
                 </li>
                 <li>
                     <!-- No lleva data-accion porque el JS la maneja aparte (modo oscuro) -->
                     <button class="btn-sidebar" id="item-modo" role="switch" aria-checked="false">
-                        <img id="icono-modo" src="/public/svg/moon-sat.svg" alt="">
+                        <img id="icono-modo" src="/svg/moon-sat.svg" alt="">
                         <span class="texto">Modo oscuro</span>
                         <span class="switch">
                             <span class="slider"></span>
@@ -67,7 +67,7 @@
                 <!--Logout-->
                 <li class="down">
                     <button class="btn-sidebar red-jhon" data-accion="logout">
-                        <img src="/public/svg/right-from-bracket-solid-full.svg" alt="">
+                        <img src="/svg/right-from-bracket-solid-full.svg" alt="">
                         <span class="texto">LogOut</span>
                     </button>
                 </li>
@@ -84,7 +84,7 @@
         <section class="lista-chats" id="lista-chats" aria-label="Conversaciones">
 
             <button class="chat-item no-leido" data-accion="abrir-chat" data-id="1">
-                <img class="chat-avatar" src="/public/svg/cube-hole.svg" alt="">
+                <img class="chat-avatar" src="/svg/cube-hole.svg" alt="">
                 <span class="chat-info">
                     <span class="chat-nombre">Nahúm (desarrollador)</span>
                     <span class="chat-preview">buenas tardes carlos, vimos tu solicitud de interes de software y es una base de datos</span>
@@ -93,7 +93,7 @@
             </button>
 
             <button class="chat-item no-leido" data-accion="abrir-chat" data-id="2">
-                <img class="chat-avatar" src="/public/img/dev-oyoque.png" alt="">
+                <img class="chat-avatar" src="/img/dev-oyoque.png" alt="">
                 <span class="chat-info">
                     <span class="chat-nombre">Oyoque (desarrollador)</span>
                     <span class="chat-preview">claro, podemos cotizar el sistema en una reunion virtual, que te parece el 9/11</span>
@@ -111,7 +111,7 @@
         </div>
     </main>
 
-    <script src="/public/js/chat.js"></script>
+    <script src="/js/chat.js"></script>
 </body>
 
 </html>

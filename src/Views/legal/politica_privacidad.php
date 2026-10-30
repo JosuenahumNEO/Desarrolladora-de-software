@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de privacidad | Foro de PortDevs</title>
-    <link rel="stylesheet" href="../../public/css/politica_privacidad.css">
+    <link rel="stylesheet" href="/css/politica_privacidad.css">
 </head>
 <body>
     <main class="documento">
@@ -49,3 +49,4 @@
     </main>
 </body>
 </html>
+

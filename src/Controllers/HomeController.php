@@ -8,33 +8,40 @@ class HomeController extends Controller
 {
     public function index($name = 'Mundo')
     {
-        $user = $this->model('User');
-        $user->name = $name;
-
-        $this->view('home', ['name' => $user->name]);
+        $this->view('home/index', ['name' => $name]);
     }
 
-    public function login()
+    public function login(): void
     {
-        $this->view('login');
+        header('Location: /?url=auth/login');
+        exit;
     }
 
-    public function sistema()
+    public function conocenos(): void
     {
-        $this->view('sistema', [
+        $this->view('home/conocenos');
+    }
+
+    public function solicitud(): void
+    {
+        $this->view('home/solicitud');
+    }
+
+    public function sistema(): void
+    {
+        $this->view('home/sistema', [
             'systemTitle' => 'Nombre del Sistema',
             'actionText' => 'Ingresar',
             'actionUrl' => '#ingresar',
             'backText' => 'Volver',
-            'backUrl' => 'index.php?url=home',
+            'backUrl' => '/?url=home',
             'description' => 'Descripción general del sistema. Aquí se detallan los objetivos principales, funcionalidades destacadas y el valor que aporta a los usuarios.',
             'features' => [
                 'Gestión y administración centralizada.',
                 'Visualización de métricas en tiempo real.',
                 'Acceso directo desde cualquier navegador web.'
             ],
-            'imageUrl' => '' // Se deja vacío para mostrar el slot/placeholder del esqueleto, o se puede pasar una URL
+            'imageUrl' => ''
         ]);
     }
 }
-

@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seguridad</title>
-    <link rel="stylesheet" href="../../public/css/base.css">
-    <link rel="stylesheet" href="../../public/css/seguridad.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/seguridad.css">
 </head>
 
 <body>
@@ -16,17 +16,17 @@
         <div class="left">
             <div class="menu-container">
                 <div class="menu" id="menu">
-                    <img src="/public/svg/keyframes.svg" alt="" id="keyframes2">
+                    <img src="/svg/keyframes.svg" alt="" id="keyframes2">
                 </div>
             </div>
             <div class="brand">
-                <img src="/public/svg/cube-hole.svg" alt="" class="logo">
+                <img src="/svg/cube-hole.svg" alt="" class="logo">
                 <span class="name"> PortDevs Solutions</span>
             </div>
         </div>
 
         <div class="right">
-            <img src="/public/img/usuario.jpeg" alt="" class="user">
+            <img src="/img/usuario.jpeg" alt="" class="user">
         </div>
     </header>
 
@@ -36,25 +36,25 @@
             <ul>
                 <li>
                     <button class="btn-sidebar" data-accion="menu">
-                        <img src="/public/svg/border-all-solid-full.svg" alt="">
+                        <img src="/svg/border-all-solid-full.svg" alt="">
                         <span class="texto">Menu</span>
                     </button>
                 </li>
                 <li>
                     <button class="btn-sidebar" data-accion="chat">
-                        <img src="/public/svg/comment-dots-regular-full.svg" alt="">
+                        <img src="/svg/comment-dots-regular-full.svg" alt="">
                         <span class="texto">Chat</span>
                     </button>
                 </li>
                 <li>
                     <button class="btn-sidebar selected" data-accion="configuracion" aria-current="page">
-                        <img src="/public/svg/gear-solid-full.svg" alt="">
+                        <img src="/svg/gear-solid-full.svg" alt="">
                         <span class="texto">Configuracion</span>
                     </button>
                 </li>
                 <li>
                     <button class="btn-sidebar" id="item-modo" role="switch" aria-checked="false">
-                        <img id="icono-modo" src="/public/svg/moon-sat.svg" alt="">
+                        <img id="icono-modo" src="/svg/moon-sat.svg" alt="">
                         <span class="texto">Modo oscuro</span>
                         <span class="switch">
                             <span class="slider"></span>
@@ -63,7 +63,7 @@
                 </li>
                 <li class="down">
                     <button class="btn-sidebar red-jhon" data-accion="logout">
-                        <img src="/public/svg/right-from-bracket-solid-full.svg" alt="">
+                        <img src="/svg/right-from-bracket-solid-full.svg" alt="">
                         <span class="texto">LogOut</span>
                     </button>
                 </li>
@@ -88,14 +88,14 @@
                     <!-- Contraseña actual -->
                     <div class="dato">
                         <span class="dato-icono" aria-hidden="true">
-                           <img src="/public/svg/lock-solid-full.svg" alt="">
+                           <img src="/svg/lock-solid-full.svg" alt="">
                         </span>
                         <div class="dato-texto">
                             <span class="etiqueta">Contraseña actual</span>
                             <span class="valor-con-icono">
                                 <span class="valor" id="valor-contrasena">••••••••••••</span>
                                 <button type="button" class="btn-ojo" id="ojo-contrasena" aria-pressed="false" aria-label="Mostrar contraseña">
-                                    <img src="/public/svg/eye-slash-solid-full.svg" alt="">
+                                    <img src="/svg/eye-slash-solid-full.svg" alt="">
                                 </button>
                             </span>
                         </div>
@@ -105,7 +105,7 @@
                     <!-- Correo -->
                     <div class="dato">
                         <span class="dato-icono" aria-hidden="true">
-                            <img src="/public/svg/envelope-regular-full.svg" alt="">
+                            <img src="/svg/envelope-regular-full.svg" alt="">
                         </span>
                         <div class="dato-texto">
                             <span class="etiqueta">Correo</span>
@@ -116,7 +116,7 @@
                     <!-- Teléfono -->
                     <div class="dato">
                         <span class="dato-icono" aria-hidden="true">
-                            <img src="/public/svg/mobile-screen-solid-full.svg" alt="">
+                            <img src="/svg/mobile-screen-solid-full.svg" alt="">
                         </span>
                         <div class="dato-texto">
                             <span class="etiqueta">Número de teléfono</span>
@@ -129,7 +129,7 @@
                 <section class="tarjeta" aria-labelledby="titulo-2fa">
                     <div class="tarjeta-cabecera">
                         <span class="dato-icono icono-verde" aria-hidden="true">
-                            <img src="/public/svg/shield-check.svg" alt="">
+                            <img src="/svg/shield-check.svg" alt="">
                         </span>
                         <div>
                             <h2 class="tarjeta-titulo sin-margen" id="titulo-2fa">Autenticación en dos pasos</h2>
@@ -143,7 +143,7 @@
                         <input class="campo" type="password" id="input-contrasena-2fa"
                             placeholder="Escribir contraseña actual" autocomplete="current-password" enterkeyhint="go">
                         <button type="button" class="btn-ojo" id="ojo-2fa" aria-pressed="false" aria-label="Mostrar contraseña">
-                            <img src="/public/svg/eye-slash-solid-full.svg" alt="">
+                            <img src="/svg/eye-slash-solid-full.svg" alt="">
                         </button>
                         <button type="submit" class="btn-continuar">Continuar</button>
                         <p class="error" id="error-2fa" role="alert"></p>
@@ -153,7 +153,7 @@
 
             <!-- Panel decorativo (escudo del diseño) -->
             <aside class="panel-decorativo" aria-hidden="true">
-                <img src="/public/svg/user-shield-solid-full.svg" alt="">
+                <img src="/svg/user-shield-solid-full.svg" alt="">
                 <p>Tu información está protegida</p>
             </aside>
         </div>
@@ -209,8 +209,8 @@
         </div>
     </main>
 
-    <script src="/public/js/base.js"></script>
-    <script src="/public/js/seguridad.js"></script>
+    <script src="/js/base.js"></script>
+    <script src="/js/seguridad.js"></script>
 </body>
 
 </html>

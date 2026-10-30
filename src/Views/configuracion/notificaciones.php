@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notificaciones</title>
-    <link rel="stylesheet" href="../../public/css/notificaciones.css">
+    <link rel="stylesheet" href="/css/notificaciones.css">
     <script src="public/js/notificaciones.js"></script>
 </head>
 
@@ -16,18 +16,18 @@
         <div class="left">
             <div class="menu-container">
                 <div class="menu" id="menu">
-                    <img src="../../public/svg/keyframes.svg" alt="" id="keyframes2">
+                    <img src="/svg/keyframes.svg" alt="" id="keyframes2">
                 </div>
             </div>
             <div class="brand">
-                <img src="../../public/svg/cube-hole.svg" alt="" class="logo">
+                <img src="/svg/cube-hole.svg" alt="" class="logo">
                 <span class="name"> PortDevs Solutions</span>
             </div>
         </div>
 
         <div class="right">
             <!--AQUI IRA FOTO DEL USUARIO NO ICO, luego cambiar-->
-            <img src="../../public/img/usuario.jpeg" alt="" class="user">
+            <img src="/img/usuario.jpeg" alt="" class="user">
         </div>
 
     </header>
@@ -38,26 +38,26 @@
             <ul>
                 <li>
                     <button class="btn-sidebar" data-accion="menu">
-                        <img src="../../public/svg/border-all-solid-full.svg" alt="">
+                        <img src="/svg/border-all-solid-full.svg" alt="">
                         <span class="texto">Menú</span>
                     </button>
                 </li>
                 <li>
                     <button class="btn-sidebar" data-accion="chat">
-                        <img src="../../public/svg/comment-dots-regular-full.svg" alt="">
+                        <img src="/svg/comment-dots-regular-full.svg" alt="">
                         <span class="texto">Chat</span>
                     </button>
                 </li>
                 <li>
                     <button class="btn-sidebar" data-accion="configuracion" aria-current="page">
-                        <img src="../../public/svg/gear-solid-full.svg" alt="">
+                        <img src="/svg/gear-solid-full.svg" alt="">
                         <span class="texto">Configuración</span>
                     </button>
                 </li>
                 <li>
                     <!-- No lleva algun data-accion porque el JS la maneja aparte (para el modo oscuro) -->
                     <button class="btn-sidebar" id="item-modo" role="switch" aria-checked="false">
-                        <img id="icono-modo" src="../../public/svg/moon-sat.svg" alt="">
+                        <img id="icono-modo" src="/svg/moon-sat.svg" alt="">
                         <span class="texto">Modo oscuro</span>
                         <span class="switch">
                             <span class="slider"></span>
@@ -68,7 +68,7 @@
                 <!--Logout-->
                 <li class="down">
                     <button class="btn-sidebar red-jhon" data-accion="logout">
-                        <img src="../../public/svg/right-from-bracket-solid-full.svg" alt="">
+                        <img src="/svg/right-from-bracket-solid-full.svg" alt="">
                         <span class="texto">Cerrar Sesión</span>
                     </button>
                 </li>

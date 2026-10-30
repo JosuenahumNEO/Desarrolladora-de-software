@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversación</title>
-    <link rel="stylesheet" href="../../public/css/base.css">
-    <link rel="stylesheet" href="../../public/css/tarjetas.css">
-    <link rel="stylesheet" href="../../public/css/conversacion.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/tarjetas.css">
+    <link rel="stylesheet" href="/css/conversacion.css">
 </head>
 
 <body>
@@ -17,17 +17,17 @@
         <div class="left">
             <div class="menu-container">
                 <div class="menu" id="menu">
-                    <img src="/public/svg/keyframes.svg" alt="" id="keyframes2">
+                    <img src="/svg/keyframes.svg" alt="" id="keyframes2">
                 </div>
             </div>
             <div class="brand">
-                <img src="/public/svg/cube-hole.svg" alt="" class="logo">
+                <img src="/svg/cube-hole.svg" alt="" class="logo">
                 <span class="name"> PortDevs Solutions</span>
             </div>
         </div>
 
         <div class="right">
-            <img src="/public/img/usuario.jpeg" alt="" class="user">
+            <img src="/img/usuario.jpeg" alt="" class="user">
         </div>
     </header>
 
@@ -37,25 +37,25 @@
             <ul>
                 <li>
                     <button class="btn-sidebar" data-accion="menu">
-                        <img src="/public/svg/border-all-solid-full.svg" alt="">
+                        <img src="/svg/border-all-solid-full.svg" alt="">
                         <span class="texto">Menu</span>
                     </button>
                 </li>
                 <li>
                     <button class="btn-sidebar selected" data-accion="chat" aria-current="page">
-                        <img src="/public/svg/comment-dots-regular-full.svg" alt="">
+                        <img src="/svg/comment-dots-regular-full.svg" alt="">
                         <span class="texto">Chat</span>
                     </button>
                 </li>
                 <li>
                     <button class="btn-sidebar" data-accion="configuracion">
-                        <img src="/public/svg/gear-solid-full.svg" alt="">
+                        <img src="/svg/gear-solid-full.svg" alt="">
                         <span class="texto">Configuracion</span>
                     </button>
                 </li>
                 <li>
                     <button class="btn-sidebar" id="item-modo" role="switch" aria-checked="false">
-                        <img id="icono-modo" src="/public/svg/moon-sat.svg" alt="">
+                        <img id="icono-modo" src="/svg/moon-sat.svg" alt="">
                         <span class="texto">Modo oscuro</span>
                         <span class="switch">
                             <span class="slider"></span>
@@ -64,7 +64,7 @@
                 </li>
                 <li class="down">
                     <button class="btn-sidebar red-jhon" data-accion="logout">
-                        <img src="/public/svg/right-from-bracket-solid-full.svg" alt="">
+                        <img src="/svg/right-from-bracket-solid-full.svg" alt="">
                         <span class="texto">LogOut</span>
                     </button>
                 </li>
@@ -85,7 +85,7 @@
                             <path d="M15 5l-7 7 7 7" />
                         </svg>
                     </button>
-                    <img class="conv-avatar" id="conv-avatar" src="/public/svg/cube-hole.svg" alt="">
+                    <img class="conv-avatar" id="conv-avatar" src="/svg/cube-hole.svg" alt="">
                     <div class="conv-datos">
                         <span class="conv-nombre" id="conv-nombre">Desarrollador</span>
                         <span class="conv-estado">Responde en máximo 24 h</span>
@@ -112,7 +112,7 @@
 
             <!-- Panel lateral con datos del desarrollador -->
             <aside class="panel-info tarjeta" aria-label="Información del desarrollador">
-                <img class="info-avatar" id="aside-avatar" src="/public/svg/cube-hole.svg" alt="">
+                <img class="info-avatar" id="aside-avatar" src="/svg/cube-hole.svg" alt="">
                 <p class="info-nombre" id="aside-nombre">Desarrollador</p>
                 <p class="info-rol">PortDevs Solutions</p>
 
@@ -134,8 +134,8 @@
         </div>
     </main>
 
-    <script src="/public/js/base.js"></script>
-    <script src="/public/js/conversacion.js"></script>
+    <script src="/js/base.js"></script>
+    <script src="/js/conversacion.js"></script>
 </body>
 
 </html>

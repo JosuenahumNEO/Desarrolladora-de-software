@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Configuración - Accesibilidad</title>
-  <link rel="icon" href="/public/img/icono_accesibilidad.png" type="image/png">
-  <link rel="stylesheet" href="../../public/css/accesibilidad.css">
+  <link rel="icon" href="/img/icono_accesibilidad.png" type="image/png">
+  <link rel="stylesheet" href="/css/accesibilidad.css">
 </head>
 <body>
 
@@ -112,10 +112,10 @@
 
       </div>
 
-      <img src="/public/img/icono_accesibilidad.png" alt="Accesibilidad" class="floating-accessibility-icon">
+      <img src="/img/icono_accesibilidad.png" alt="Accesibilidad" class="floating-accessibility-icon">
     </main>
   </div>
 
-  <script src="/public/js/accesibilidad.js"></script>
+  <script src="/js/accesibilidad.js"></script>
 </body>
 </html>
