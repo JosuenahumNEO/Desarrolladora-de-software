@@ -40,7 +40,7 @@
     right: 15px;
     background-color: none;
     border: none;
-    font-size: 15;
+    font-size: 15px;
     font-weight: bold;
     cursor: pointer;
     color: #555;
@@ -71,6 +71,7 @@
     text-transform: lowercase;
     width: 70px;
     text-align: left;
+    font-size: 1.2rem;
 }
 
 .info{
@@ -79,7 +80,7 @@
     font-weight: bold;
     flex-grow: 1;
     text-align: center;
-    font-size: 14px;
+    font-size: 1.2rem;
 }
 
 .seccion{
