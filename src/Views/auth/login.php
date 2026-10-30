@@ -70,6 +70,9 @@ if (session_status() === PHP_SESSION_NONE) {
         <main class="contenedor">
 
             <div class="control-modo">
+                <a href="/?url=home" class="boton-regresar" aria-label="Volver al inicio" title="Volver al inicio">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+                </a>
                 <button type="button" onclick="cambiarModo()" id="boton-modo"
                     aria-pressed="false" aria-label="Cambiar a modo oscuro" title="Cambiar modo">
                     <svg class="icono-luna" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
@@ -137,7 +140,7 @@ if (session_status() === PHP_SESSION_NONE) {
         </main>
     </div>
 
-    <script src="/js/login/login.js"></script>
+    <script src="/js/login.js"></script>
 
 </body>
 </html>

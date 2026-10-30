@@ -410,15 +410,17 @@ input:focus {
     transform: translateX(4px);
 }
 
-/* ===== Botón de modo claro / oscuro ===== */
+/* ===== Barra superior de controles (regresar + modo claro / oscuro) ===== */
 
 .control-modo {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 0.5rem;
 }
 
-#boton-modo {
+#boton-modo,
+.boton-regresar {
     width: 2.5rem;
     height: 2.5rem;
     display: grid;
@@ -427,13 +429,23 @@ input:focus {
     border-radius: 50%;
     background-color: transparent;
     color: var(--texto-suave);
+    text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-#boton-modo:hover {
+#boton-modo:hover,
+.boton-regresar:hover {
     background-color: rgba(100, 116, 139, 0.15);
     color: var(--texto);
+}
+
+.boton-regresar svg {
+    transition: transform 0.2s ease;
+}
+
+.boton-regresar:hover svg {
+    transform: translateX(-3px);
 }
 
 /* luna en modo claro, sol en modo oscuro */

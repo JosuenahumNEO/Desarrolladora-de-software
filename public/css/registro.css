@@ -66,8 +66,8 @@ body.modo-oscuro {
     padding: 0;
 }
 
-html, body {
-    height: 100%;
+html {
+    min-height: 100%;
 }
 
 body {
@@ -75,12 +75,15 @@ body {
     background-color: var(--bg-page);
     color: var(--text-primary);
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    padding: 2rem 1rem;
+    align-items: center;
+    padding: 1.25rem 1rem;
     position: relative;
     overflow-x: hidden;
+    overflow-y: auto;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -119,11 +122,12 @@ body::after {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 500px;
+    max-width: 480px;
+    margin: auto 0;
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 2.25rem 2.5rem;
+    border-radius: 18px;
+    padding: 1.6rem 2rem;
     box-shadow: var(--shadow-card);
     backdrop-filter: blur(16px);
     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -136,7 +140,7 @@ body::after {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.15rem;
 }
 
 .brand {
@@ -148,16 +152,16 @@ body::after {
 }
 
 .brand__logo {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 12px;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 10px;
     background: var(--brand-gradient);
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 12px rgba(52, 230, 170, 0.3);
     color: #ffffff;
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     flex-shrink: 0;
     transition: transform 0.25s ease;
 }
@@ -167,7 +171,7 @@ body::after {
 }
 
 .brand__name {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 800;
     letter-spacing: -0.02em;
     color: var(--text-primary);
@@ -175,9 +179,9 @@ body::after {
 
 /* Botón de alternancia de modo oscuro/claro */
 .boton-modo {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 12px;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 10px;
     border: 1px solid var(--border-color);
     background-color: var(--bg-input);
     color: var(--text-secondary);
@@ -185,7 +189,7 @@ body::after {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     transition: all 0.2s ease;
 }
 
@@ -199,36 +203,36 @@ body::after {
    ENCABEZADO DEL FORMULARIO
    ===================================================== */
 .header-registro {
-    margin-bottom: 2rem;
+    margin-bottom: 1.15rem;
     text-align: left;
 }
 
 .header-registro .badge-rol {
     display: inline-block;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    padding: 0.25rem 0.75rem;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.65rem;
     border-radius: 9999px;
     background-color: rgba(145, 162, 217, 0.16);
     color: var(--brand-interactive);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.35rem;
 }
 
 .header-registro h1 {
-    font-size: 1.65rem;
+    font-size: 1.4rem;
     font-weight: 800;
     color: var(--text-primary);
     letter-spacing: -0.025em;
-    line-height: 1.25;
-    margin-bottom: 0.4rem;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
 }
 
 .header-registro p {
-    font-size: 0.88rem;
+    font-size: 0.82rem;
     color: var(--text-secondary);
-    line-height: 1.5;
+    line-height: 1.35;
 }
 
 /* =====================================================
@@ -237,18 +241,18 @@ body::after {
 form {
     display: flex;
     flex-direction: column;
-    gap: 1.15rem;
+    gap: 0.75rem;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.45rem;
+    gap: 0.3rem;
     position: relative;
 }
 
 .form-group label {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 600;
     color: var(--text-primary);
     letter-spacing: 0.01em;
@@ -266,9 +270,9 @@ form {
 
 .input-icon {
     position: absolute;
-    left: 1rem;
+    left: 0.85rem;
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     pointer-events: none;
     transition: color 0.2s ease;
     z-index: 2;
@@ -276,14 +280,14 @@ form {
 
 .input-wrapper input {
     width: 100%;
-    height: 2.85rem;
-    padding: 0.6rem 2.75rem 0.6rem 2.75rem;
+    height: 2.55rem;
+    padding: 0.45rem 2.4rem 0.45rem 2.4rem;
     background-color: var(--bg-input);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: 10px;
     color: var(--text-primary);
     font-family: inherit;
-    font-size: 0.9rem;
+    font-size: 0.86rem;
     font-weight: 500;
     outline: none;
     transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
@@ -308,17 +312,17 @@ form {
 /* Botón alternar visibilidad de contraseña */
 .btn-toggle-pass {
     position: absolute;
-    right: 0.85rem;
+    right: 0.75rem;
     background: none;
     border: none;
     color: var(--text-muted);
     cursor: pointer;
-    font-size: 0.95rem;
-    padding: 0.35rem;
+    font-size: 0.88rem;
+    padding: 0.3rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    border-radius: 6px;
     transition: color 0.2s ease, background-color 0.2s ease;
     z-index: 2;
 }
@@ -333,7 +337,7 @@ form {
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    margin-top: 0.2rem;
+    margin-top: 0.15rem;
 }
 
 .meter-track {
@@ -352,10 +356,10 @@ form {
 }
 
 .meter-label {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: var(--text-secondary);
-    min-width: 65px;
+    min-width: 60px;
     text-align: right;
 }
 
@@ -395,18 +399,18 @@ input.input-error {
 .terms-group {
     display: flex;
     align-items: flex-start;
-    gap: 0.65rem;
-    margin-top: 0.25rem;
-    font-size: 0.82rem;
+    gap: 0.55rem;
+    margin-top: 0.15rem;
+    font-size: 0.78rem;
     color: var(--text-secondary);
-    line-height: 1.4;
+    line-height: 1.35;
     cursor: pointer;
 }
 
 .terms-group input[type="checkbox"] {
-    width: 1.15rem;
-    height: 1.15rem;
-    margin-top: 0.12rem;
+    width: 1.05rem;
+    height: 1.05rem;
+    margin-top: 0.1rem;
     accent-color: var(--brand-interactive);
     cursor: pointer;
     border-radius: 4px;
@@ -430,21 +434,21 @@ input.input-error {
    ===================================================== */
 .boton-principal {
     width: 100%;
-    height: 3rem;
-    margin-top: 0.5rem;
+    height: 2.75rem;
+    margin-top: 0.35rem;
     background: var(--brand-gradient);
     border: none;
     border-radius: 9999px;
     color: #ffffff;
     font-family: inherit;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.65rem;
+    gap: 0.6rem;
     cursor: pointer;
     box-shadow: 0 4px 14px rgba(52, 230, 170, 0.35);
     transition: all 0.25s ease;
@@ -462,7 +466,7 @@ input.input-error {
 }
 
 .boton-principal i {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     transition: transform 0.2s ease;
 }
 
@@ -476,8 +480,8 @@ input.input-error {
 .enlace {
     text-align: center;
     color: var(--text-secondary);
-    font-size: 0.85rem;
-    margin-top: 0.5rem;
+    font-size: 0.82rem;
+    margin-top: 0.35rem;
 }
 
 .enlace a {
@@ -554,27 +558,48 @@ input.input-error {
    ===================================================== */
 @media (max-width: 540px) {
     body {
-        padding: 1rem 0.75rem;
-        align-items: flex-start;
+        padding: 0.75rem 0.5rem;
     }
 
     .contenedor {
-        padding: 1.75rem 1.25rem;
+        padding: 1.35rem 1.15rem;
         border-radius: 16px;
     }
 
     .header-registro h1 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 
     .input-wrapper input {
-        height: 2.7rem;
-        font-size: 0.88rem;
+        height: 2.5rem;
+        font-size: 0.85rem;
     }
 
     .boton-principal {
-        height: 2.85rem;
-        font-size: 0.88rem;
+        height: 2.6rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-height: 700px) {
+    body {
+        padding: 0.6rem 0.75rem;
+    }
+
+    .contenedor {
+        padding: 1.25rem 1.75rem;
+    }
+
+    .top-bar {
+        margin-bottom: 0.85rem;
+    }
+
+    .header-registro {
+        margin-bottom: 0.85rem;
+    }
+
+    form {
+        gap: 0.6rem;
     }
 }
 
