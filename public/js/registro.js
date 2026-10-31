@@ -1,6 +1,6 @@
 /* =====================================================
-           MODO OSCURO (Sincronizado con localStorage de los Homes)
-           ===================================================== */
+    MODO OSCURO (Sincronizado con localStorage de los Homes)
+===================================================== */
 const btnModo = document.getElementById('boton-modo');
 const iconoModo = document.getElementById('icono-modo');
 
