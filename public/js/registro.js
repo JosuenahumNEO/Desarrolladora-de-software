@@ -95,10 +95,10 @@ function mostrarToast(mensaje, esError = true) {
         toastEl.className = 'toast-notif';
         toastEl.setAttribute('role', 'alert');
         toastEl.innerHTML = `
-                    <span class="toast-notif__icon"></span>
-                    <span class="toast-notif__text"></span>
-                    <button type="button" class="toast-notif__close" aria-label="Cerrar">✕</button>
-                `;
+            <span class="toast-notif__icon"></span>
+            <span class="toast-notif__text"></span>
+            <button type="button" class="toast-notif__close" aria-label="Cerrar">✕</button>
+        `;
         toastEl.querySelector('.toast-notif__close').addEventListener('click', () => {
             toastEl.classList.remove('toast-visible');
         });
@@ -178,5 +178,35 @@ form.addEventListener('submit', (e) => {
 
     if (tieneError) {
         mostrarToast('Por favor revisa los campos señalados.', true);
+    } else {
+        const btn = document.getElementById('btn-registrarse');
+        if (btn) {
+            const span = btn.querySelector('span');
+            btn.dataset.originalText = span.textContent;
+            setTimeout(() => {
+                btn.disabled = true;
+                span.textContent = 'Registrando...';
+            }, 0);
+        }
+    }
+});
+
+/* =====================================================
+   FEEDBACK DE ERROR DEL SERVIDOR (PHP)
+   ===================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const errorPHP = document.querySelector('.mensaje-error span') || document.querySelector('.mensaje-error');
+    if (errorPHP && errorPHP.textContent.trim()) {
+        mostrarToast(errorPHP.textContent.trim(), true);
+    }
+});
+
+/* Restaurar botón si el usuario regresa con el historial */
+window.addEventListener('pageshow', () => {
+    const btn = document.getElementById('btn-registrarse');
+    if (btn && btn.dataset.originalText) {
+        const span = btn.querySelector('span');
+        if (span) span.textContent = btn.dataset.originalText;
+        btn.disabled = false;
     }
 });

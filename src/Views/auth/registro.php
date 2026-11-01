@@ -44,8 +44,15 @@
             <p>Ingresa tus datos para comenzar a explorar y gestionar nuestros sistemas.</p>
         </header>
 
+        <?php if (!empty($error)): ?>
+            <p class="mensaje-error" role="alert">
+                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                <span><?= htmlspecialchars($error) ?></span>
+            </p>
+        <?php endif; ?>
+
         <!-- Formulario de Registro -->
-        <form id="form-registro" novalidate>
+        <form id="form-registro" method="POST" action="/?url=auth/registro" novalidate>
 
             <!-- Campo: Nombre o Razón Social -->
             <div class="form-group">
@@ -56,6 +63,7 @@
                         type="text" 
                         id="nombre" 
                         name="nombre" 
+                        value="<?= htmlspecialchars($old['nombre'] ?? '') ?>"
                         placeholder="Ej. Innova Tech / María Gómez" 
                         required 
                         autocomplete="name"
@@ -72,6 +80,7 @@
                         type="email" 
                         id="correo" 
                         name="correo" 
+                        value="<?= htmlspecialchars($old['correo'] ?? '') ?>"
                         placeholder="ejemplo@empresa.com" 
                         required 
                         autocomplete="email"
@@ -137,7 +146,7 @@
             <!-- Checkbox de Términos y Condiciones -->
             <label class="terms-group" for="terminos">
                 <input type="checkbox" id="terminos" name="terminos" required>
-                <span>Acepto los <a href="terminos_condiciones.html" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a> y la <a href="politica_privacidad.html" target="_blank" rel="noopener noreferrer">Política de Privacidad</a></span>
+                <span>Acepto los <a href="/?url=legal/terminos" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a> y la <a href="/?url=legal/privacidad" target="_blank" rel="noopener noreferrer">Política de Privacidad</a></span>
             </label>
 
             <!-- Botón de Envío -->
@@ -162,4 +171,3 @@
 </body>
 
 </html>
-
