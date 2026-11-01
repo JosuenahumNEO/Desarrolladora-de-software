@@ -21,10 +21,16 @@ class AuthController extends Controller
     }
 
     /**
-     * GET ?url=auth/registro — muestra el formulario de registro
+     * GET  ?url=auth/registro — muestra el formulario de registro
+     * POST ?url=auth/registro — procesa el registro de usuario (rol cliente)
      */
     public function registro(): void
     {
+        if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
+            $this->handleRegistro();
+            return;
+        }
+
         $this->view('auth/registro');
     }
 
@@ -69,6 +75,105 @@ class AuthController extends Controller
         };
 
         header('Location: ' . $destino);
+        exit;
+    }
+
+    private function handleRegistro(): void
+    {
+        $nombre    = trim($_POST['nombre'] ?? '');
+        $correo    = trim($_POST['correo'] ?? '');
+        $password  = trim($_POST['contrasena'] ?? '');
+        $confirmar = trim($_POST['confirmar'] ?? '');
+        $terminos  = isset($_POST['terminos']);
+
+        $old = [
+            'nombre' => $nombre,
+            'correo' => $correo,
+        ];
+
+        // Validaciones
+        if ($nombre === '' || $correo === '' || $password === '' || $confirmar === '') {
+            $this->view('auth/registro', [
+                'error' => 'Por favor completa todos los campos requeridos.',
+                'old'   => $old,
+            ]);
+            return;
+        }
+
+        if (!$terminos) {
+            $this->view('auth/registro', [
+                'error' => 'Debes aceptar los términos y condiciones para continuar.',
+                'old'   => $old,
+            ]);
+            return;
+        }
+
+        if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+            $this->view('auth/registro', [
+                'error' => 'Ingresa un correo electrónico válido.',
+                'old'   => $old,
+            ]);
+            return;
+        }
+
+        if (strlen($password) < 8) {
+            $this->view('auth/registro', [
+                'error' => 'La contraseña debe tener al menos 8 caracteres.',
+                'old'   => $old,
+            ]);
+            return;
+        }
+
+        if ($password !== $confirmar) {
+            $this->view('auth/registro', [
+                'error' => 'Las contraseñas no coinciden.',
+                'old'   => $old,
+            ]);
+            return;
+        }
+
+        /** @var \App\Models\User $userModel */
+        $userModel = $this->model('User');
+
+        // Verificar si el correo ya está registrado
+        if ($userModel->findByEmail($correo)) {
+            $this->view('auth/registro', [
+                'error' => 'El correo electrónico ya se encuentra registrado.',
+                'old'   => $old,
+            ]);
+            return;
+        }
+
+        // Crear el usuario con id_rol = 3 (rol 'usuario' / cliente) según init.sql
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+        $nuevoId = $userModel->create([
+            'id_rol'   => 3,
+            'nombre'   => $nombre,
+            'correo'   => $correo,
+            'password' => $passwordHash,
+            'estado'   => 'activo',
+            'telefono' => null,
+            'genero'   => null,
+        ]);
+
+        if (!$nuevoId) {
+            $this->view('auth/registro', [
+                'error' => 'Ocurrió un error al registrar la cuenta. Intenta de nuevo más tarde.',
+                'old'   => $old,
+            ]);
+            return;
+        }
+
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        // Iniciar sesión y redirigir al panel del cliente
+        $_SESSION['usuario_id']     = $nuevoId;
+        $_SESSION['usuario_nombre']  = $nombre;
+        $_SESSION['usuario_rol']     = 'usuario';
+
+        header('Location: /?url=cliente/home');
         exit;
     }
 

@@ -363,6 +363,22 @@ form {
     text-align: right;
 }
 
+/* Mensaje de error general del servidor */
+.mensaje-error {
+    margin-bottom: 1.25rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--color-error);
+    border-radius: 12px;
+    background-color: var(--bg-error);
+    color: var(--color-error);
+    font-size: 0.88rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    animation: fadeInDown 0.25s ease;
+}
+
 /* Mensajes de error y ayuda inline */
 .field-error-msg {
     font-size: 0.75rem;
