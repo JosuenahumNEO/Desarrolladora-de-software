@@ -4,15 +4,16 @@ namespace App\Core;
 
 class App
 {
-    protected $controller = 'AuthController';
-    protected $method = 'login';
+    protected $controller = 'HomeController';
+    protected $method = 'index';
     protected $params = [];
 
     public function __construct()
     {
         $url = $this->parseUrl();
 
-        if (file_exists('../src/Controllers/' . ucfirst($url[0]) . 'Controller.php')) {
+        $controllersDir = dirname(__DIR__) . '/Controllers/';
+        if (isset($url[0]) && file_exists($controllersDir . ucfirst($url[0]) . 'Controller.php')) {
             $this->controller = ucfirst($url[0]) . 'Controller';
             unset($url[0]);
         }
@@ -24,6 +25,15 @@ class App
             if (method_exists($this->controller, $url[1])) {
                 $this->method = $url[1];
                 unset($url[1]);
+            }
+        } else {
+            // Determine the default method for the resolved controller
+            if (method_exists($this->controller, 'index')) {
+                $this->method = 'index';
+            } elseif (method_exists($this->controller, 'home')) {
+                $this->method = 'home';
+            } elseif (method_exists($this->controller, 'login')) {
+                $this->method = 'login';
             }
         }
 

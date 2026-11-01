@@ -104,7 +104,7 @@ formMensaje.addEventListener('submit', e => {
 /* ===== Botón volver ===== */
 document.querySelector('[data-accion="volver-chat"]').addEventListener('click', () => {
     console.log('Clic en: volver-chat');
-    window.location.href = '/src/Views/chat.html';
+    window.location.href = '/?url=chat';
 });
 
 inputMensaje.focus();

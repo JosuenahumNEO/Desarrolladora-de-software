@@ -134,9 +134,9 @@ interruptorNotificaciones.addEventListener("change", function () {
         // NAVEGACIÓN ENTRE LAS VISTAS //
 
     const rutasVistas = {
-        menu: "menu.html",
-        chat: "chat.html",
-        configuracion: "configuracion.html"
+        menu: "/?url=home",
+        chat: "/?url=chat",
+        configuracion: "/?url=configuracion"
     };
 
     document.querySelectorAll(".btn-sidebar[data-accion]").forEach((boton) => {
@@ -154,3 +154,4 @@ interruptorNotificaciones.addEventListener("change", function () {
 
     });
 });
+

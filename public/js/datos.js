@@ -58,5 +58,5 @@ btnSolicitudDefinitiva.addEventListener("click", () => {
 
 btnAccionFinalEliminar.addEventListener("click", () => {
   alert("Cuenta eliminada correctamente. La sesión se cerrará.");
-  window.location.href = "/src/views/cuenta.html"; 
+  window.location.href = "/?url=configuracion/cuenta"; 
 });

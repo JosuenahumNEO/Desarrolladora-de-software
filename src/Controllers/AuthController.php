@@ -12,12 +12,20 @@ class AuthController extends Controller
      */
     public function login(): void
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
             $this->handleLogin();
             return;
         }
 
-        $this->view('login');
+        $this->view('auth/login');
+    }
+
+    /**
+     * GET ?url=auth/registro — muestra el formulario de registro
+     */
+    public function registro(): void
+    {
+        $this->view('auth/registro');
     }
 
     // -------------------------------------------------------------------------
@@ -29,7 +37,7 @@ class AuthController extends Controller
 
         // Validación básica
         if ($correo === '' || $password === '') {
-            $this->view('login', ['error' => 'Por favor completá todos los campos.']);
+            $this->view('auth/login', ['error' => 'Por favor completá todos los campos.']);
             return;
         }
 
@@ -39,13 +47,13 @@ class AuthController extends Controller
 
         // Verificar existencia y contraseña
         if (!$usuario || !password_verify($password, $usuario['password'])) {
-            $this->view('login', ['error' => 'Correo o contraseña incorrectos.']);
+            $this->view('auth/login', ['error' => 'Correo o contraseña incorrectos.']);
             return;
         }
 
         // Verificar estado de la cuenta
         if ($usuario['estado'] !== 'activo') {
-            $this->view('login', ['error' => 'Tu cuenta está inactiva. Contactá al administrador.']);
+            $this->view('auth/login', ['error' => 'Tu cuenta está inactiva. Contactá al administrador.']);
             return;
         }
 
@@ -69,6 +77,9 @@ class AuthController extends Controller
      */
     public function logout(): void
     {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         session_destroy();
         header('Location: /?url=auth/login');
         exit;
