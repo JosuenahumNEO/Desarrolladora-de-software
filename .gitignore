@@ -1,0 +1,18 @@
+# Environment variables
+.env
+.env.backup
+.env.local
+
+# Composer dependencies
+/vendor/
+
+# IDE & Editor settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
