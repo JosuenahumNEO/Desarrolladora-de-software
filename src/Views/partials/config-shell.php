@@ -1,15 +1,26 @@
 <?php
 /*
- * Header + sidebar compartidos por las vistas de Configuración que usan base.css / base.js
- * (Accesibilidad, Cuenta, Datos). Los botones con data-accion los maneja public/js/base.js.
+ * Header + aside compartidos por las vistas de Configuración y el Chat que usan base.css / base.js
+ * (Accesibilidad, Cuenta, Datos, Seguridad, Privacidad, Conversación...).
+ * Los botones con data-accion los maneja public/js/base.js.
+ *
+ * Antes de incluirlo, la vista puede definir qué botón del aside queda marcado:
+ *   $activeNav = 'chat';   // 'menu' | 'chat' | 'configuracion' (por defecto)
  */
+$activeNav = $activeNav ?? 'configuracion';
+
+$itemsNav = [
+    'menu'          => ['Menú',          'border-all-solid-full.svg'],
+    'chat'          => ['Chat',          'comment-dots-regular-full.svg'],
+    'configuracion' => ['Configuración', 'gear-solid-full.svg'],
+];
 ?>
     <!--header-->
     <header>
         <div class="left">
             <div class="menu-container">
                 <div class="menu" id="menu">
-                    <img src="/svg/keyframes.svg" alt="Abrir o cerrar el menú" id="keyframes2">
+                    <img src="/svg/keyframes.svg" alt="" id="keyframes2">
                 </div>
             </div>
             <div class="brand">
@@ -23,28 +34,18 @@
         </div>
     </header>
 
-    <!--Sidebar-->
+    <!--Aside-->
     <div class="sidebar" id="sidebar">
         <nav>
             <ul>
+                <?php foreach ($itemsNav as $accion => [$texto, $icono]): ?>
                 <li>
-                    <button class="btn-sidebar" data-accion="menu">
-                        <img src="/svg/border-all-solid-full.svg" alt="">
-                        <span class="texto">Menú</span>
+                    <button class="btn-sidebar<?= $activeNav === $accion ? ' selected' : '' ?>" data-accion="<?= $accion ?>"<?= $activeNav === $accion ? ' aria-current="page"' : '' ?>>
+                        <img src="/svg/<?= $icono ?>" alt="">
+                        <span class="texto"><?= $texto ?></span>
                     </button>
                 </li>
-                <li>
-                    <button class="btn-sidebar" data-accion="chat">
-                        <img src="/svg/comment-dots-regular-full.svg" alt="">
-                        <span class="texto">Chat</span>
-                    </button>
-                </li>
-                <li>
-                    <button class="btn-sidebar selected" data-accion="configuracion" aria-current="page">
-                        <img src="/svg/gear-solid-full.svg" alt="">
-                        <span class="texto">Configuración</span>
-                    </button>
-                </li>
+                <?php endforeach; ?>
                 <li>
                     <button class="btn-sidebar" id="item-modo" role="switch" aria-checked="false">
                         <img id="icono-modo" src="/svg/moon-sat.svg" alt="">

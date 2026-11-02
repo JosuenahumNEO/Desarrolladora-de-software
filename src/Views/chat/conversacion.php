@@ -130,11 +130,14 @@
                         <span>Conversación guardada en tu historial</span>
                     </li>
                 </ul>
+
+                <img class="icono-soporte" src="/svg/headset-help.svg" alt="" aria-hidden="true">
             </aside>
         </div>
     </main>
 
     <script src="/js/base.js"></script>
+    <script src="/js/ajustes.js"></script>
     <script src="/js/conversacion.js"></script>
 </body>
 

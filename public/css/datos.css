@@ -323,3 +323,20 @@ body.modo-oscuro .icon-btn .ico-sm {
     width: 100%;
   }
 }
+/* Icono decorativo grande (base de datos) al 50% */
+.icono-decorativo {
+  position: absolute;
+  right: 3rem;
+  bottom: 2rem;
+  width: min(16rem, 22vw);
+  height: auto;
+  object-fit: contain;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+body.modo-oscuro .icono-decorativo { filter: invert(1); }
+
+@media (max-width: 1100px) {
+  .icono-decorativo { display: none; }
+}

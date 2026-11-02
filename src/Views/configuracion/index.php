@@ -135,6 +135,7 @@
         </div>
     </main>
 
+    <script src="/js/ajustes.js"></script>
     <script src="/js/configuracion.js"></script>
 </body>
 

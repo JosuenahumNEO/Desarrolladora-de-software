@@ -600,3 +600,6 @@ body.modo-oscuro .datos{ background-color: #a0a0a0; }
     .card2{ min-height: 12.5vh; }
     .card3{ min-height: 8vh; }
 }
+
+/* La fuente la elige el usuario en Accesibilidad (ajustes.js define --fuente-app) */
+* { font-family: var(--fuente-app, Arial, Helvetica, sans-serif); }

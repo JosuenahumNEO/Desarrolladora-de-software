@@ -401,3 +401,9 @@ body.modo-oscuro .ico-sm { filter: invert(1); }
         transition: none !important;
     }
 }
+
+
+/* Separación entre botones del aside (igual que Configuración) para que el hover no se vea pegado */
+.sidebar ul{
+    gap: 0.6rem;
+}

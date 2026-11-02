@@ -303,3 +303,22 @@ main.main-conversacion{
         padding: 0.65rem 0.9rem;
     }
 }
+/* Icono grande de soporte al 50% (parte baja del panel lateral) */
+.icono-soporte{
+    width: 9rem;
+    height: 9rem;
+    margin-top: 1.6rem;
+    object-fit: contain;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+body.modo-oscuro .icono-soporte{
+    filter: invert(1);
+}
+
+@media (max-height: 760px){
+    .icono-soporte{
+        display: none;
+    }
+}
