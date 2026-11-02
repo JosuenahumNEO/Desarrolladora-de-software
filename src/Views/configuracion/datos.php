@@ -63,6 +63,8 @@
           </div>
 
         </div>
+
+        <img src="/svg/database-solid-full.svg" alt="" class="icono-decorativo">
       </section>
     </div>
 

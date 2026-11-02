@@ -329,12 +329,13 @@ body.modo-oscuro .avatar-wrapper #imgPerfilActual[src$="usuario.png"] {
 
 .bg-user-silhouette {
   position: absolute;
-  right: -135px; 
-  bottom: 105px;
-  width: 440px;
-  height: 440px;
+  right: -150px; 
+  bottom: 90px;
+  width: 520px;
+  height: 520px;
   object-fit: contain;
   clip-path: inset(0 0 13% 0);
+  opacity: 0.5;
   pointer-events: none;
   z-index: 1;
 }

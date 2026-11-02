@@ -168,9 +168,10 @@ body.modo-oscuro .dato-icono img{
 }
 
 .panel-decorativo img{
-    width: 8.5rem;
-    height: 8.5rem;
+    width: 12rem;
+    height: 12rem;
     object-fit: contain;
+    opacity: 0.5;
 }
 
 body.modo-oscuro .panel-decorativo img{

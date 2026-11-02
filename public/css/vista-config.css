@@ -1,0 +1,66 @@
+/* =====================================================
+   VISTA DE CONFIGURACIÓN compartida (Seguridad, Privacidad)
+   Mismo contenedor que Cuenta, Datos y Accesibilidad:
+   tarjeta grande con barra de título y botón "Regresar".
+   Cargar DESPUÉS de base.css y ANTES del css de la página.
+   ===================================================== */
+
+.main-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 8rem);
+  padding: 2rem 3rem;
+  background-color: var(--bg-panel);
+  color: var(--color-h1);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+}
+
+body.modo-oscuro .main-content {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Barra de título: botón Regresar a la izquierda, título al centro */
+.main-content .barra-titulo {
+  border-bottom: 1px solid var(--borde-tarjeta, #e2e8f0);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.main-content .titulo-pagina {
+  color: var(--color-h1);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.subtitulo-vista {
+  margin-bottom: 1.8rem;
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+/* Aviso flotante (reemplaza a los alert) */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  z-index: 600;
+  max-width: calc(100vw - 2rem);
+  padding: 0.8rem 1.4rem;
+  border-radius: 0.6rem;
+  background-color: #0f172a;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+.toast.error { background-color: #b91c1c; }
+.toast.ok { background-color: #047857; }
+
+@media (max-width: 700px) {
+  .main-content { padding: 1.5rem 1.2rem; }
+}

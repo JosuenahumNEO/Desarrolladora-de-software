@@ -93,7 +93,7 @@
             </button>
 
             <button class="chat-item no-leido" data-accion="abrir-chat" data-id="2">
-                <img class="chat-avatar" src="/img/dev-oyoque.png" alt="">
+                <img class="chat-avatar" src="/img/usuario.png" alt="">
                 <span class="chat-info">
                     <span class="chat-nombre">Oyoque (desarrollador)</span>
                     <span class="chat-preview">claro, podemos cotizar el sistema en una reunion virtual, que te parece el 9/11</span>
@@ -111,6 +111,8 @@
         </div>
     </main>
 
+    <script src="/js/base.js"></script>
+    <script src="/js/ajustes.js"></script>
     <script src="/js/chat.js"></script>
 </body>
 
