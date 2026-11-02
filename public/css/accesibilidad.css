@@ -38,7 +38,7 @@ body.modo-oscuro main {
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 8rem);
-  padding: 2rem 3rem 11rem; /* espacio abajo para el icono decorativo */
+  padding: 2rem 3rem;
   background-color: var(--bg-panel);
   color: var(--text-primary);
   border-radius: 1rem;
@@ -246,13 +246,25 @@ button.dot {
 .white-dot { background-color: #ffffff; }
 
 .floating-accessibility-icon {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 3rem;
-  width: 140px;
-  height: 140px;
+  /* Pantallas angostas: el muñeco va debajo de las tarjetas, sin encimarse */
+  display: block;
+  width: 110px;
+  height: 110px;
+  margin: 1.5rem 0 0 0;
   object-fit: contain;
   pointer-events: none;
+}
+
+/* Pantallas anchas: queda libre el espacio a la izquierda de las tarjetas, ahí va el muñeco */
+@media (min-width: 1500px) {
+  .floating-accessibility-icon {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 3rem;
+    width: 140px;
+    height: 140px;
+    margin: 0;
+  }
 }
 
 body.modo-oscuro .floating-accessibility-icon {
