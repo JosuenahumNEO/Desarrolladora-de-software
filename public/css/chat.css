@@ -1,0 +1,462 @@
+/* COLORIMETRÍA Y NORMAS BASE (igual que configuracion.css) */
+:root {
+    /* Modo Claro */
+    --color-bg-body: #ffffff;
+    --color-h1: #000000;
+    --color-h2-p: #ffffff;
+    --color-button: #008a0e;
+    --color-interactive: #91a2d9;
+
+    /*Estilos propios del html (los de frontend no le saben)*/
+    --bg-card: #34e6aa;
+    --bg-input: #e9ecef;
+    --menu-color: #000000;
+    --Advertencia-color1: #db0606;
+    --Advertencia-color2: #ca0404;
+
+    /* Propios del chat */
+    --chat-punto: #1a73e8;
+    --chat-divisor: #4b4b4b;
+    --chat-preview: #1f1f1f;
+    --btn-contactar: #1010c8;
+    --btn-contactar-hover: #0b0b9c;
+}
+
+body.modo-oscuro {
+    --color-bg-body: #1e1f26;
+    --color-h1: #f1f5f9;
+    --color-h2-p: #ffffff;
+    --color-button: #10b981;
+    --color-interactive: #6d8fe8;
+    --bg-card: #2a2c36;
+    --bg-input: #353846;
+    --menu-color: #f1f5f9;
+
+    --chat-punto: #5b9dff;
+    --chat-divisor: #5a5d6e;
+    --chat-preview: #d5dae3;
+    --btn-contactar: #3f46e0;
+    --btn-contactar-hover: #5158f0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*body*/
+
+body {
+    background-color: var(--color-bg-body);
+    width: 100%;
+    height: 100%;
+}
+
+/*header*/
+
+header{
+    z-index: 200;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.45rem 2rem 0.45rem 1.27rem;
+    border-bottom: 1px solid var(--color-interactive);
+    position: fixed;
+    background-color: var(--bg-card);
+    top: 0;
+    left: 0;
+}
+
+/*Port devs y ico del sidebar a la izq*/
+.left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.4rem;
+}
+
+/*Menu*/
+.menu-container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu{
+    width: 1.5rem;
+    height: 37%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu div{
+    width: 100%;
+    height: 0.18rem;
+    background-color: var(--menu-color);
+}
+
+/*PortDevs y su ico*/
+.brand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.brand .logo{
+    width: 1.7rem;
+}
+
+.brand .name{
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-h1);
+}
+
+/*seccion derecha/ Aqui nomas esta la imagen de momento*/
+.right{
+    display: flex;
+    justify-content: center;
+}
+
+.right img{
+    width: 1.5rem;
+    margin: 0.5rem;
+}
+
+.right .user{
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 60%;
+}
+
+/*seccion del side bar*/
+
+.sidebar{
+    margin-top: 4rem;
+    width: 4rem;
+    height: calc(100vh - 4rem);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: 1.1rem 0;
+    border-right: 1px solid var(--color-interactive);
+    overflow: auto;
+    background-color: var(--color-bg-body);
+    transition: width 0.5s ease;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar nav{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar ul{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.sidebar.menu-toggle{
+    width: 15rem;
+}
+
+.sidebar img{
+    width: 1.6rem;
+    flex-shrink: 0;
+}
+
+/* Logout: se empuja al fondo del sidebar */
+.sidebar li.down{
+    margin-top: auto;
+}
+
+/* Botones del sidebar */
+.btn-sidebar{
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    width: calc(100% - 1rem);
+    margin: 0 0.5rem;
+    padding: 0.9rem 0.7rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: none;
+    font: inherit;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    color: var(--color-h1);
+}
+
+.btn-sidebar .texto{
+    flex: 1;
+}
+
+.btn-sidebar:hover{
+    background-color: var(--color-interactive);
+}
+
+.btn-sidebar.selected{
+    color: var(--color-h2-p);
+    background-color: var(--color-interactive);
+}
+
+.btn-sidebar.red-jhon{
+    color: var(--color-h2-p);
+    background-color: var(--Advertencia-color2);
+}
+
+.btn-sidebar.red-jhon:hover{
+    background-color: var(--Advertencia-color1);
+}
+
+/*SWITCH QUE CAMBIA EL MODO OSCURO*/
+
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 2.4rem;
+    height: 1.3rem;
+    flex-shrink: 0;
+}
+
+/* Con el sidebar colapsado solo se ven los iconos */
+.sidebar:not(.menu-toggle) .switch{
+    display: none;
+}
+
+.slider{
+    position: absolute;
+    inset: 0;
+    background-color: #cbd5e1;
+    border-radius: 999px;
+    transition: background-color 0.3s;
+}
+
+.slider::before{
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    left: 0.15rem;
+    top: 0.15rem;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.btn-sidebar[aria-checked="true"] .slider{
+    background-color: var(--color-button);
+}
+
+.btn-sidebar[aria-checked="true"] .slider::before{
+    transform: translateX(1.1rem);
+}
+
+/*Main*/
+
+main{
+    margin-top: 4rem;
+    margin-left: 4rem;
+    padding: 2rem;
+    transition: margin-left 0.5s ease;
+
+    /* Para que el boton "Contactar" quede abajo a la derecha */
+    min-height: calc(100vh - 4rem);
+    display: flex;
+    flex-direction: column;
+}
+
+main.menu-toggle{
+    margin-left: 14.4rem;
+}
+
+/* Título de la página */
+.titulo-pagina{
+    text-align: center;
+    padding-bottom: 2rem;
+    font-size: 1.4rem;
+    color: var(--color-h1);
+}
+
+/* ===== LISTA DE CHATS ===== */
+
+.lista-chats{
+    width: 100%;
+    max-width: 48rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cada conversación es un botón de fila completa */
+.chat-item{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 1.1rem 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: none;
+    font: inherit;
+    text-align: left;
+    color: var(--color-h1);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Línea divisora entre conversaciones (como en el diseño) */
+.chat-item + .chat-item{
+    border-top: 1px solid var(--chat-divisor);
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.chat-item:hover{
+    background-color: var(--bg-input);
+}
+
+.chat-item:focus-visible,
+.btn-contactar:focus-visible{
+    outline: 3px solid var(--color-interactive);
+    outline-offset: 2px;
+}
+
+.chat-avatar{
+    width: 3.6rem;
+    height: 3.6rem;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.chat-info{
+    flex: 1;
+    min-width: 0;            /* necesario para que funcione el ellipsis */
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.chat-nombre{
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-h1);
+}
+
+/* Vista previa del mensaje: una sola línea cortada con "..." */
+.chat-preview{
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--chat-preview);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Puntito azul de "no leído": está en el HTML pero solo se ve con .no-leido */
+.chat-punto{
+    width: 0.7rem;
+    height: 0.7rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: var(--chat-punto);
+    visibility: hidden;
+    align-self: flex-start;
+    margin-top: 0.35rem;
+}
+
+.chat-item.no-leido .chat-punto{
+    visibility: visible;
+}
+
+/* Un chat leído se ve menos pesado */
+.chat-item:not(.no-leido) .chat-preview{
+    font-weight: 400;
+}
+
+/* ===== BOTÓN CONTACTAR ===== */
+
+.acciones-chat{
+    margin-top: auto;            /* lo empuja al fondo */
+    padding-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-contactar{
+    width: 12rem;
+    padding: 0.9rem 1.5rem;
+    border: none;
+    border-radius: 999px;
+    background-color: var(--btn-contactar);
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-contactar:hover{
+    background-color: var(--btn-contactar-hover);
+}
+
+/*Responsive*/
+
+@media (max-width:500px){
+    .right .icons-header{
+        display: none;
+    }
+    .sidebar{
+        width: 0;
+    }
+    main{
+        margin-left: 0;
+    }
+    main.menu-toggle{
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 700px){
+    main{
+        padding: 1.25rem 1rem;
+    }
+
+    .chat-avatar{
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+
+    .chat-nombre{
+        font-size: 0.9rem;
+    }
+
+    .chat-preview{
+        font-size: 0.8rem;
+    }
+
+    .acciones-chat{
+        justify-content: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    *{
+        transition: none !important;
+    }
+}

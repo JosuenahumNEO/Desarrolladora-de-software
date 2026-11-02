@@ -1,0 +1,410 @@
+/* SEGURIDAD (usa base.css para header, sidebar y variables) */
+
+:root{
+    --panel-seg: #cfe3f7;      /* mismo color que la tarjeta "Seguridad" de Configuracion */
+    --icono-fondo: rgba(17, 0, 204, 0.1);
+    --icono-color: #1100cc;
+    --icono-verde-fondo: rgba(0, 184, 124, 0.15);
+    --icono-verde-color: #0b8a5f;
+    --borde-tarjeta: #e3e7f0;
+}
+
+body.modo-oscuro{
+    --panel-seg: #2a2c36;
+    --icono-fondo: rgba(109, 143, 232, 0.2);
+    --icono-color: #9db5ff;
+    --icono-verde-fondo: rgba(16, 185, 129, 0.2);
+    --icono-verde-color: #34e6aa;
+    --borde-tarjeta: #3a3d4c;
+}
+
+/* ===== Encabezado de la página ===== */
+
+.encabezado-pagina{
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.encabezado-pagina .titulo-pagina{
+    padding-bottom: 0.4rem;
+}
+
+.subtitulo-pagina{
+    color: var(--texto-suave);
+    font-size: 0.92rem;
+}
+
+/* ===== Layout: tarjetas a la izquierda, panel decorativo a la derecha ===== */
+
+.layout{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 17rem;
+    gap: 2rem;
+    align-items: start;
+    max-width: 62rem;
+    margin: 0 auto;
+}
+
+.columna-principal{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ===== Tarjetas ===== */
+
+.tarjeta{
+    padding: 1.4rem 1.5rem;
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 1rem;
+    background-color: var(--bg-panel);
+    box-shadow: 0 6px 18px rgba(20, 20, 60, 0.08);
+}
+
+.tarjeta-titulo{
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--color-h1);
+}
+
+.tarjeta-titulo.sin-margen{
+    margin-bottom: 0.2rem;
+}
+
+.tarjeta-cabecera{
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.descripcion{
+    color: var(--texto-suave);
+    font-size: 0.88rem;
+    line-height: 1.45;
+}
+
+/* ===== Filas de datos: icono | texto | acción ===== */
+
+.dato{
+    display: grid;
+    grid-template-columns: 2.8rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 0;
+}
+
+.dato + .dato{
+    border-top: 1px solid var(--borde-tarjeta);
+}
+
+.dato:last-child{
+    padding-bottom: 0;
+}
+
+.dato-icono{
+    display: grid;
+    place-items: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    flex-shrink: 0;
+    border-radius: 0.8rem;
+    background-color: var(--icono-fondo);
+    color: var(--icono-color);
+}
+
+.dato-icono.icono-verde{
+    background-color: var(--icono-verde-fondo);
+    color: var(--icono-verde-color);
+}
+
+/* Los íconos son <img> svg (negros): mismo tamaño y se invierten en modo oscuro */
+.dato-icono img{
+    width: 1.4rem;
+    height: 1.4rem;
+    object-fit: contain;
+}
+
+body.modo-oscuro .dato-icono img{
+    filter: invert(1);
+}
+
+.dato-texto{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.etiqueta{
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--texto-suave);
+}
+
+.valor{
+    font-weight: 700;
+    overflow-wrap: anywhere;
+    color: var(--color-h1);
+}
+
+.valor-con-icono{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Ojito para mostrar/ocultar */
+.btn-ojo{
+    display: inline-flex;
+    padding: 0.25rem;
+    border: none;
+    border-radius: 0.4rem;
+    background: none;
+    cursor: pointer;
+}
+
+.btn-ojo img{
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+/* ===== Formulario de dos pasos ===== */
+
+.form-2fa{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.campo{
+    min-width: 0;
+    padding: 0.55rem 0.8rem;
+    border: 2px solid var(--color-h1);
+    border-radius: 0.5rem;
+    background-color: var(--bg-panel);
+    color: var(--color-h1);
+    font: inherit;
+    font-size: 0.88rem;
+}
+
+.form-2fa .campo{
+    flex: 1 1 14rem;
+    max-width: 20rem;
+}
+
+.campo::placeholder{
+    color: var(--texto-suave);
+    font-weight: 700;
+}
+
+.btn-continuar{
+    padding: 0.6rem 1.4rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--btn-azul);
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+.btn-continuar:hover{
+    filter: brightness(0.9);
+}
+
+/* Mensajes de error / aviso */
+.error{
+    min-height: 1.2rem;
+    color: var(--Advertencia-color1);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.form-2fa .error{
+    flex-basis: 100%;
+    min-height: 0;
+    text-align: left;
+}
+
+.error.info{
+    color: var(--color-h1);
+}
+
+/* ===== Panel decorativo ===== */
+
+.panel-decorativo{
+    position: sticky;
+    top: 5.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 2.5rem 1.5rem;
+    border-radius: 1.5rem;
+    background-color: var(--panel-seg);
+    text-align: center;
+}
+
+.panel-decorativo img{
+    width: 8.5rem;
+    height: 8.5rem;
+    object-fit: contain;
+}
+
+body.modo-oscuro .panel-decorativo img{
+    filter: invert(1);
+}
+
+.panel-decorativo p{
+    font-weight: 800;
+    color: #0f172a;
+}
+
+body.modo-oscuro .panel-decorativo p{
+    color: var(--color-h1);
+}
+
+/* Solo para lectores de pantalla */
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ===== Ventanas del flujo ===== */
+
+.modal-fondo{
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.modal-card{
+    position: relative;
+    width: min(34rem, 100%);
+    padding: 1.5rem 1.5rem 3.6rem;
+    border-radius: 0.6rem;
+    background-color: var(--bg-panel);
+    box-shadow: var(--sombra);
+}
+
+.modal-ok{
+    background-color: var(--verde-ok-bg);
+}
+
+.modal-titulo{
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.modal-fila{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-fila label,
+.modal-fila > span:first-child{
+    font-weight: 700;
+}
+
+.telefono-campos{
+    display: inline-flex;
+    gap: 0.5rem;
+}
+
+.telefono-campos input{
+    width: 11rem;
+}
+
+.selector-lada{
+    cursor: pointer;
+}
+
+.btn-azul,
+.btn-guardar,
+.btn-salir{
+    border: none;
+    border-radius: 0.4rem;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+.btn-azul:hover,
+.btn-guardar:hover,
+.btn-salir:hover{
+    filter: brightness(0.9);
+}
+
+.btn-azul{
+    padding: 0.6rem 1.4rem;
+    background-color: var(--btn-azul);
+}
+
+.btn-azul:disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+    filter: none;
+}
+
+.btn-guardar{
+    display: block;
+    margin: 0.75rem auto 0;
+    padding: 0.6rem 1.5rem;
+    background-color: var(--btn-guardar);
+}
+
+.btn-salir{
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    padding: 0.4rem 1.4rem;
+    background-color: var(--Advertencia-color2);
+    font-size: 0.8rem;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 900px){
+    .layout{
+        grid-template-columns: 1fr;
+    }
+
+    .panel-decorativo{
+        display: none;
+    }
+}
+
+@media (max-width: 600px){
+    .dato{
+        grid-template-columns: 2.8rem minmax(0, 1fr);
+    }
+
+    /* el botón de acción baja a su propia línea */
+    .dato .btn-gris{
+        grid-column: 1 / -1;
+    }
+
+    .form-2fa .campo{
+        max-width: none;
+    }
+}

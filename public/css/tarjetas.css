@@ -1,0 +1,219 @@
+/* =====================================================
+   DISEÑO DE TARJETAS compartido (Privacidad, Conversación...)
+   Cargar DESPUÉS de base.css y ANTES del css de la página.
+   ===================================================== */
+
+:root{
+    --panel-seg: #cfe3f7;      /* mismo azul claro que la tarjeta "Seguridad" de Configuracion */
+    --icono-fondo: rgba(17, 0, 204, 0.1);
+    --icono-color: #1100cc;
+    --icono-verde-fondo: rgba(0, 184, 124, 0.15);
+    --icono-verde-color: #0b8a5f;
+    --borde-tarjeta: #e3e7f0;
+}
+
+body.modo-oscuro{
+    --panel-seg: #2a2c36;
+    --icono-fondo: rgba(109, 143, 232, 0.2);
+    --icono-color: #9db5ff;
+    --icono-verde-fondo: rgba(16, 185, 129, 0.2);
+    --icono-verde-color: #34e6aa;
+    --borde-tarjeta: #3a3d4c;
+}
+
+/* ===== Encabezado de la página ===== */
+
+.encabezado-pagina{
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.encabezado-pagina .titulo-pagina{
+    padding-bottom: 0.4rem;
+}
+
+.subtitulo-pagina{
+    color: var(--texto-suave);
+    font-size: 0.92rem;
+}
+
+/* ===== Layout: contenido a la izquierda, panel a la derecha ===== */
+
+.layout{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 17rem;
+    gap: 2rem;
+    align-items: start;
+    max-width: 62rem;
+    margin: 0 auto;
+}
+
+.columna-principal{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ===== Tarjetas ===== */
+
+.tarjeta{
+    padding: 1.4rem 1.5rem;
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 1rem;
+    background-color: var(--bg-panel);
+    box-shadow: 0 6px 18px rgba(20, 20, 60, 0.08);
+}
+
+.tarjeta-titulo{
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--color-h1);
+}
+
+.tarjeta-titulo.sin-margen{
+    margin-bottom: 0.2rem;
+}
+
+.tarjeta-cabecera{
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.descripcion{
+    color: var(--texto-suave);
+    font-size: 0.88rem;
+    line-height: 1.45;
+}
+
+/* ===== Filas: icono | texto | acción ===== */
+
+.dato{
+    display: grid;
+    grid-template-columns: 2.8rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 0;
+}
+
+.dato + .dato{
+    border-top: 1px solid var(--borde-tarjeta);
+}
+
+.dato:last-child{
+    padding-bottom: 0;
+}
+
+.dato-icono{
+    display: grid;
+    place-items: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    flex-shrink: 0;
+    border-radius: 0.8rem;
+    background-color: var(--icono-fondo);
+    color: var(--icono-color);
+}
+
+.dato-icono.icono-verde{
+    background-color: var(--icono-verde-fondo);
+    color: var(--icono-verde-color);
+}
+
+/* Los iconos son <img> svg (negros): mismo tamaño y se invierten en modo oscuro */
+.dato-icono img{
+    width: 1.4rem;
+    height: 1.4rem;
+    object-fit: contain;
+}
+
+body.modo-oscuro .dato-icono img{
+    filter: invert(1);
+}
+
+.dato-texto{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.etiqueta{
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--texto-suave);
+}
+
+.valor{
+    font-weight: 700;
+    overflow-wrap: anywhere;
+    color: var(--color-h1);
+}
+
+/* ===== Panel decorativo ===== */
+
+.panel-decorativo{
+    position: sticky;
+    top: 5.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 2.5rem 1.5rem;
+    border-radius: 1.5rem;
+    background-color: var(--panel-seg);
+    text-align: center;
+}
+
+.panel-decorativo img{
+    width: 8.5rem;
+    height: 8.5rem;
+    object-fit: contain;
+}
+
+body.modo-oscuro .panel-decorativo img{
+    filter: invert(1);
+}
+
+.panel-decorativo p{
+    font-weight: 800;
+    color: #0f172a;
+}
+
+body.modo-oscuro .panel-decorativo p{
+    color: var(--color-h1);
+}
+
+/* Solo para lectores de pantalla */
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 900px){
+    .layout{
+        grid-template-columns: 1fr;
+    }
+
+    .panel-decorativo{
+        display: none;
+    }
+}
+
+@media (max-width: 600px){
+    /* Se mantienen las 3 columnas (icono | texto | acción), así los switches
+       se quedan a la derecha de su fila. Solo los botones con texto
+       (ej. "Cambiar contraseña") bajan, alineados debajo del texto. */
+    .dato .btn-gris{
+        grid-column: 2 / -1;
+        justify-self: start;
+    }
+}

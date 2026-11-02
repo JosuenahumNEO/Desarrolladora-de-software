@@ -1,0 +1,289 @@
+/* Las variables de esta vista viven en <main> para no pisar las de base.css (header y sidebar).
+   El modo oscuro lo activa base.js con la clase body.modo-oscuro. */
+main {
+  --bg-main: #f4f7f9;
+  --bg-panel: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  --input-bg: #f8fafc;
+  --card-bg: #e2e8f0;
+  --green-btn: #00b894;
+  --green-hover: #00a383;
+  --green-accept: #00b894;
+  --blue-btn: #3b82f6;
+  --red-btn: #ef4444;
+  --red-hover: #dc2626;
+  --red-light: #fee2e2;
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
+}
+
+body.modo-oscuro main {
+  --bg-main: #0f172a;
+  --bg-panel: #2a2c36;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
+  --input-bg: #1e1f26;
+  --card-bg: #353846;
+  --red-light: #4c1d1d;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor de la vista dentro del <main> compartido */
+.main-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 8rem);
+  padding: 2rem 3rem;
+  background-color: var(--bg-panel);
+  color: var(--text-primary);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+/* Barra de título: botón Regresar a la izquierda, título al centro */
+.main-content .barra-titulo {
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.main-content .titulo-pagina {
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* Aviso flotante (reemplaza a los alert) */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  z-index: 600;
+  max-width: calc(100vw - 2rem);
+  padding: 0.8rem 1.4rem;
+  border-radius: 0.6rem;
+  background-color: #0f172a;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+.toast.error { background-color: #b91c1c; }
+.toast.ok { background-color: #047857; }
+
+.accesibilidad-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 950px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.control-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 25px 30px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.card-label {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.slider-row input[type="range"] {
+  flex: 1;
+  accent-color: #2563eb;
+  height: 6px;
+  cursor: pointer;
+}
+
+.size-indicator {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.bold-a {
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.font-preview-card {
+  padding: 0;
+  overflow: hidden;
+  border: 2px dashed #ef4444;
+  background-color: transparent;
+}
+
+.font-select-bar {
+  background-color: #cbd5e1;
+  padding: 12px 15px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #1e293b;
+}
+
+.font-dropdown {
+  background: transparent;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+  cursor: pointer;
+  outline: none;
+}
+
+.preview-box {
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preview-text-sample {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: inherit;
+}
+
+.color-picker-card {
+  padding: 20px;
+}
+
+.card-label-center {
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+
+.palette-content {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background-color: var(--bg-main);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.preview-large-a {
+  font-size: 3.2rem;
+  font-weight: 600;
+  color: inherit;
+}
+
+.color-dots-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.dot:hover {
+  transform: scale(1.15);
+}
+
+button.dot {
+  border: none;
+  padding: 0;
+}
+
+.dot.selected-dot {
+  box-shadow: 0 0 0 3px var(--text-primary);
+}
+
+.dot-lg.selected-dot {
+  box-shadow: 0 0 0 3px var(--text-primary);
+}
+
+.bottom-palette-dots {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.dot-lg {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+}
+
+.black-dot { background-color: #000000; }
+.white-dot { background-color: #ffffff; }
+
+.floating-accessibility-icon {
+  /* Pantallas angostas: el muñeco va debajo de las tarjetas, sin encimarse */
+  display: block;
+  width: 110px;
+  height: 110px;
+  margin: 1.5rem 0 0 0;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Pantallas anchas: queda libre el espacio a la izquierda de las tarjetas, ahí va el muñeco */
+@media (min-width: 1500px) {
+  .floating-accessibility-icon {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 3rem;
+    width: 140px;
+    height: 140px;
+    margin: 0;
+  }
+}
+
+body.modo-oscuro .floating-accessibility-icon {
+  filter: invert(1);
+}
+
+/* --- DISEÑO RESPONSIVE PARA DISPOSITIVOS MÓVILES Y TABLETS --- */
+@media (max-width: 900px) {
+  .main-content {
+    padding: 25px 20px;
+    height: auto;
+  }
+
+  .accesibilidad-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .floating-accessibility-icon {
+    display: none;
+  }
+}
