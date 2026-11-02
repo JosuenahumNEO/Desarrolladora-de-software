@@ -9,6 +9,24 @@ const iconoModo = document.getElementById('icono-modo');
 const ICONO_LUNA = '/svg/moon-sat.svg';
 const ICONO_SOL = '/svg/sun-light.svg';
 
+/* CAmbio importante ahora cada icono guarda su ruta normal en "data-base" (esto para hacer cambio mas rapido de iconos negros a blanco).
+   En modo oscuro se usa la version "White" de los iconos (ej: sun-lightWhite.svg) todos tienen su version white */
+function rutaBase(img) {
+    if (!img.dataset.base) {
+        img.dataset.base = img.getAttribute('src');
+    }
+    return img.dataset.base;
+}
+
+function aplicarIcono(img, oscuro) {
+    const base = rutaBase(img);
+    img.src = oscuro ? base.replace(/\.svg$/, 'White.svg') : base;
+}
+
+function actualizarIconos(oscuro) {
+    document.querySelectorAll('img[src*="svg/"]').forEach(img => aplicarIcono(img, oscuro));
+}
+
 /* menú hamburguesa del header */
 if (menu && sidebar && main) {
     menu.addEventListener('click', () => {
@@ -16,11 +34,11 @@ if (menu && sidebar && main) {
         main.classList.toggle('menu-toggle');
 
         if (imagen) {
-            if (imagen.src.includes('/svg/keyframes.svg')) {
-                imagen.src = '/svg/keyframes-solid.svg';
-            } else {
-                imagen.src = '/svg/keyframes.svg';
-            }
+            const actual = rutaBase(imagen);
+            imagen.dataset.base = actual.endsWith('/keyframes.svg')
+                ? '/svg/keyframes-solid.svg'
+                : '/svg/keyframes.svg';
+            aplicarIcono(imagen, document.body.classList.contains('modo-oscuro'));
         }
     });
 }
@@ -29,7 +47,8 @@ if (menu && sidebar && main) {
 function aplicarModoOscuro(activo) {
     document.body.classList.toggle('modo-oscuro', activo);
     if (itemModo) itemModo.setAttribute('aria-checked', String(activo));
-    if (iconoModo) iconoModo.src = activo ? ICONO_SOL : ICONO_LUNA;
+    if (iconoModo) iconoModo.dataset.base = activo ? ICONO_SOL : ICONO_LUNA;
+    actualizarIconos(activo);
     localStorage.setItem('modoOscuro', activo ? '1' : '0');
 }
 
