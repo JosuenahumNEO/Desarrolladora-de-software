@@ -14,8 +14,52 @@
   };
   const guardar = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
 
+  /* Tamaño de texto: escala SOLO las letras, no el layout.
+     Antes se cambiaba el font-size de <html>, y como casi todo el diseño está en rem
+     (header, sidebar, paddings, iconos) se agrandaba toda la pantalla.
+     Aquí se guarda el tamaño original de cada elemento con texto y se multiplica por la escala. */
+  const SIN_TEXTO = /^(SCRIPT|STYLE|IMG|SVG|PATH|BR|HR)$/;
+  const CONTROLES = /^(INPUT|SELECT|TEXTAREA|BUTTON|OPTION)$/;
+  let escalaTexto = 1;
+  let pendiente = false;
+
+  function elementosConTexto() {
+    return Array.from(document.body.querySelectorAll('*')).filter(el => {
+      if (SIN_TEXTO.test(el.tagName.toUpperCase())) return false;
+      return CONTROLES.test(el.tagName) ||
+        Array.from(el.childNodes).some(n => n.nodeType === 3 && n.textContent.trim() !== '');
+    });
+  }
+
+  function escalarTexto() {
+    pendiente = false;
+    const els = elementosConTexto();
+    // Primero se leen todos los tamaños originales y luego se escribe, para que un hijo en em
+    // no lea el tamaño ya escalado de su padre.
+    els.forEach(el => {
+      if (el.dataset.fsBase === undefined) {
+        el.dataset.fsBase = String(parseFloat(getComputedStyle(el).fontSize));
+      }
+    });
+    els.forEach(el => {
+      el.style.fontSize = escalaTexto === 1 ? '' : (parseFloat(el.dataset.fsBase) * escalaTexto) + 'px';
+    });
+  }
+
+  function programarEscala() {
+    if (pendiente) return;
+    pendiente = true;
+    requestAnimationFrame(escalarTexto);
+  }
+
+  // Elementos que se agregan después (avisos, modales) también se escalan
+  new MutationObserver(() => { if (escalaTexto !== 1) programarEscala(); })
+    .observe(document.body, { childList: true, subtree: true });
+
   function aplicarAccesibilidad(p) {
-    root.style.fontSize = p.tamano ? p.tamano + '%' : '';
+    root.style.fontSize = '';
+    escalaTexto = (p.tamano || 100) / 100;
+    programarEscala();
     root.style.setProperty('--filtro-contraste', p.contraste > 1 ? `contrast(${p.contraste})` : 'none');
     root.style.setProperty('--fuente-app', p.fuente || 'Arial, Helvetica, sans-serif');
     if (p.color) body.style.setProperty('--color-h1', p.color);
