@@ -1,188 +1,82 @@
-:root {
+/* Las variables de esta vista viven en <main> para no pisar las de base.css (header y sidebar).
+   El modo oscuro lo activa base.js con la clase body.modo-oscuro. */
+main {
   --bg-main: #f4f7f9;
   --bg-panel: #ffffff;
-  --sidebar-bg: #ffffff;
   --text-primary: #1e293b;
   --text-secondary: #64748b;
   --border-color: #e2e8f0;
   --input-bg: #f8fafc;
-  --sidebar-btn: #c8f4ec;
-  --sidebar-btn-hover: #a5ebe0;
-  --sidebar-btn-active: #00b894;
+  --card-bg: #e2e8f0;
   --green-btn: #00b894;
-  --green-hover: #009e7f;
-  --green-accept: #16a34a;
+  --green-hover: #00a383;
+  --green-accept: #00b894;
+  --blue-btn: #3b82f6;
   --red-btn: #ef4444;
   --red-hover: #dc2626;
-  --red-light: #f87171;
-  --blue-btn: #0284c7;
+  --red-light: #fee2e2;
   --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
   --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
 }
 
-body.dark-mode {
+body.modo-oscuro main {
   --bg-main: #0f172a;
-  --bg-panel: #1e293b;
-  --sidebar-bg: #162032;
+  --bg-panel: #2a2c36;
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --border-color: #334155;
-  --input-bg: #0f172a;
+  --input-bg: #1e1f26;
+  --card-bg: #353846;
+  --red-light: #4c1d1d;
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-}
-
-body {
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.app-container {
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  background-color: var(--bg-main);
-  position: relative;
-}
-
-.sidebar {
-  width: 250px;
-  height: 100%;
-  background-color: var(--sidebar-bg);
-  border-right: 1px solid var(--border-color);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 35px 22px;
-  box-shadow: var(--shadow-sm);
-  z-index: 5;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.nav-links {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.nav-btn {
-  background-color: var(--sidebar-btn);
-  border: none;
-  padding: 14px 18px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #0f172a;
-  cursor: pointer;
-  border-radius: 10px;
-  text-align: left;
-  text-transform: capitalize;
-  transition: all 0.2s ease;
-}
-
-.nav-btn:hover {
-  background-color: var(--sidebar-btn-hover);
-  transform: translateX(4px);
-}
-
-.nav-btn.active {
-  background-color: var(--sidebar-btn-active);
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
-}
-
-.dark-mode-toggle {
-  background-color: var(--input-bg);
-  border: 1px solid var(--border-color);
-  padding: 14px 16px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 14px;
-  color: var(--text-primary);
-  font-weight: 600;
-  margin-top: 10px;
-  text-transform: capitalize;
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 44px;
-  height: 24px;
-}
-.switch input { opacity: 0; width: 0; height: 0; }
-.slider {
-  position: absolute; cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #cbd5e1;
-  transition: .3s;
-  border-radius: 24px;
-}
-.slider:before {
-  position: absolute; content: "";
-  height: 18px; width: 18px;
-  left: 3px; bottom: 3px;
-  background-color: white;
-  transition: .3s;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-input:checked + .slider { background-color: var(--green-btn); }
-input:checked + .slider:before { transform: translateX(20px); }
-
-.logout-btn {
-  background-color: var(--red-btn);
-  color: white;
-  border: none;
-  padding: 14px;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
-}
-
-.logout-btn:hover {
-  background-color: var(--red-hover);
-}
-
+/* Contenedor de la vista dentro del <main> compartido */
 .main-content {
-  flex: 1;
-  height: 100%;
-  padding: 45px 70px;
-  overflow-x: hidden;
-  overflow-y: auto;
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  min-height: calc(100vh - 8rem);
+  padding: 2rem 3rem;
   background-color: var(--bg-panel);
-  position: relative;
-  transition: background-color 0.3s ease;
+  color: var(--text-primary);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
 }
 
-.section-title {
-  font-size: 28px;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 35px;
-  padding-bottom: 15px;
+/* Barra de título: botón Regresar a la izquierda, título al centro */
+.main-content .barra-titulo {
   border-bottom: 1px solid var(--border-color);
-  letter-spacing: -0.5px;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
 }
+
+.main-content .titulo-pagina {
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* Aviso flotante (reemplaza a los alert) */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  z-index: 600;
+  max-width: calc(100vw - 2rem);
+  padding: 0.8rem 1.4rem;
+  border-radius: 0.6rem;
+  background-color: #0f172a;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+.toast.error { background-color: #b91c1c; }
+.toast.ok { background-color: #047857; }
 
 .account-grid {
   display: flex;
@@ -281,7 +175,7 @@ input:checked + .slider:before { transform: translateX(20px); }
   object-fit: contain;
 }
 
-body.dark-mode .icon-btn .ico-sm {
+body.modo-oscuro .icon-btn .ico-sm {
   filter: invert(1);
 }
 
@@ -408,7 +302,7 @@ body.dark-mode .icon-btn .ico-sm {
   opacity: 0.85;
 }
 
-body.dark-mode .avatar-wrapper #imgPerfilActual[src$="usuario.png"] {
+body.modo-oscuro .avatar-wrapper #imgPerfilActual[src$="usuario.png"] {
   filter: invert(1);
 }
 
@@ -445,7 +339,7 @@ body.dark-mode .avatar-wrapper #imgPerfilActual[src$="usuario.png"] {
   z-index: 1;
 }
 
-body.dark-mode .bg-user-silhouette {
+body.modo-oscuro .bg-user-silhouette {
   filter: invert(1);
 }
 
@@ -496,7 +390,7 @@ body.dark-mode .bg-user-silhouette {
   inset: 0;
   background-color: rgba(15, 23, 42, 0.65);
   backdrop-filter: blur(4px);
-  z-index: 50;
+  z-index: 500;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -592,47 +486,6 @@ body.dark-mode .bg-user-silhouette {
 
 /* --- DISEÑO RESPONSIVE PARA DISPOSITIVOS MÓVILES Y TABLETS --- */
 @media (max-width: 950px) {
-  body {
-    overflow: auto;
-    height: auto;
-  }
-
-  .app-container {
-    flex-direction: column;
-    height: auto;
-    min-height: 100vh;
-  }
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    align-items: center;
-    padding: 15px 20px;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .nav-links {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .nav-btn {
-    padding: 8px 14px;
-    font-size: 0.85rem;
-  }
-
-  .dark-mode-toggle {
-    margin-top: 0;
-    padding: 6px 12px;
-  }
-
-  .logout-btn {
-    padding: 8px 16px;
-  }
-
   .main-content {
     padding: 25px 20px;
     height: auto;

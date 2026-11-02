@@ -559,3 +559,22 @@ button.card1:hover, button.card2:hover, button.card3:hover{
         height: 1.6rem;
     }
 }
+
+
+/* ===== Iconos de Cuenta, Accesibilidad y Datos: más grandes y al 50% de opacidad ===== */
+.cuenta .icono,
+.accesibilidad .icono,
+.datos .icono{
+    width: 3.5rem;
+    height: 3.5rem;
+    opacity: 0.5;
+}
+
+@media (max-width:500px){
+    .cuenta .icono,
+    .accesibilidad .icono,
+    .datos .icono{
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+}
