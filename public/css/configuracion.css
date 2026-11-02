@@ -603,3 +603,28 @@ body.modo-oscuro .datos{ background-color: #a0a0a0; }
 
 /* La fuente la elige el usuario en Accesibilidad (ajustes.js define --fuente-app) */
 * { font-family: var(--fuente-app, Arial, Helvetica, sans-serif); }
+
+/* ===== ICONOS MÁS GRANDES Y SEMITRANSPARENTES ===== */
+/* Cuenta, Accesibilidad, Privacidad, Soporte y Datos */
+
+.cuenta .icono,
+.accesibilidad .icono,
+.privacidad .icono,
+.soporte .icono,
+.card3.datos .icono{
+    width: 3.5rem;
+    height: 3.5rem;
+    opacity: 0.5;
+}
+
+/* Pantallas chicas */
+@media (max-width: 700px){
+    .cuenta .icono,
+    .accesibilidad .icono,
+    .privacidad .icono,
+    .soporte .icono,
+    .card3.datos .icono{
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+}
