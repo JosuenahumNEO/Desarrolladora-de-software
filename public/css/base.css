@@ -319,6 +319,155 @@ body.modo-oscuro .permiso-icono{
     outline-offset: 2px;
 }
 
+/* La fuente ahora la controla la vista Accesibilidad */
+* { font-family: var(--fuente-app, Arial, Helvetica, sans-serif); }
+
+.hidden { 
+    display: none !important; 
+}
+
+/* Contraste: se aplica a header, aside y contenido (.pagina), no a body ni a main,
+   para no romper los elementos position:fixed (íconos de fondo y modales). */
+header, .sidebar, main > .pagina { 
+    filter: var(--filtro-contraste, none); 
+}
+
+.pagina { 
+    position: relative; 
+    z-index: 1; 
+}
+
+/* Barra de título con botón Regresar */
+.barra-titulo { 
+    display: grid; 
+    grid-template-columns: 1fr auto 1fr; 
+    align-items: center; 
+    padding-bottom: 2rem; 
+}
+
+.barra-titulo .titulo-pagina { 
+    padding-bottom: 0; 
+}
+
+.btn-regresar {
+  justify-self: start; 
+  display: inline-block; 
+  text-decoration: none;
+  padding: 0.55rem 1.1rem; 
+  border: none; 
+  border-radius: 0.5rem;
+  background-color: var(--btn-azul); 
+  color: #fff; 
+  font: inherit; 
+  font-weight: 700;
+  cursor: pointer; 
+  transition: filter 0.2s;
+}
+
+.btn-regresar:hover { 
+    filter: brightness(1.12); 
+}
+
+/* Botones de acción */
+.btn-verde, .btn-rojo, .btn-azul {
+  display: inline-block; 
+  padding: 0.55rem 1.1rem; 
+  border: none; 
+  border-radius: 0.5rem;
+  color: #fff; 
+  font: inherit; 
+  font-weight: 700; 
+  cursor: pointer; 
+  transition: filter 0.2s;
+}
+
+.btn-verde { 
+    background-color: var(--btn-guardar); 
+}
+
+.btn-rojo  { 
+    background-color: var(--Advertencia-color2); 
+}
+
+.btn-azul  { 
+    background-color: var(--btn-azul); 
+}
+
+.btn-verde:hover, .btn-rojo:hover, .btn-azul:hover { filter: brightness(1.12); }
+
+button:disabled { 
+    opacity: 0.6; 
+    cursor: not-allowed; 
+}
+
+/* Formularios compartidos (cuenta y datos) */
+.form-row { 
+    display: flex; 
+    align-items: center; 
+    gap: 1rem; 
+}
+
+.form-row > label { 
+    width: 10rem; 
+    flex-shrink: 0; 
+    font-weight: 700; 
+}
+
+.form-row input[type="text"], .form-row input[type="password"] {
+  flex: 1; 
+  min-width: 0; 
+  padding: 0.6rem 0.8rem; 
+  border: 1.5px solid var(--color-interactive);
+  border-radius: 0.5rem; 
+  background-color: var(--bg-input); 
+  color: var(--color-h1); 
+  font: inherit;
+}
+
+.input-with-icon { 
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+    flex: 1; 
+    min-width: 0; 
+    max-width: 24rem; 
+}
+
+.icon-btn {
+  display: grid; 
+  place-items: center; 
+  width: 2.25rem; 
+  height: 2.25rem; 
+  flex-shrink: 0;
+  border: 1px solid var(--color-interactive); 
+  border-radius: 0.5rem; 
+  background-color: var(--bg-input); 
+  cursor: pointer;
+}
+
+.ico-sm { 
+    width: 1.1rem; 
+    height: 1.1rem; 
+    object-fit: contain; 
+}
+
+body.modo-oscuro .ico-sm { 
+    filter: invert(1); 
+}
+
+/* Iconos decorativos de fondo: más grandes y al 50% */
+.icono-fondo { 
+    width: min(24rem, 32vw); 
+    opacity: 0.5; 
+}
+
+@media (max-width: 700px) {
+  .form-row { flex-direction: column; align-items: flex-start; }
+  .input-with-icon { max-width: 100%; width: 100%; }
+  .barra-titulo { grid-template-columns: 1fr; gap: 1rem; }
+  .barra-titulo .titulo-pagina { text-align: left; }
+}
+
 /*Responsive*/
 
 @media (max-width: 500px){
@@ -344,4 +493,10 @@ body.modo-oscuro .permiso-icono{
     *{
         transition: none !important;
     }
+}
+
+
+/* Separación entre botones del aside (igual que Configuración) para que el hover no se vea pegado */
+.sidebar ul{
+    gap: 0.6rem;
 }

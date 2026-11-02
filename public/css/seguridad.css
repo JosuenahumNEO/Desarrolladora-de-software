@@ -250,9 +250,10 @@ body.modo-oscuro .dato-icono img{
 }
 
 .panel-decorativo img{
-    width: 8.5rem;
-    height: 8.5rem;
+    width: 12rem;
+    height: 12rem;
     object-fit: contain;
+    opacity: 0.5;
 }
 
 body.modo-oscuro .panel-decorativo img{
@@ -406,5 +407,126 @@ body.modo-oscuro .panel-decorativo p{
 
     .form-2fa .campo{
         max-width: none;
+    }
+}
+
+/* ===== Estado de la autenticación en dos pasos ===== */
+
+.cabecera-texto{
+    min-width: 0;
+}
+
+.pastilla{
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.15rem 0.7rem;
+    border-radius: 999px;
+    background-color: rgba(219, 6, 6, 0.1);
+    color: var(--Advertencia-color1);
+    font-size: 0.75rem;
+    font-weight: 800;
+    vertical-align: middle;
+}
+
+.pastilla[data-activo="true"]{
+    background-color: var(--icono-verde-fondo);
+    color: var(--icono-verde-color);
+}
+
+body.modo-oscuro .pastilla[data-activo="false"]{
+    background-color: rgba(255, 90, 90, 0.15);
+    color: #ff8a8a;
+}
+
+/* Botón "Desactivar" cuando la verificación ya está activa */
+.btn-continuar.peligro{
+    background-color: var(--Advertencia-color2);
+}
+
+/* ===== Código de demostración (sin servidor de correo) ===== */
+
+.aviso-demo{
+    margin-bottom: 1rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.5rem;
+    background-color: var(--bg-gris);
+    color: var(--color-h1);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.aviso-demo:empty{
+    display: none;
+}
+
+.aviso-demo strong{
+    letter-spacing: 0.08em;
+}
+
+/* ===== Ventana de cambiar contraseña ===== */
+
+.campo-fila{
+    display: grid;
+    grid-template-columns: 11rem minmax(0, 1fr);
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.8rem;
+}
+
+.campo-fila label{
+    font-weight: 700;
+}
+
+.campo-ojo{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+}
+
+.campo-ojo .campo{
+    flex: 1;
+}
+
+.requisitos{
+    margin: 0.4rem 0 0.6rem;
+    padding-left: 11rem;
+    list-style: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.requisitos li{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.25rem 0;
+    transition: color 0.2s;
+}
+
+.requisitos li::before{
+    content: "●";
+    font-size: 0.65rem;
+}
+
+.requisitos li.invalid{
+    color: var(--Advertencia-color1);
+}
+
+.requisitos li.valid{
+    color: var(--icono-verde-color);
+}
+
+body.modo-oscuro .requisitos li.invalid{
+    color: #ff8a8a;
+}
+
+@media (max-width: 600px){
+    .campo-fila{
+        grid-template-columns: 1fr;
+    }
+
+    .requisitos{
+        padding-left: 0;
     }
 }

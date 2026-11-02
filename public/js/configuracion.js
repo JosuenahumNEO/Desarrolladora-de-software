@@ -6,32 +6,57 @@ const main = document.getElementById('main');
 const itemModo = document.getElementById('item-modo');
 const iconoModo = document.getElementById('icono-modo');
 
-const ICONO_LUNA = '/public/svg/moon-sat.svg';
-const ICONO_SOL = '/public/svg/sun-light.svg';
+const ICONO_LUNA = '/svg/moon-sat.svg';
+const ICONO_SOL = '/svg/sun-light.svg';
+
+/* CAmbio importante ahora cada icono guarda su ruta normal en "data-base" (esto para hacer cambio mas rapido de iconos negros a blanco).
+   En modo oscuro se usa la version "White" de los iconos (ej: sun-lightWhite.svg) todos tienen su version white */
+function rutaBase(img) {
+    if (!img.dataset.base) {
+        img.dataset.base = img.getAttribute('src');
+    }
+    return img.dataset.base;
+}
+
+function aplicarIcono(img, oscuro) {
+    const base = rutaBase(img);
+    img.src = oscuro ? base.replace(/\.svg$/, 'White.svg') : base;
+}
+
+function actualizarIconos(oscuro) {
+    document.querySelectorAll('img[src*="svg/"]').forEach(img => aplicarIcono(img, oscuro));
+}
 
 /* menú hamburguesa del header */
-menu.addEventListener('click', () => {
-    sidebar.classList.toggle('menu-toggle');
-    main.classList.toggle('menu-toggle');
+if (menu && sidebar && main) {
+    menu.addEventListener('click', () => {
+        sidebar.classList.toggle('menu-toggle');
+        main.classList.toggle('menu-toggle');
 
-    if (imagen.src.includes('/public/svg/keyframes.svg')) {
-        imagen.src = '/public/svg/keyframes-solid.svg';
-    } else {
-        imagen.src = '/public/svg/keyframes.svg';
-    }
-});
+        if (imagen) {
+            const actual = rutaBase(imagen);
+            imagen.dataset.base = actual.endsWith('/keyframes.svg')
+                ? '/svg/keyframes-solid.svg'
+                : '/svg/keyframes.svg';
+            aplicarIcono(imagen, document.body.classList.contains('modo-oscuro'));
+        }
+    });
+}
 
 /* modo oscuro */
 function aplicarModoOscuro(activo) {
     document.body.classList.toggle('modo-oscuro', activo);
-    itemModo.setAttribute('aria-checked', String(activo));
-    iconoModo.src = activo ? ICONO_SOL : ICONO_LUNA;
+    if (itemModo) itemModo.setAttribute('aria-checked', String(activo));
+    if (iconoModo) iconoModo.dataset.base = activo ? ICONO_SOL : ICONO_LUNA;
+    actualizarIconos(activo);
     localStorage.setItem('modoOscuro', activo ? '1' : '0');
 }
 
-itemModo.addEventListener('click', () => {
-    aplicarModoOscuro(!document.body.classList.contains('modo-oscuro'));
-});
+if (itemModo) {
+    itemModo.addEventListener('click', () => {
+        aplicarModoOscuro(!document.body.classList.contains('modo-oscuro'));
+    });
+}
 
 aplicarModoOscuro(localStorage.getItem('modoOscuro') === '1');
 
@@ -67,51 +92,28 @@ if (interruptorNotificaciones) {
 }
 
 /* Botones preparados para conectarse */
-/* Cada botón tiene data-accion. ESTO CREO QUE ES IMPORTANTE Quien conecte las pestañas agrega aquí su lógica. */
 document.querySelectorAll('[data-accion]').forEach(boton => {
     boton.addEventListener('click', () => {
         const accion = boton.dataset.accion;
-        console.log('Clic en:', accion);
 
-        if (accion === 'cuenta') {
-            window.location.href = '/src/Views/cuenta.html';
+        const rutas = {
+            'cuenta': '/?url=configuracion/cuenta',
+            'idioma': '/?url=configuracion/idioma',
+            'apariencia': '/?url=configuracion/apariencia',
+            'accesibilidad': '/?url=configuracion/accesibilidad',
+            'notificaciones': '/?url=configuracion/notificaciones',
+            'seguridad': '/?url=configuracion/seguridad',
+            'privacidad': '/?url=configuracion/privacidad',
+            'soporte': '/?url=chat/conversacion',
+            'datos': '/?url=configuracion/datos',
+            'menu': '/?url=home',
+            'chat': '/?url=chat',
+            'configuracion': '/?url=configuracion',
+            'logout': '/?url=auth/logout'
+        };
+
+        if (rutas[accion]) {
+            window.location.href = rutas[accion];
         }
-
-        if (accion === 'idioma') {
-            window.location.href = '/src/Views/idioma.html';
-        }
-
-        if (accion === 'apariencia') {
-            window.location.href = '/src/Views/apariencia.html';
-        }
-
-        if (accion === 'accesibilidad') {
-            window.location.href = '/src/Views/accesibilidad.html';
-        }
-
-        if (accion === 'notificaciones') {
-            window.location.href = '/src/Views/notificaciones.html';
-        }
-
-        if (accion === 'seguridad') {
-            window.location.href = '/src/Views/seguridad.html';
-        }
-
-        if (accion === 'privacidad') {
-            window.location.href = '/src/Views/privacidad.html';
-        }
-
-        if (accion === 'soporte') {
-            window.location.href = '/src/Views/conversacion.html';
-        }
-
-        if (accion === 'datos') {
-            window.location.href = '/src/Views/datos.html';
-        }
-
-        // Segun vi el ejemplo de cómo conectarlo después:
-        // if (accion === 'cuenta') abrirPanelCuenta();
-        // if (accion === 'cerrar-sesion') cerrarSesion();
     });
 });
- // Tengo que dejar comentarios aqui o no puedo? osea realmente quien me detiene?

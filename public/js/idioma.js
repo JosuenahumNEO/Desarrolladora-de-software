@@ -209,9 +209,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Rutas de las vistas
     const rutasVistas = {
-        menu: "/src/Views/menu.html",
-        chat: "/src/Views/chat.html",
-        configuracion: "/src/Views/configuracion.html"
+        menu: "/?url=home",
+        chat: "/?url=chat",
+        configuracion: "/?url=configuracion"
     };
 
     // Seleccionar los botones del menú lateral
@@ -232,4 +232,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-});
+    });
