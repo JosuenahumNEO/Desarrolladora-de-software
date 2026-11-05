@@ -7,7 +7,7 @@
     <title>Conversación</title>
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/tarjetas.css">
-    <link rel="stylesheet" href="/css/conversacion.css">
+    <link rel="stylesheet" href="../../../public/css/conversacion.css">
 </head>
 
 <body>
