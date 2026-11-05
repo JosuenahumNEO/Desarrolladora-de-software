@@ -12,8 +12,8 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de sesión — SOftware Solution</title>
     <meta name="description" content="Accedé a tu cuenta en SOftware Solution.">
-    <link rel="stylesheet" href="/css/login-registro.css">
-    <link rel="stylesheet" href="/css/login-animaciones.css">
+    <link rel="stylesheet" href="../../public/css/login-registro.css">
+    <link rel="stylesheet" href="../../public/css/login-animaciones.css">
 </head>
 
 <body>
