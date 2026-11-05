@@ -5,8 +5,8 @@
 
 /* ===== DATOS DE PRUEBA: reemplazar con los desarrolladores reales ===== */
 const DESARROLLADORES = {
-    '1': { nombre: 'Nahúm (desarrollador)', avatar: '/public/svg/cube-hole.svg' },
-    '2': { nombre: 'Oyoque (desarrollador)', avatar: '/public/img/dev-oyoque.png' }
+    '1': { nombre: 'Nahúm (desarrollador)', avatar: '/svg/cube-hole.svg' },
+    '2': { nombre: 'Oyoque (desarrollador)', avatar: '/img/usuario.png' }
 };
 
 /* id de la conversación: conversacion.html?id=2  (si no viene, usa la 1) */
@@ -104,7 +104,7 @@ formMensaje.addEventListener('submit', e => {
 /* ===== Botón volver ===== */
 document.querySelector('[data-accion="volver-chat"]').addEventListener('click', () => {
     console.log('Clic en: volver-chat');
-    window.location.href = '/src/Views/chat.html';
+    window.location.href = '/?url=chat';
 });
 
 inputMensaje.focus();

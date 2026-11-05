@@ -1,62 +1,109 @@
-const toggleDarkMode = document.getElementById("toggleDarkMode");
+/* datos.js
+   Vista de Datos. Sin backend todavía: la descarga y la eliminación se simulan en el cliente.
+   El modo oscuro y la navegación del sidebar los maneja base.js. */
+(() => {
+  const OJO_CERRADO = '/img/ojo.png';
+  const OJO_ABIERTO = '/img/ojo_abierto.png';
+  const RUTA_LOGOUT = '/?url=auth/logout';
 
-const btnSolicitarDescarga = document.getElementById("btnSolicitarDescarga");
-const msgPreparando = document.getElementById("msgPreparando");
-const msgListo = document.getElementById("msgListo");
+  const $ = id => document.getElementById(id);
+  const btnSolicitarDescarga = $('btnSolicitarDescarga');
+  const msgPreparando = $('msgPreparando');
+  const msgListo = $('msgListo');
 
-const btnAbrirEliminacion = document.getElementById("btnAbrirEliminacion");
-const cardEliminacion = document.getElementById("cardEliminacion");
+  const btnAbrirEliminacion = $('btnAbrirEliminacion');
+  const cardEliminacion = $('cardEliminacion');
+  const inputPasswordEliminar = $('inputPasswordEliminar');
+  const togglePassEliminar = $('togglePassEliminar');
+  const imgOjoEliminar = $('imgOjoEliminar');
+  const btnSolicitudDefinitiva = $('btnSolicitudDefinitiva');
 
-const inputPasswordEliminar = document.getElementById("inputPasswordEliminar");
-const togglePassEliminar = document.getElementById("togglePassEliminar");
-const imgOjoEliminar = document.getElementById("imgOjoEliminar");
+  const modalConfirmacionFinal = $('modalConfirmacionFinal');
+  const btnAccionFinalEliminar = $('btnAccionFinalEliminar');
+  const btnCancelarEliminar = $('btnCancelarEliminar');
 
-const btnSolicitudDefinitiva = document.getElementById("btnSolicitudDefinitiva");
-const modalConfirmacionFinal = document.getElementById("modalConfirmacionFinal");
-const btnAccionFinalEliminar = document.getElementById("btnAccionFinalEliminar");
-
-toggleDarkMode.addEventListener("change", (e) => {
-  document.body.classList.toggle("dark-mode", e.target.checked);
-});
-
-btnSolicitarDescarga.addEventListener("click", () => {
-  msgPreparando.classList.remove("hidden");
-  msgListo.classList.add("hidden");
-  btnSolicitarDescarga.disabled = true;
-  btnSolicitarDescarga.style.opacity = "0.6";
-
-  setTimeout(() => {
-    msgPreparando.classList.add("hidden");
-    msgListo.classList.remove("hidden");
-    btnSolicitarDescarga.disabled = false;
-    btnSolicitarDescarga.style.opacity = "1";
-  }, 4000);
-});
-
-btnAbrirEliminacion.addEventListener("click", () => {
-  cardEliminacion.classList.toggle("hidden");
-});
-
-togglePassEliminar.addEventListener("click", () => {
-  if (inputPasswordEliminar.type === "password") {
-    inputPasswordEliminar.type = "text";
-    imgOjoEliminar.src = "/public/img/ojo_abierto.png";
-  } else {
-    inputPasswordEliminar.type = "password";
-    imgOjoEliminar.src = "/public/img/ojo.png";
+  /* ---------- aviso flotante ---------- */
+  let toastTimer = null;
+  function aviso(texto, tipo = 'ok') {
+    let t = document.getElementById('toast');
+    if (!t) {
+      t = document.createElement('div');
+      t.id = 'toast';
+      t.setAttribute('role', 'status');
+      document.body.appendChild(t);
+    }
+    t.className = 'toast ' + tipo;
+    t.textContent = texto;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.remove(), 3500);
   }
-});
 
-btnSolicitudDefinitiva.addEventListener("click", () => {
-  if (inputPasswordEliminar.value.trim() === "") {
-    alert("Por favor escribe tu contraseña actual para continuar.");
-    return;
+  /* ---------- descarga de datos personales ---------- */
+  btnSolicitarDescarga.addEventListener('click', () => {
+    msgPreparando.classList.remove('hidden');
+    msgListo.classList.add('hidden');
+    btnSolicitarDescarga.disabled = true;
+
+    setTimeout(() => {
+      msgPreparando.classList.add('hidden');
+      msgListo.classList.remove('hidden');
+      btnSolicitarDescarga.disabled = false;
+    }, 4000);
+  });
+
+  /* ---------- eliminación de la cuenta ---------- */
+  function cerrarCardEliminacion() {
+    cardEliminacion.classList.add('hidden');
+    btnAbrirEliminacion.setAttribute('aria-expanded', 'false');
+    inputPasswordEliminar.value = '';
+    inputPasswordEliminar.type = 'password';
+    imgOjoEliminar.src = OJO_CERRADO;
   }
-  modalConfirmacionFinal.classList.remove("hidden");
-});
 
+  btnAbrirEliminacion.addEventListener('click', () => {
+    if (cardEliminacion.classList.contains('hidden')) {
+      cardEliminacion.classList.remove('hidden');
+      btnAbrirEliminacion.setAttribute('aria-expanded', 'true');
+      inputPasswordEliminar.focus();
+    } else {
+      cerrarCardEliminacion();
+    }
+  });
 
-btnAccionFinalEliminar.addEventListener("click", () => {
-  alert("Cuenta eliminada correctamente. La sesión se cerrará.");
-  window.location.href = "/src/views/cuenta.html"; 
-});
+  togglePassEliminar.addEventListener('click', () => {
+    const mostrar = inputPasswordEliminar.type === 'password';
+    inputPasswordEliminar.type = mostrar ? 'text' : 'password';
+    imgOjoEliminar.src = mostrar ? OJO_ABIERTO : OJO_CERRADO;
+  });
+
+  btnSolicitudDefinitiva.addEventListener('click', () => {
+    if (inputPasswordEliminar.value.trim() === '') {
+      aviso('Escribe tu contraseña actual para continuar.', 'error');
+      inputPasswordEliminar.focus();
+      return;
+    }
+    modalConfirmacionFinal.classList.remove('hidden');
+    btnCancelarEliminar.focus();
+  });
+
+  function cerrarModalFinal() {
+    modalConfirmacionFinal.classList.add('hidden');
+  }
+
+  btnCancelarEliminar.addEventListener('click', cerrarModalFinal);
+
+  // Clic fuera de la caja o Escape también cancelan
+  modalConfirmacionFinal.addEventListener('click', e => {
+    if (e.target === modalConfirmacionFinal) cerrarModalFinal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !modalConfirmacionFinal.classList.contains('hidden')) cerrarModalFinal();
+  });
+
+  btnAccionFinalEliminar.addEventListener('click', () => {
+    btnAccionFinalEliminar.disabled = true;
+    btnCancelarEliminar.disabled = true;
+    aviso('Solicitud registrada. Tu cuenta se eliminará en 15 días. Se cerrará la sesión.');
+    setTimeout(() => { window.location.href = RUTA_LOGOUT; }, 1800);
+  });
+})();

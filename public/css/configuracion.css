@@ -559,3 +559,72 @@ button.card1:hover, button.card2:hover, button.card3:hover{
         height: 1.6rem;
     }
 }
+/* ===== AJUSTES NUEVOS ===== */
+
+/* Separacion entre botones del sidebar para que el hover no se vea pegado */
+.sidebar ul{
+    gap: 0.6rem;
+}
+
+/* Separacion entre la columna izquierda y la derecha (10% mas que 1rem) */
+.cuadricula-flex{
+    column-gap: 1.1rem;
+}
+
+/* Modo oscuro: mismos colores de las tarjetas pero 30% mas oscuros */
+body.modo-oscuro .cuenta{ background-color: #40439d; }
+body.modo-oscuro .idioma{ background-color: #b39829; }
+body.modo-oscuro .apariencia{ background-color: #b396a9; }
+body.modo-oscuro .accesibilidad{ background-color: #a83937; }
+body.modo-oscuro .notificaciones{ background-color: #168970; }
+body.modo-oscuro .privacidad{ background-color: #b3ac76; }
+body.modo-oscuro .soporte{ background-color: #b39696; }
+body.modo-oscuro .seguridad{ background-color: #919fad; }
+body.modo-oscuro .datos{ background-color: #a0a0a0; }
+
+/* Escritorio: tarjetas 20% mas anchas (84% del ancho) y alturas para unos dos scrolls */
+@media (min-width: 701px){
+    .cuadricula-flex{
+        width: 84%;
+        margin: 0 auto;
+    }
+
+    .card1{ min-height: 40vh; }
+    .card2{ min-height: 20vh; }
+    .card3{ min-height: 12vh; }
+}
+
+/* Responsive (700px o menos): alturas para unos 1.5 scrolls */
+@media (max-width: 700px){
+    .card1{ min-height: 40vh; }
+    .card2{ min-height: 12.5vh; }
+    .card3{ min-height: 8vh; }
+}
+
+/* La fuente la elige el usuario en Accesibilidad (ajustes.js define --fuente-app) */
+* { font-family: var(--fuente-app, Arial, Helvetica, sans-serif); }
+
+/* ===== ICONOS MÁS GRANDES Y SEMITRANSPARENTES ===== */
+/* Cuenta, Accesibilidad, Privacidad, Soporte y Datos */
+
+.cuenta .icono,
+.accesibilidad .icono,
+.privacidad .icono,
+.soporte .icono,
+.card3.datos .icono{
+    width: 3.5rem;
+    height: 3.5rem;
+    opacity: 0.5;
+}
+
+/* Pantallas chicas */
+@media (max-width: 700px){
+    .cuenta .icono,
+    .accesibilidad .icono,
+    .privacidad .icono,
+    .soporte .icono,
+    .card3.datos .icono{
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+}

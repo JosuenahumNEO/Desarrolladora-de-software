@@ -30,4 +30,40 @@ class User
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    /**
+     * Registra un nuevo usuario en la base de datos.
+     *
+     * @param array{
+     *     id_rol?: int,
+     *     nombre: string,
+     *     correo: string,
+     *     password: string,
+     *     estado?: string,
+     *     telefono?: ?string,
+     *     genero?: ?string
+     * } $data
+     * @return int|false ID del usuario insertado o false en caso de error.
+     */
+    public function create(array $data): int|false
+    {
+        $pdo = Database::getInstance();
+
+        $stmt = $pdo->prepare(
+            'INSERT INTO usuario (id_rol, nombre, correo, password, estado, telefono, genero)
+             VALUES (:id_rol, :nombre, :correo, :password, :estado, :telefono, :genero)'
+        );
+
+        $success = $stmt->execute([
+            ':id_rol'   => $data['id_rol'] ?? 3,
+            ':nombre'   => $data['nombre'],
+            ':correo'   => $data['correo'],
+            ':password' => $data['password'],
+            ':estado'   => $data['estado'] ?? 'activo',
+            ':telefono' => $data['telefono'] ?? null,
+            ':genero'   => $data['genero'] ?? null,
+        ]);
+
+        return $success ? (int) $pdo->lastInsertId() : false;
+    }
 }

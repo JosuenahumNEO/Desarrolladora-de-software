@@ -460,3 +460,12 @@ main.menu-toggle{
         transition: none !important;
     }
 }
+
+
+/* Separación entre botones del aside (igual que Configuración) para que el hover no se vea pegado */
+.sidebar ul{
+    gap: 0.6rem;
+}
+
+/* La fuente la elige el usuario en Accesibilidad (ajustes.js define --fuente-app) */
+* { font-family: var(--fuente-app, Arial, Helvetica, sans-serif); }

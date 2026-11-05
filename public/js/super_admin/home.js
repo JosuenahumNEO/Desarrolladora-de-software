@@ -43,13 +43,13 @@ document.querySelectorAll('[data-accion]').forEach(boton => {
         const accion = boton.dataset.accion;
 
         if (accion === 'chat') {
-            window.location.href = '/src/Views/chat.html';
+            window.location.href = '/?url=chat';
         }
         if (accion === 'configuracion') {
-            window.location.href = '/src/Views/configuracion.html';
+            window.location.href = '/?url=configuracion';
         }
         if (accion === 'logout') {
-            window.location.href = '/src/Views/login.html';
+            window.location.href = '/?url=auth/logout';
         }
 
         // Pendientes de conectar con sus vistas correspondientes
@@ -99,3 +99,4 @@ if (fabAdd) {
         console.log('Agregar nuevo sistema — pendiente de conectar');
     });
 }
+

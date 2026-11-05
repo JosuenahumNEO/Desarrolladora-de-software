@@ -16,11 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (imagenMenu) {
                 if (imagenMenu.src.includes("keyframes-solid.svg")) {
-                    imagenMenu.src =
-                        "../../public/svg/keyframes.svg";
+                    imagenMenu.src = "/svg/keyframes.svg";
                 } else {
-                    imagenMenu.src =
-                        "../../public/svg/keyframes-solid.svg";
+                    imagenMenu.src = "/svg/keyframes-solid.svg";
                 }
             }
         });
@@ -33,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const itemModo = document.getElementById("item-modo");
     const iconoModo = document.getElementById("icono-modo");
 
-    const ICONO_LUNA = "../../public/svg/moon-sat.svg";
-    const ICONO_SOL = "../../public/svg/sun-light.svg";
+    const ICONO_LUNA = "/svg/moon-sat.svg";
+    const ICONO_SOL = "/svg/sun-light.svg";
 
     function aplicarModoOscuro(activo) {
         document.body.classList.toggle("modo-oscuro", activo);
@@ -67,12 +65,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // BOTONES DEL MENÚ
     // ========================================
 
-    document.querySelectorAll("[data-accion]").forEach(function (boton) {
+    document.querySelectorAll(".sidebar [data-accion]").forEach(function (boton) {
         boton.addEventListener("click", function () {
             const accion = boton.dataset.accion;
-            console.log("Clic en:", accion);
-
-            // Aquí se conectarán las acciones de cada botón.
+            if (accion === "menu") {
+                window.location.href = "/?url=home";
+            } else if (accion === "chat") {
+                window.location.href = "/?url=chat";
+            } else if (accion === "configuracion") {
+                window.location.href = "/?url=configuracion";
+            } else if (accion === "logout") {
+                window.location.href = "/?url=auth/logout";
+            }
         });
     });
 });

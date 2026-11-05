@@ -43,11 +43,11 @@ document.querySelectorAll('[data-accion]').forEach(boton => {
         const accion = boton.dataset.accion;
 
         if (accion === 'chat') {
-            window.location.href = '/src/Views/chat.html';
+            window.location.href = '/?url=chat';
         }
 
         if (accion === 'configuracion') {
-            window.location.href = '/src/Views/configuracion.html';
+            window.location.href = '/?url=configuracion';
         }
 
         if (accion === 'panel') {
@@ -55,7 +55,7 @@ document.querySelectorAll('[data-accion]').forEach(boton => {
         }
 
         if (accion === 'logout') {
-            window.location.href = '/src/Views/login.html';
+            window.location.href = '/?url=auth/logout';
         }
     });
 });
@@ -84,3 +84,4 @@ if (fabAdd) {
         console.log('Agregar nuevo sistema — pendiente de conectar');
     });
 }
+
