@@ -628,3 +628,83 @@ body.modo-oscuro .datos{ background-color: #a0a0a0; }
         height: 2.4rem;
     }
 }
+
+/** INTERRUPTOR DE NOTIFICACIONES **/
+
+.notificaciones {
+    cursor: pointer;
+    transition: filter 0.5s;
+}
+
+.notificaciones:hover {
+    filter: brightness(0.95);
+}
+
+.control-notificaciones {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Ocultar el checkbox original */
+.entrada-interruptor {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+/* Fondo del interruptor */
+.interruptor-visual {
+    position: relative;
+    display: inline-block;
+    width: 2.7rem;
+    height: 1.45rem;
+    background-color: #94a3b8;
+    border-radius: 999px;
+    transition: background-color 0.3s ease;
+}
+
+/* Círculo que se desliza */
+.circulo-interruptor {
+    position: absolute;
+    width: 1.1rem;
+    height: 1.1rem;
+    left: 0.17rem;
+    top: 0.17rem;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+/* Cuando está activado */
+.entrada-interruptor:checked + .interruptor-visual {
+    background-color: #008a0e;
+}
+
+.entrada-interruptor:checked + .interruptor-visual .circulo-interruptor {
+    transform: translateX(1.25rem);
+}
+
+/* Indicador de enfoque para teclado */
+.entrada-interruptor:focus-visible + .interruptor-visual {
+    outline: 3px solid var(--color-interactive);
+    outline-offset: 3px;
+}
+
+
+/* Acomodar el interruptor y la campana juntos */
+.acciones-notificaciones {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-shrink: 0;
+}
+
+/* Mantener la campana al extremo derecho */
+.acciones-notificaciones .icono {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+}

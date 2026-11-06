@@ -190,10 +190,6 @@ cambiarIdioma(idiomaGuardado);
 });
 
 
-
-
-
-
 // Conectar con el Google Translate //
 
 
@@ -205,27 +201,35 @@ cambiarIdioma(idiomaGuardado);
 
 
 
-    // ==========================================
-    // 9. NAVEGACIÓN ENTRE LAS VISTAS
-    // ==========================================
+// ==========================================
+// 9. NAVEGACIÓN DEL MENÚ LATERAL
+// ==========================================
 
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Rutas de las vistas
     const rutasVistas = {
         menu: "/?url=home",
         chat: "/?url=chat",
         configuracion: "/?url=configuracion"
     };
 
-    document.querySelectorAll(".btn-sidebar[data-accion]").forEach((boton) => {
+    // Seleccionar los botones del menú lateral
+    const botonesSidebar = document.querySelectorAll(".btn-sidebar[data-accion]");
+
+    botonesSidebar.forEach(boton => {
 
         boton.addEventListener("click", () => {
 
             const accion = boton.dataset.accion;
-            const ruta = rutasVistas[accion];
 
-            if (ruta) {
-                window.location.href = ruta;
+            // Verificar si existe una ruta para el botón seleccionado
+            if (rutasVistas[accion]) {
+                window.location.href = rutasVistas[accion];
             }
 
         });
+
+    });
 
     });

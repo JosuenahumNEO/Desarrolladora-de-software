@@ -202,10 +202,9 @@
 
         </section>
 
-
+        <script src="/js/apariencia.js"></script>
 
     </main>
-
 
 
 </body>

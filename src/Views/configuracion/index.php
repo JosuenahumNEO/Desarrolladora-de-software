@@ -115,11 +115,23 @@
                     <img class="icono" src="/svg/accessibility.svg" alt="">
                 </button>
 
-                <button class="card2 notificaciones" data-accion="notificaciones">
+                <div class="card2 notificaciones" data-accion="notificaciones">
                     <span class="titulo">Notificaciones</span>
-                    <img class="icono" src="/svg/bell-solid-full.svg" alt="">
                 </button>
 
+                    <!-- Interruptor y campana -->
+                    <div class="acciones-notificaciones">
+                        <label class="control-notificaciones" for="interruptor-notificaciones">
+                            <input type="checkbox" id="interruptor-notificaciones" class="entrada-interruptor"
+                                aria-label="Activar o silenciar notificaciones">
+                            <span class="interruptor-visual">
+                                <span class="circulo-interruptor"></span>
+                            </span>
+                        </label>
+                        <img class="icono" src="/svg/bell-solid-full.svg" alt="">
+                    </div>
+                </div>
+                
                 <button class="card1 seguridad" data-accion="seguridad">
                     <span class="titulo">Seguridad</span>
                     <img class="icono icono-grande" src="/svg/user-shield-solid-full.svg" alt="">
