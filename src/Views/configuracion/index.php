@@ -117,7 +117,6 @@
 
                 <div class="card2 notificaciones" data-accion="notificaciones">
                     <span class="titulo">Notificaciones</span>
-                </button>
 
                     <!-- Interruptor y campana -->
                     <div class="acciones-notificaciones">
