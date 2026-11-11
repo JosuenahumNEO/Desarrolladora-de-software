@@ -139,6 +139,7 @@
 
     </main>
 
+    <script src="/js/idioma.js"></script>
 
 </body>
 

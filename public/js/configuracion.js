@@ -60,7 +60,38 @@ if (itemModo) {
 
 aplicarModoOscuro(localStorage.getItem('modoOscuro') === '1');
 
-/* Navegación por controlador MVC */
+/* ========================================
+   INTERRUPTOR DE NOTIFICACIONES
+======================================== */
+
+const interruptorNotificaciones = document.getElementById(
+    'interruptor-notificaciones'
+);
+
+// Recuperar la preferencia guardada
+if (interruptorNotificaciones) {
+
+    // Si no existe una preferencia guardada, inicia activado
+    interruptorNotificaciones.checked =
+        localStorage.getItem('notificacionesActivas') !== '0';
+
+    // Evitar que al presionar el switch se abra otra vista
+    interruptorNotificaciones.addEventListener('click', (event) => {
+        event.stopPropagation();
+    });
+
+    // Guardar el estado cuando se active o desactive
+    interruptorNotificaciones.addEventListener('change', () => {
+
+        localStorage.setItem(
+            'notificacionesActivas',
+            interruptorNotificaciones.checked ? '1' : '0'
+        );
+
+    });
+}
+
+/* Botones preparados para conectarse */
 document.querySelectorAll('[data-accion]').forEach(boton => {
     boton.addEventListener('click', () => {
         const accion = boton.dataset.accion;
