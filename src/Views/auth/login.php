@@ -24,7 +24,7 @@ if (session_status() === PHP_SESSION_NONE) {
         })();
     </script>
 
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="../../../public/css/login.css">
 </head>
 
 <body>

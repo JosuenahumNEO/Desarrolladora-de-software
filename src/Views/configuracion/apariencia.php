@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Apariencia</title>
-    <link rel="stylesheet" href="/css/plantilla.css">
-    <link rel="stylesheet" href="/css/apariencia.css">
-    <script src="/js/plantilla.js"></script>
+    <link rel="stylesheet" href="../../../public/css/plantilla.css">
+    <link rel="stylesheet" href="../../../public/css/apariencia.css">
+    <script src="../../../public/js/plantilla.js"></script>
 </head>
 
 <body>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($title ?? 'PortDevs Solutions') ?></title>
-    <link rel="stylesheet" href="/css/plantilla.css">
+    <link rel="stylesheet" href="../../../public/css/plantilla.css">
     <?php if (!empty($extraCss)): ?>
         <?php foreach ((array)$extraCss as $css): ?>
             <link rel="stylesheet" href="<?= htmlspecialchars($css) ?>">

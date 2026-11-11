@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Configuración de Cuenta</title>
   <link rel="icon" href="/img/usuario.jpeg" type="image/png">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/cuenta.css">
+  
+  <link rel="stylesheet" href="../../../public/css/base.css">
+  <link rel="stylesheet" href="../../../public/css/cuenta.css">
 </head>
 <body>
 
