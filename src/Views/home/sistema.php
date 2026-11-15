@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($systemTitle ?? 'Título del Sistema') ?></title>
+    <title><?= htmlspecialchars($systemTitle ?? 'Sistema') ?></title>
     <!-- Tipografía moderna -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -343,7 +343,7 @@
             </button>
         </div>
 
-        <h1 class="page-title"><?= htmlspecialchars($systemTitle ?? 'Título del Sistema') ?></h1>
+        <h1 class="page-title"><?= htmlspecialchars($systemTitle ?? 'Sistema') ?></h1>
 
         <div class="header-actions">
             <a href="<?= htmlspecialchars($actionUrl ?? '#') ?>" class="btn-interactive"><?= htmlspecialchars($actionText ?? 'Ingresar') ?></a>
@@ -369,7 +369,7 @@
                 <?php endif; ?>
             </div>
 
-            <!-- COLUMNA 2: ESPACIO PARA IMAGEN O CAPTURA DEL SISTEMA -->
+            <!-- COLUMNA 2: IMAGEN O CAPTURA DEL SISTEMA -->
             <div class="content-media-slot">
                 <?php if (!empty($imageUrl)): ?>
                     <img src="<?= htmlspecialchars($imageUrl) ?>" alt="<?= htmlspecialchars($systemTitle ?? 'Imagen del Sistema') ?>">
@@ -379,9 +379,8 @@
                         <circle cx="8.5" cy="8.5" r="1.5"></circle>
                         <polyline points="21 15 16 10 5 21"></polyline>
                     </svg>
-                    <span class="slot-label">Espacio para Imagen o Captura del Sistema</span>
-                    <span class="slot-hint">Inyectable mediante la variable $imageUrl</span>
-                <?php endif; ?>
+                    <span class="slot-label">Imagen del sistema próximamente</span>
+                                    <?php endif; ?>
             </div>
 
         </div>

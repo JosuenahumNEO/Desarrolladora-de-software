@@ -25,17 +25,17 @@
       <div class="cards-container flex-cards">
         <div class="card card-small">
           <h3>Sistema de capacitación multiempresarial</h3>
-          <a href="/?url=home/sistema" class="btn-ver-mas" style="text-decoration:none;display:inline-block;text-align:center;">VER MÁS</a>
+          <a href="/?url=home/sistema/capacitacion" class="btn-ver-mas" style="text-decoration:none;display:inline-block;text-align:center;">VER MÁS</a>
         </div>
 
         <div class="card card-featured">
           <h3>Sistema de venta de inmuebles</h3>
-          <a href="/?url=home/sistema" class="btn-ver-mas" style="text-decoration:none;display:inline-block;text-align:center;">VER MÁS</a>
+          <a href="/?url=home/sistema/inmuebles" class="btn-ver-mas" style="text-decoration:none;display:inline-block;text-align:center;">VER MÁS</a>
         </div>
 
         <div class="card card-small">
           <h3>Sistema de control escolar</h3>
-          <a href="/?url=home/sistema" class="btn-ver-mas" style="text-decoration:none;display:inline-block;text-align:center;">VER MÁS</a>
+          <a href="/?url=home/sistema/escolar" class="btn-ver-mas" style="text-decoration:none;display:inline-block;text-align:center;">VER MÁS</a>
         </div>
       </div>
 

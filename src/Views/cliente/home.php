@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descubrí todos los sistemas disponibles para tu empresa.">
-    <title>Inicio — Software Solutions</title>
+    <title>Inicio — PortDevs Solutions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         <div class="navbar__logo" aria-hidden="true">
             <i class="fa-solid fa-cube"></i>
         </div>
-        <h1 class="navbar__title">Software Solutions</h1>
+        <h1 class="navbar__title">PortDevs Solutions</h1>
         <button class="navbar__avatar" id="btn-perfil" aria-label="Perfil de usuario">
             <i class="fa-solid fa-circle-user" aria-hidden="true"></i>
         </button>
@@ -57,7 +57,7 @@
 
             <button class="sidebar__logout" id="btn-logout" type="button" data-accion="logout">
                 <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
-                <span>Log out</span>
+                <span>Cerrar sesión</span>
             </button>
         </aside>
 

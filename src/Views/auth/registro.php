@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Crea tu cuenta en Software Solutions — Plataforma integral de gestión y soluciones de software.">
-    <title>Registro — Software Solutions</title>
+    <meta name="description" content="Crea tu cuenta en PortDevs Solutions — Plataforma integral de gestión y soluciones de software.">
+    <title>Registro — PortDevs Solutions</title>
 
     <!-- Tipografía Inter & Iconos Font Awesome (mismo stack que los paneles Home) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,11 +23,11 @@
 
         <!-- Barra superior: Marca y selector de tema -->
         <div class="top-bar">
-            <a href="/?url=home" class="brand" title="Software Solutions">
+            <a href="/?url=home" class="brand" title="PortDevs Solutions">
                 <div class="brand__logo" aria-hidden="true">
                     <i class="fa-solid fa-cube"></i>
                 </div>
-                <span class="brand__name">Software Solutions</span>
+                <span class="brand__name">PortDevs Solutions</span>
             </a>
 
             <button type="button" class="boton-modo" id="boton-modo" aria-label="Cambiar entre modo claro y oscuro" title="Cambiar modo de visualización">

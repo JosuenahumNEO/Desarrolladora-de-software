@@ -1,0 +1,497 @@
+/* =====================================================
+   TEMA ÚNICO PORTDEVS — mismo estilo del login y del home.
+   Se carga AL FINAL en todas las vistas internas (panel,
+   configuración, chat) para que gane sobre sus hojas propias.
+   ===================================================== */
+
+:root {
+    --azul: #1100cc;
+    --azul-suave: #eef0ff;
+    --verde: #0b8a5f;
+    --verde-claro: #34e6aa;
+    --verde-hover: #097350;
+    --rojo: #d92d20;
+    --texto: #0f172a;
+    --texto-suave: #5b6275;
+    --fondo: #f3f5f9;
+    --superficie: #ffffff;
+    --campo: #f1f3f7;
+    --borde: #e2e6ef;
+    --sombra: 0 10px 30px rgba(20, 20, 60, 0.08);
+    --sombra-hover: 0 18px 40px rgba(20, 20, 60, 0.14);
+    --radio: 1.1rem;
+}
+
+/* Modo oscuro: misma clase que usa el resto de la app */
+.modo-oscuro {
+    --azul: #9db5ff;
+    --azul-suave: #232842;
+    --verde: #10b981;
+    --verde-claro: #34e6aa;
+    --verde-hover: #34d399;
+    --texto: #e6e9f0;
+    --texto-suave: #aab0bf;
+    --fondo: #16171d;
+    --superficie: #1e1f26;
+    --campo: #2a2c36;
+    --borde: #3a3d4c;
+    --sombra: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --sombra-hover: 0 18px 40px rgba(0, 0, 0, 0.55);
+}
+
+/* ===== Base ===== */
+
+html,
+body {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+body {
+    background-color: var(--fondo) !important;
+    background-image:
+        radial-gradient(40rem 24rem at 5% 0%, rgba(52, 230, 170, 0.14), transparent 70%),
+        radial-gradient(36rem 22rem at 100% 100%, rgba(17, 0, 204, 0.06), transparent 70%);
+    color: var(--texto) !important;
+    line-height: 1.5;
+}
+
+h1, h2, h3 {
+    color: var(--texto) !important;
+    letter-spacing: -0.01em;
+}
+
+a {
+    color: var(--azul);
+}
+
+:focus-visible {
+    outline: 3px solid var(--azul);
+    outline-offset: 2px;
+}
+
+/* ===== Header superior ===== */
+
+header,
+.navbar {
+    background: var(--superficie) !important;
+    background-image: none !important;
+    border-bottom: 1px solid var(--borde) !important;
+    box-shadow: 0 2px 12px rgba(20, 20, 60, 0.05);
+    color: var(--texto) !important;
+}
+
+.navbar__title,
+.brand .name,
+.name,
+.titulo-pagina {
+    color: var(--texto) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.01em;
+}
+
+.brand .logo,
+.navbar__logo {
+    filter: none;
+}
+
+/* logo: cuadro con degradado como en el login */
+.navbar__logo,
+.logo-cuadro {
+    background: linear-gradient(145deg, var(--verde-claro), var(--verde));
+    border-radius: 0.75rem;
+    color: #06281c;
+}
+
+.user,
+.navbar__avatar {
+    border-radius: 50% !important;
+    border: 2px solid var(--borde);
+}
+
+/* ===== Sidebar lateral ===== */
+
+.sidebar {
+    background: var(--superficie) !important;
+    border-right: 1px solid var(--borde) !important;
+    box-shadow: none !important;
+}
+
+.sidebar__link,
+.btn-sidebar {
+    display: flex !important;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0.25rem 0.6rem;
+    padding: 0.7rem 0.9rem !important;
+    border: none !important;
+    border-radius: 0.8rem !important;
+    background: transparent !important;
+    color: var(--texto-suave) !important;
+    font-weight: 700;
+    text-decoration: none;
+    width: calc(100% - 1.2rem) !important;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar__link:hover,
+.btn-sidebar:hover {
+    background: var(--azul-suave) !important;
+    color: var(--azul) !important;
+}
+
+.sidebar__link.activa,
+.btn-sidebar.selected {
+    background: linear-gradient(145deg, var(--verde-claro), var(--verde)) !important;
+    color: #06281c !important;
+    box-shadow: 0 6px 16px rgba(11, 138, 95, 0.25);
+}
+
+.btn-sidebar.red-jhon,
+.sidebar__logout {
+    background: var(--rojo) !important;
+    color: #ffffff !important;
+    border-radius: 999px !important;
+    justify-content: center;
+    box-shadow: 0 6px 16px rgba(217, 45, 32, 0.25);
+}
+
+.btn-sidebar.red-jhon:hover,
+.sidebar__logout:hover {
+    background: #b42318 !important;
+    color: #ffffff !important;
+}
+
+.sidebar__toggle-label,
+.sidebar .texto,
+.sidebar__dark-toggle {
+    color: var(--texto-suave) !important;
+    font-weight: 700;
+}
+
+.slider,
+.toggle-track {
+    border-radius: 999px !important;
+}
+
+/* ===== Tarjetas (catálogo, configuración, chat) ===== */
+
+.product-card,
+.sw-card,
+.card,
+.card2,
+.card3,
+.chat-item,
+.panel-info,
+.tarjeta {
+    background: var(--superficie) !important;
+    border: 1px solid var(--borde) !important;
+    border-radius: var(--radio) !important;
+    box-shadow: var(--sombra) !important;
+    color: var(--texto) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover,
+.sw-card:hover,
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-hover) !important;
+}
+
+/* bloques de color: se vuelven acento discreto en vez de bloque lleno */
+.product-card__media,
+.sw-card__media {
+    border-radius: 0.9rem 0 0 0.9rem;
+    background: linear-gradient(145deg, var(--verde-claro), var(--verde)) !important;
+}
+
+.product-card__media--purple,
+.product-card__media--blue,
+.product-card__media--orange,
+.product-card__media--teal {
+    background: linear-gradient(145deg, var(--verde-claro), var(--verde)) !important;
+}
+
+.product-card__name,
+.sw-card__name {
+    color: var(--texto) !important;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.product-card__desc,
+.sw-card__desc {
+    color: var(--texto-suave) !important;
+}
+
+/* botones de acción en tarjetas */
+.product-card__btn,
+.sw-card__btn {
+    background: var(--verde) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 999px !important;
+    padding: 0.5rem 1.2rem !important;
+    font-weight: 700;
+    font-size: 0.82rem !important;
+    letter-spacing: 0.03em;
+}
+
+.product-card__btn:hover,
+.sw-card__btn:hover {
+    background: var(--verde-hover) !important;
+}
+
+/* ===== Campos de búsqueda y formularios ===== */
+
+.search-input,
+input,
+select,
+textarea {
+    background-color: var(--campo) !important;
+    border: 1.5px solid var(--borde) !important;
+    border-radius: 0.7rem !important;
+    color: var(--texto) !important;
+    font-family: inherit;
+    outline: none;
+}
+
+.search-input:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--azul) !important;
+    box-shadow: 0 0 0 4px rgba(17, 0, 204, 0.12);
+}
+
+.search-wrap {
+    border-radius: 999px;
+}
+
+label {
+    color: var(--texto);
+    font-weight: 700;
+}
+
+/* ===== Botones generales ===== */
+
+.btn-success,
+.btn-principal,
+.btn-guardar,
+.btn-contactar,
+.btn-enviar,
+.btn-action,
+.btn-interactive {
+    background: var(--verde) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 999px !important;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-success:hover,
+.btn-principal:hover,
+.btn-guardar:hover,
+.btn-contactar:hover,
+.btn-enviar:hover,
+.btn-action:hover,
+.btn-interactive:hover {
+    background: var(--verde-hover) !important;
+    transform: translateY(-2px);
+}
+
+.btn-secondary,
+.btn-regresar {
+    background: var(--superficie) !important;
+    color: var(--azul) !important;
+    border: 1px solid var(--borde) !important;
+    border-radius: 999px !important;
+    font-weight: 700;
+}
+
+.btn-secondary:hover,
+.btn-regresar:hover {
+    background: var(--azul-suave) !important;
+}
+
+.fab,
+.btn-contactar {
+    box-shadow: 0 10px 24px rgba(17, 0, 204, 0.25);
+}
+
+/* ===== Interruptores (modo oscuro, notificaciones) ===== */
+
+.switch input:checked + .slider,
+.interruptor-visual {
+    background: var(--verde) !important;
+}
+
+/* ===== Listado de chats ===== */
+
+.chat-item {
+    padding: 1rem 1.2rem !important;
+}
+
+.chat-avatar {
+    border-radius: 50%;
+    background: var(--azul-suave);
+}
+
+.chat-nombre {
+    color: var(--texto) !important;
+    font-weight: 800;
+}
+
+.chat-preview {
+    color: var(--texto-suave) !important;
+}
+
+.chat-punto {
+    background: var(--azul) !important;
+}
+
+/* ===== Responsive: el sidebar se vuelve barra inferior en celular ===== */
+
+@media (max-width: 720px) {
+    .sidebar__link,
+    .btn-sidebar {
+        margin: 0.15rem 0.3rem;
+        padding: 0.55rem 0.6rem !important;
+        width: auto !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* =====================================================
+   TILES DE CONFIGURACIÓN: todos con el mismo fondo.
+   Antes cada uno tenía un color fuerte (amarillo, rosa, azul...).
+   ===================================================== */
+
+.card1, .card2, .card3,
+button.card1, button.card2, button.card3,
+.cuenta, .apariencia, .idioma, .accesibilidad, .notificaciones,
+.privacidad, .soporte, .seguridad, .datos {
+    background-color: var(--superficie) !important;
+    background-image: none !important;
+    border: 1px solid var(--borde) !important;
+    border-radius: var(--radio) !important;
+    box-shadow: var(--sombra) !important;
+    color: var(--texto) !important;
+}
+
+.card1 .titulo, .card2 .titulo, .card3 .titulo,
+.card1 span, .card2 span, .card3 span {
+    color: var(--texto) !important;
+    font-weight: 800;
+}
+
+/* ícono de cada tile en color de acento, sin bloque de color */
+.card1 .icono, .card2 .icono, .card3 .icono,
+.cuenta .icono, .apariencia .icono, .idioma .icono,
+.accesibilidad .icono, .notificaciones .icono, .privacidad .icono,
+.soporte .icono, .seguridad .icono, .datos .icono {
+    color: var(--verde) !important;
+    opacity: 0.9;
+}
+
+/* ===== Botón de salir en el sidebar: solo ícono, como círculo ===== */
+
+.btn-sidebar.red-jhon {
+    width: 2.8rem !important;
+    height: 2.8rem !important;
+    margin: 0.5rem auto !important;
+    padding: 0 !important;
+    justify-content: center;
+}
+
+.btn-sidebar.red-jhon .texto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.btn-sidebar.red-jhon img {
+    filter: invert(1);
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+/* el sidebar siempre ocupa toda la altura de la pantalla */
+.sidebar {
+    min-height: 100vh;
+}
+
+/* silueta decorativa de la página de cuenta: sutil y dentro del recuadro */
+.profile-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-user-silhouette {
+    position: absolute !important;
+    right: 1rem;
+    bottom: 0;
+    width: 220px !important;
+    height: auto !important;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.modo-oscuro .bg-user-silhouette {
+    filter: invert(1);
+    opacity: 0.05;
+}
+
+/* panel informativo de seguridad: mismo color de tarjeta suave */
+.panel-decorativo {
+    background: linear-gradient(145deg, var(--verde-claro), var(--verde)) !important;
+    border: none !important;
+    color: #06281c !important;
+    box-shadow: var(--sombra) !important;
+}
+
+.panel-decorativo *,
+.panel-decorativo span,
+.panel-decorativo p {
+    color: #06281c !important;
+}
+
+/* botones que antes eran azul o gris ahora usan la paleta del login */
+.btn-continuar,
+.btn-azul,
+.btn-verde {
+    background: var(--verde) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 999px !important;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-continuar:hover,
+.btn-azul:hover,
+.btn-verde:hover {
+    background: var(--verde-hover) !important;
+    transform: translateY(-2px);
+}
+
+/* enlaces de "Regresar" y acciones secundarias en azul del login */
+.btn-regresar,
+.btn-volver-config {
+    color: var(--azul) !important;
+}
