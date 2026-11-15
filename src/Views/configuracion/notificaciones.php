@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notificaciones</title>
     
-    <link rel="stylesheet" href="../../../public/css/notificaciones.css">
-    <script src="../../../public/js/notificaciones.js"></script>
+    <link rel="stylesheet" href="/css/notificaciones.css">
+    <script src="/js/notificaciones.js"></script>
 </head>
 
 <body>

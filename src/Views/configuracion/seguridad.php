@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configuración - Seguridad</title>
    
-    <link rel="stylesheet" href="../../../public/css/base.css">
-    <link rel="stylesheet" href="../../../public/css/vista-config.css">
-    <link rel="stylesheet" href="../../../public/css/seguridad.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/vista-config.css">
+    <link rel="stylesheet" href="/css/seguridad.css">
 </head>
 
 <body>

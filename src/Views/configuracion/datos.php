@@ -6,8 +6,8 @@
   <title>Configuración - Datos</title>
   <link rel="icon" href="/img/ojo.png" type="image/png">
   
-  <link rel="stylesheet" href="../../../public/css/base.css">
-  <link rel="stylesheet" href="../../../public/css/datos.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/datos.css">
 </head>
 <body>
 

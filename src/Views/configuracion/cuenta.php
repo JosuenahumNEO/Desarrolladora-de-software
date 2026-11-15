@@ -6,8 +6,8 @@
   <title>Configuración de Cuenta</title>
   <link rel="icon" href="/img/usuario.jpeg" type="image/png">
   
-  <link rel="stylesheet" href="../../../public/css/base.css">
-  <link rel="stylesheet" href="../../../public/css/cuenta.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/cuenta.css">
 </head>
 <body>
 

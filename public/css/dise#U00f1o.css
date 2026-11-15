@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f9fc;
+  color: #222;
+  overflow-x: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: transparent;
+}
+
+.logo-img {
+  max-height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+
+.btn-ingresar {
+  background-color: #1100cc;
+  color: #ffffff;
+  border: none;
+  padding: 10px 36px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(17, 0, 204, 0.3);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-ingresar:hover {
+  background-color: #0b0099;
+  transform: translateY(-2px);
+}
+
+section {
+  padding: 50px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.main-title, .section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin-bottom: 40px;
+}
+
+.large-title {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-small {
+  width: 280px;
+  height: 200px;
+}
+
+.card-featured {
+  width: 300px;
+  height: 230px;
+}
+
+.card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.btn-ver-mas {
+  background-color: #00b87c;
+  color: #ffffff;
+  border: none;
+  padding: 10px 28px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-ver-mas:hover {
+  background-color: #009665;
+}
+
+.center-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-black {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 12px 35px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-black:hover {
+  background-color: #222222;
+  transform: translateY(-2px);
+}
+
+.feature-card {
+  width: 290px;
+  min-height: 260px;
+  padding: 25px 20px;
+  text-align: center;
+}
+
+.card-tall {
+  min-height: 310px;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+  margin-top: 15px;
+}
+
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 40px 40px 20px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 60px;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.contact-item .icon {
+  font-size: 1.2rem;
+  width: 24px;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #cccccc;
+  margin-top: 10px;
+}
+
+.footer-watermark {
+  position: absolute;
+  right: -20px;
+  bottom: -40px;
+  opacity: 0.15;
+  filter: invert(1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.watermark-img {
+  width: 280px;
+  height: auto;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    flex-direction: column;
+  }
+
+  .card-small, .card-featured, .feature-card {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .main-title, .section-title {
+    font-size: 1.4rem;
+  }
+}
