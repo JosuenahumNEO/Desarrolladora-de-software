@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
     <title>Configuración - Privacidad</title>
-    <link rel="stylesheet" href="../../../public/css/base.css">
-    <link rel="stylesheet" href="../../../public/css/vista-config.css">
-    <link rel="stylesheet" href="../../../public/css/tarjetas.css">
-    <link rel="stylesheet" href="../../../public/css/privacidad.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/vista-config.css">
+    <link rel="stylesheet" href="/css/tarjetas.css">
+    <link rel="stylesheet" href="/css/privacidad.css">
 </head>
 
 <body>

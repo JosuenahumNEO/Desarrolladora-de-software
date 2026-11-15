@@ -12,6 +12,8 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de sesión — PortDevs Solutions</title>
     <meta name="description" content="Accede a tu cuenta en PortDevs Solutions.">
+     <link rel="stylesheet" href="/css/login-registro.css">
+    <link rel="stylesheet" href="/css/login-animaciones.css">
 
     <!-- Aplica el modo guardado ANTES de pintar la página (evita el parpadeo claro -> oscuro) -->
     <script>
@@ -24,7 +26,7 @@ if (session_status() === PHP_SESSION_NONE) {
         })();
     </script>
 
-    <link rel="stylesheet" href="../../../public/css/login.css">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
