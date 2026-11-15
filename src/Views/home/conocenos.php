@@ -1,132 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>Conócenos — PortDevs Solutions</title>
     <link rel="stylesheet" href="/css/conocenos.css">
 </head>
 <body>
-    <h1>Conócenos</h1>
 
-<P>Conoces el equipo de desarroladores detras de PortDevs Solutions?</P><br>Nosotros somos los encargados de tomar tu problema y congertirlo en solucion mediante software robusto y completo
+    <header class="cabecera">
+        <a href="/?url=home" class="cabecera-marca">
+            <img src="/svg/cube-hole.svg" alt="" class="cabecera-logo">
+            <span>PortDevs Solutions</span>
+        </a>
+        <a href="/?url=home" class="cabecera-volver">← Volver al inicio</a>
+    </header>
 
+    <main class="conocenos">
 
+        <section class="conocenos-intro">
+            <p class="eyebrow">Nuestro equipo</p>
+            <h1>Conócenos</h1>
+            <p class="intro-texto">
+                ¿Conoces al equipo de desarrolladores detrás de PortDevs Solutions?
+                Nosotros tomamos tu problema y lo convertimos en una solución mediante software
+                robusto y completo.
+            </p>
+        </section>
 
-    <div class="cards">
-        <h1 class="nombre">Nahúm Aguilar</h1>
-        <img src="" alt="" class="foto">
-        <ul>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-        </ul>
-    </div>
-    
+        <section class="equipo" aria-label="Integrantes del equipo">
 
+            <article class="miembro">
+                <div class="foto" aria-hidden="true">NA</div>
+                <h2 class="nombre">Nahúm Aguilar</h2>
+            </article>
 
+            <article class="miembro">
+                <div class="foto" aria-hidden="true">EC</div>
+                <h2 class="nombre">Edwin Corona</h2>
+            </article>
 
-    <div class="cards">
-        <h1 class="nombre">Edwin Corona</h1>
-        <img src="" alt="" class="foto">
-        <ul>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-        </ul>
-    </div>
-    
+            <article class="miembro">
+                <div class="foto" aria-hidden="true">JS</div>
+                <h2 class="nombre">Julian Sedano</h2>
+            </article>
 
+        </section>
 
-
-    <div class="cards">
-        <h1 class="nombre">Julian Sedano</h1>
-        <img src="" alt="" class="foto">
-        <ul>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-        </ul>
-    </div>
-    
-
-
-
-    <div class="cards">
-        <h1 class="nombre"></h1>
-        <img src="" alt="" class="foto">
-        <ul>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-        </ul>
-    </div>
-    
-
-
-
-    <div class="cards">
-        <h1 class="nombre"></h1>
-        <img src="" alt="" class="foto">
-        <ul>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-        </ul>
-    </div>
-    
-
-
-
-    <div class="cards">
-        <h1 class="nombre"></h1>
-        <img src="" alt="" class="foto">
-        <ul>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-        </ul>
-    </div>
-    
-
-
-
-    <div class="cards">
-        <h1 class="nombre"></h1>
-        <img src="" alt="" class="foto">
-        <ul>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-        </ul>
-    </div>
-    
-
-
-
-    <div class="cards">
-        <h1 class="nombre"></h1>
-        <img src="" alt="" class="foto">
-        <ul>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-            <li class="descripcion"></li>
-        </ul>
-    </div>
-    
-
-
-
-
+    </main>
 
 </body>
 </html>

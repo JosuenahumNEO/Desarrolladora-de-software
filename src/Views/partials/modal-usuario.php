@@ -3,7 +3,7 @@
         <button class="volver" id="volver" type="button" aria-label="Cerrar">X</button>
 
         <div class="imagen">
-            <img src="/public/img/usuario.jpeg" alt="Imagen de usuario" class="imagen-usuario">
+            <img src="/img/usuario.jpeg" alt="Imagen de usuario" class="imagen-usuario">
         </div>
 
         <div class="datos">

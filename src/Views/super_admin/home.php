@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Panel de Super Administrador — gestión global de sistemas, admins y usuarios.">
-    <title>Super Admin — Software Solutions</title>
+    <title>Super Admin — PortDevs Solutions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
             </div>
             <div class="brand">
                 <i class="fa-solid fa-cube logo-icon" aria-hidden="true"></i>
-                <span class="name">Software Solutions</span>
+                <span class="name">PortDevs Solutions</span>
             </div>
         </div>
 
@@ -93,7 +93,7 @@
                 <li class="down">
                     <button class="btn-sidebar red-jhon" data-accion="logout">
                         <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
-                        <span class="texto">Log out</span>
+                        <span class="texto">Cerrar sesión</span>
                     </button>
                 </li>
             </ul>

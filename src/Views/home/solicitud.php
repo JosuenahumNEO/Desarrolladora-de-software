@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitud de Contacto</title>
+    <title>Solicitud de contacto — PortDevs Solutions</title>
     <link rel="stylesheet" href="/css/estilos-formulario.css">
 </head>
 
@@ -17,28 +17,28 @@
             <div class="datos">
                 <label>Nombre:</label>
                 <div class="input-datos">
-                    <input type="text" name="user" id="user" placeholder="Ingresa el nombre de tu empresa o personal"
+                    <input type="text" name="user" id="user" placeholder="Ingresa el nombre de tu empresa o persona"
                         required>
                 </div>
             </div>
 
             <div class="datos">
-                <label>Informaciond de contacto (Tel. o correo):</label>
+                <label>Información de contacto (teléfono o correo):</label>
                 <div class="input-datos">
                     <input type="text" name="contacto" id="contacto"
-                        placeholder="Ingresa el Num. de Telefono / Correo de tu empresa o personal" required>
+                        placeholder="Ingresa tu teléfono o correo de tu empresa o persona" required>
                 </div>
             </div>
 
             <div class="datos">
-                <label>Descripcion del sistema / problema:</label>
+                <label>Descripción del sistema o problema:</label>
                 <div class="input-datos">
                     <textarea rows="4" required></textarea>
                 </div>
             </div>
 
             <div class="datos">
-                <label>A que fecha se necesita?</label>
+                <label>¿Para qué fecha se necesita?</label>
                 <div class="input-datos">
                     <input type="date" name="date" id="date" placeholder="" required>
                 </div>
@@ -54,7 +54,7 @@
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal-tarjeta">
             <button class="modal-cerrar-x" id="modal-cerrar-x">X</button>
-            <p class="modal-mensaje">Interesante idea, pronto nos comunicaremos con usted ¡Muchas gracias!</p>
+            <p class="modal-mensaje">Interesante idea, pronto nos comunicaremos con usted. ¡Muchas gracias!</p>
             <button class="btn-volver" id="btn-volver">Volver</button>
         </div>
     </div>

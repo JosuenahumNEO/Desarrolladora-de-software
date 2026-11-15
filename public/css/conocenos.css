@@ -1,0 +1,108 @@
+/* CONÓCENOS — estilos mínimos: sin efectos nuevos */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    color: #222222;
+    line-height: 1.5;
+}
+
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.cabecera-marca {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    color: #222222;
+    text-decoration: none;
+}
+
+.cabecera-logo {
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+.cabecera-volver {
+    color: #1100cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.conocenos {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.conocenos-intro {
+    text-align: center;
+    margin: 1.5rem 0 2.5rem;
+}
+
+.eyebrow {
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #666666;
+    margin-bottom: 0.4rem;
+}
+
+.conocenos-intro h1 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+.intro-texto {
+    color: #555555;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.equipo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.miembro {
+    width: 240px;
+    padding: 1.5rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    text-align: center;
+}
+
+.foto {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background-color: #91a2d9;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nombre {
+    font-size: 1.1rem;
+}
