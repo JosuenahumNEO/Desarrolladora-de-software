@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Apariencia</title>
     <link rel="stylesheet" href="/css/plantilla.css">
     <link rel="stylesheet" href="/css/apariencia.css">
+    <link rel="stylesheet" href="/css/modal-usuario.css">
     <script src="/js/plantilla.js"></script>
 </head>
 
@@ -29,7 +30,33 @@
 
         <div class="right">
             <!--AQUI IRA FOTO DEL USUARIO NO ICO, luego cambiar-->
-            <img src="/img/usuario.jpeg" alt="" class="user">
+            <img src="/img/usuario.jpeg" alt="" class="user" id="enviar" style="cursor:pointer;">
+        </div>
+
+        <!-- MODAL DE USUARIO -->
+        <div class="modal" id="modal">
+            <div class="contenido">
+                <button class="volver" id="volver" type="button" aria-label="Cerrar">X</button>
+        
+                <div class="imagen">
+                    <img src="/img/usuario.jpeg" alt="Imagen de usuario" class="imagen-usuario">
+                </div>
+        
+                <div class="datos">
+                    <label class="etiqueta">Nombre:</label>
+                    <span class="info"><?= htmlspecialchars($_SESSION['usuario_nombre'] ?? 'Usuario') ?></span>
+                </div>
+        
+                <div class="datos">
+                    <label class="etiqueta">Correo:</label>
+                    <span class="info"><?= htmlspecialchars($_SESSION['usuario_correo'] ?? '') ?></span>
+                </div>
+        
+                <div class="seccion">
+                    <button class="log-out" id="log-out" type="button" onclick="window.location.href='/?url=auth/logout'">Cerrar sesión</button>
+                    <button class="perfil" id="perfil" type="button" onclick="window.location.href='/?url=configuracion/cuenta'">Editar perfil</button>
+                </div>
+            </div>
         </div>
 
     </header>
@@ -207,6 +234,7 @@
 
     </main>
 
+    <script src="/js/modal-usuario.js"></script>
 
 </body>
 

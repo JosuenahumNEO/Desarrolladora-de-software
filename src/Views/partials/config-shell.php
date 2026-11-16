@@ -30,7 +30,7 @@ $itemsNav = [
         </div>
 
         <div class="right">
-            <img src="/img/usuario.jpeg" alt="Usuario" class="user">
+            <img src="/img/usuario.jpeg" alt="Usuario" class="user" id="enviar" style="cursor:pointer;">
         </div>
     </header>
 
@@ -64,3 +64,8 @@ $itemsNav = [
             </ul>
         </nav>
     </div>
+
+    <!-- MODAL USUARIO -->
+     <?php include __DIR__ . '/modal-usuario.php'; ?>
+     <link rel="stylesheet" href="/css/modal-usuario.css">
+     <script src="/js/modal-usuario.js"></script>

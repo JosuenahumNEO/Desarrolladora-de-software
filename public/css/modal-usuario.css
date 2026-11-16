@@ -1,11 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.modal{
+#modal{
     display: none;
     position: fixed;
     top: 0;
@@ -18,7 +11,7 @@
     z-index: 1000;
 }
 
-.contenido{
+#modal .contenido{
     position: relative;
     background-color: #f8fafc;
     border-radius: 5px;
@@ -34,7 +27,7 @@
     gap: 16px;
 }
 
-.volver{
+#modal .volver{
     position: absolute;
     top: 10px;
     right: 15px;
@@ -46,18 +39,18 @@
     color: #555;
 }
 
-.imagen{
+#modal .imagen{
     margin-bottom: 5px;
 }
 
-.imagen-usuario{
+#modal .imagen-usuario{
     width: 80px;
     height: 80px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.datos{
+#modal .datos{
     display: flex;
     align-items: center;
     width: 100%;
@@ -65,7 +58,7 @@
     gap: 15px;
 }
 
-.etiqueta{
+#modal .etiqueta{
     font-weight: bold;
     color: #444;
     text-transform: lowercase;
@@ -74,7 +67,7 @@
     font-size: 1.2rem;
 }
 
-.info{
+#modal .info{
     padding: 10px 15px;
     color: #444;
     font-weight: bold;
@@ -83,14 +76,14 @@
     font-size: 1.2rem;
 }
 
-.seccion{
+#modal .seccion{
     display: flex;
     margin-top: 10px;
     gap: 15px;
     width: 100%;
 }
 
-.log-out, .perfil{
+#modal .log-out, #modal .perfil{
     flex: 1;
     padding: 10px;
     border: none;
@@ -102,18 +95,18 @@
     text-align: center;
 }
 
-.log-out{
+#modal .log-out{
     background-color: #dc2626;
 }
 
-.log-out:hover{
+#modal .log-out:hover{
     background-color: #b91c1c;
 }
 
-.perfil{
+#modal .perfil{
     background-color: #2563eb;
 }
 
-.perfil:hover{
+#modal .perfil:hover{
     background-color: #1e40af;
 }
